@@ -1,0 +1,26 @@
+{
+    "app": {
+        "title": "fman — Keyboard shortcuts"
+    },
+    "keybindings": {
+        "heading": "Keyboard shortcuts",
+        "intro": "Every default fman key binding. Use the search box to filter, or pick a platform.",
+        "search_placeholder": "Search shortcuts, commands or keys…",
+        "no_results": "No shortcuts match your search.",
+        "col": {
+            "keys": "Keys",
+            "name": "Action",
+            "command": "Command"
+        },
+        "filter": {
+            "all": "All"
+        }
+    },
+    "platform": {
+        "all": "All platforms",
+        "windows": "Windows",
+        "mac": "macOS",
+        "linux": "Linux",
+        "viewer": "Viewer"
+    }
+}

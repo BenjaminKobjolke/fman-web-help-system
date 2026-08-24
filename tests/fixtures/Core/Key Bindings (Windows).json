@@ -1,0 +1,3 @@
+[
+	{ "keys": ["Ctrl+Shift+P"], "command": "command_palette" }
+]

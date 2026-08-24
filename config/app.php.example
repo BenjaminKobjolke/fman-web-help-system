@@ -1,0 +1,16 @@
+<?php
+
+declare(strict_types=1);
+
+// Copy to config/app.php and adjust for your environment.
+return [
+    'debug' => true,
+    'default_lang' => 'en',
+    'log_file' => __DIR__ . '/../var/app.log',
+    'log_level' => 'info',
+
+    // Local path to the fman main repo (per-machine). Only needed to REGENERATE
+    // public/data/keybindings.json — the site itself runs from that committed file.
+    // Default assumes fman is checked out as a sibling of this repo.
+    'fman_repo_dir' => __DIR__ . '/../../fman',
+];

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <header class="page-head">
+        <h1>{{ t(TK.KB_HEADING) }}</h1>
+        <p class="intro">{{ t(TK.KB_INTRO) }}</p>
+    </header>
+
+    <div class="controls">
+        <input type="search" id="kb-search" class="search"
+               placeholder="{{ t(TK.KB_SEARCH_PLACEHOLDER) }}"
+               aria-label="{{ t(TK.KB_SEARCH_PLACEHOLDER) }}" autocomplete="off">
+        <div class="filters" id="kb-filters" role="group" aria-label="Platform filter">
+            <button type="button" class="filter is-active" data-filter="all">{{ t(TK.KB_FILTER_ALL) }}</button>
+            {% for platform in groups|keys %}
+                {% if platform != 'all' %}
+                    <button type="button" class="filter" data-filter="{{ platform }}">
+                        {{ t(platform_label_keys[platform]) }}
+                    </button>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <p id="kb-empty" class="empty" hidden>{{ t(TK.KB_NO_RESULTS) }}</p>
+
+    {% for platform, bindings in groups %}
+        <section class="kb-section" data-section="{{ platform }}">
+            <h2>{{ t(platform_label_keys[platform]) }}</h2>
+            <table class="kb-table">
+                <thead>
+                    <tr>
+                        <th class="c-keys">{{ t(TK.KB_COL_KEYS) }}</th>
+                        <th class="c-name">{{ t(TK.KB_COL_NAME) }}</th>
+                        <th class="c-command">{{ t(TK.KB_COL_COMMAND) }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for b in bindings %}
+                        <tr class="kb-row" data-kb-row id="{{ b.id }}"
+                            data-platform="{{ platform }}"
+                            data-keys="{{ b.keys }}" data-name="{{ b.name }}" data-command="{{ b.command }}">
+                            <td class="c-keys"><kbd>{{ b.keys }}</kbd></td>
+                            <td class="c-name">{{ b.name }}</td>
+                            <td class="c-command"><code>{{ b.command }}</code></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    {% endfor %}
+{% endblock %}
+
+{% block scripts %}
+    <script src="assets/vendor/fuse/fuse.basic.min.js"></script>
+    <script src="assets/js/search.js"></script>
+{% endblock %}

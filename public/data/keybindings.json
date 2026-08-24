@@ -1,0 +1,912 @@
+[
+    {
+        "keys": "Down",
+        "command": "move_cursor_down",
+        "name": "Move cursor down",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Num+Down",
+        "command": "move_cursor_down",
+        "name": "Move cursor down",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Shift+Down",
+        "command": "move_cursor_down",
+        "name": "Move cursor down (extends selection)",
+        "platform": "all",
+        "args": {
+            "toggle_selection": true
+        }
+    },
+    {
+        "keys": "Up",
+        "command": "move_cursor_up",
+        "name": "Move cursor up",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Num+Up",
+        "command": "move_cursor_up",
+        "name": "Move cursor up",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Shift+Up",
+        "command": "move_cursor_up",
+        "name": "Move cursor up (extends selection)",
+        "platform": "all",
+        "args": {
+            "toggle_selection": true
+        }
+    },
+    {
+        "keys": "Home",
+        "command": "move_cursor_home",
+        "name": "Move cursor home",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Num+Home",
+        "command": "move_cursor_home",
+        "name": "Move cursor home",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Shift+Home",
+        "command": "move_cursor_home",
+        "name": "Move cursor home (extends selection)",
+        "platform": "all",
+        "args": {
+            "toggle_selection": true
+        }
+    },
+    {
+        "keys": "End",
+        "command": "move_cursor_end",
+        "name": "Move cursor end",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Num+End",
+        "command": "move_cursor_end",
+        "name": "Move cursor end",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Shift+End",
+        "command": "move_cursor_end",
+        "name": "Move cursor end (extends selection)",
+        "platform": "all",
+        "args": {
+            "toggle_selection": true
+        }
+    },
+    {
+        "keys": "PgDown",
+        "command": "move_cursor_page_down",
+        "name": "Move cursor page down",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Num+PgDown",
+        "command": "move_cursor_page_down",
+        "name": "Move cursor page down",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Shift+PgDown",
+        "command": "move_cursor_page_down",
+        "name": "Move cursor page down (extends selection)",
+        "platform": "all",
+        "args": {
+            "toggle_selection": true
+        }
+    },
+    {
+        "keys": "PgUp",
+        "command": "move_cursor_page_up",
+        "name": "Move cursor page up",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Num+PgUp",
+        "command": "move_cursor_page_up",
+        "name": "Move cursor page up",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Shift+PgUp",
+        "command": "move_cursor_page_up",
+        "name": "Move cursor page up (extends selection)",
+        "platform": "all",
+        "args": {
+            "toggle_selection": true
+        }
+    },
+    {
+        "keys": "Space",
+        "command": "toggle_selection",
+        "name": "Toggle selection",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Tab",
+        "command": "switch_panes",
+        "name": "Switch panes",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Backspace",
+        "command": "go_up",
+        "name": "Go up",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Enter",
+        "command": "open",
+        "name": "Open",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "F1",
+        "command": "help",
+        "name": "Help",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "F4",
+        "command": "open_with_editor",
+        "name": "Edit",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Shift+F4",
+        "command": "create_and_edit_file",
+        "name": "New file",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "F5",
+        "command": "copy",
+        "name": "Copy",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Shift+F5",
+        "command": "symlink",
+        "name": "Symlink",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Shift+F6",
+        "command": "rename",
+        "name": "Rename",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "F6",
+        "command": "move",
+        "name": "Move",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "F7",
+        "command": "create_directory",
+        "name": "New folder",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "F8",
+        "command": "move_to_trash",
+        "name": "Delete",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Delete",
+        "command": "move_to_trash",
+        "name": "Delete",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Num+Delete",
+        "command": "move_to_trash",
+        "name": "Delete",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "F9",
+        "command": "open_terminal",
+        "name": "Terminal",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "F10",
+        "command": "open_native_file_manager",
+        "name": "Open native file manager",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "F11",
+        "command": "copy_paths_to_clipboard",
+        "name": "Copy paths to clipboard",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Shift+Delete",
+        "command": "delete_permanently",
+        "name": "Delete permanently",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Alt+F1",
+        "command": "show_volumes",
+        "name": "Show volumes (left pane)",
+        "platform": "all",
+        "args": {
+            "pane_index": 0
+        }
+    },
+    {
+        "keys": "Alt+F2",
+        "command": "show_volumes",
+        "name": "Show volumes (right pane)",
+        "platform": "all",
+        "args": {
+            "pane_index": 1
+        }
+    },
+    {
+        "keys": "Num+Insert",
+        "command": "move_cursor_down",
+        "name": "Move cursor down (extends selection)",
+        "platform": "all",
+        "args": {
+            "toggle_selection": true
+        }
+    },
+    {
+        "keys": "Alt+up",
+        "command": "increase_pane_font_size",
+        "name": "Increase font size",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Alt+down",
+        "command": "decrease_pane_font_size",
+        "name": "Decrease font size",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+Right",
+        "command": "open_in_right_pane",
+        "name": "Open in right pane",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+Left",
+        "command": "open_in_left_pane",
+        "name": "Open in left pane",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Ins",
+        "command": "move_cursor_down",
+        "name": "Move cursor down (extends selection)",
+        "platform": "windows",
+        "args": {
+            "toggle_selection": true
+        }
+    },
+    {
+        "keys": "Ctrl+C",
+        "command": "copy_to_clipboard",
+        "name": "Copy to clipboard",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+X",
+        "command": "cut",
+        "name": "Cut",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+V",
+        "command": "paste",
+        "name": "Paste",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+A",
+        "command": "select_all",
+        "name": "Select all",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+D",
+        "command": "deselect",
+        "name": "Deselect",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+.",
+        "command": "toggle_hidden_files",
+        "name": "Toggle hidden files",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+P",
+        "command": "go_to",
+        "name": "Go to",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+Shift+P",
+        "command": "command_palette",
+        "name": "Command palette",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Alt+Left",
+        "command": "go_back",
+        "name": "Go back",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Alt+Right",
+        "command": "go_forward",
+        "name": "Go forward",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Alt+F5",
+        "command": "pack",
+        "name": "Pack",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+R",
+        "command": "reload",
+        "name": "Reload",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+F1",
+        "command": "sort_by_column",
+        "name": "Sort by column (by name)",
+        "platform": "windows",
+        "args": {
+            "column_index": 0
+        }
+    },
+    {
+        "keys": "Ctrl+F2",
+        "command": "sort_by_column",
+        "name": "Sort by column (by size)",
+        "platform": "windows",
+        "args": {
+            "column_index": 1
+        }
+    },
+    {
+        "keys": "Ctrl+F3",
+        "command": "sort_by_column",
+        "name": "Sort by column (by date)",
+        "platform": "windows",
+        "args": {
+            "column_index": 2
+        }
+    },
+    {
+        "keys": "Ctrl+Up",
+        "command": "go_up",
+        "name": "Go up",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Alt+Enter",
+        "command": "show_explorer_properties",
+        "name": "Show explorer properties",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+\\",
+        "command": "go_to_root_of_current_drive",
+        "name": "Go to root of current drive",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Alt+Right",
+        "command": "open_in_right_pane",
+        "name": "Open in right pane",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Alt+Left",
+        "command": "open_in_left_pane",
+        "name": "Open in left pane",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd+C",
+        "command": "copy_to_clipboard",
+        "name": "Copy to clipboard",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd+X",
+        "command": "cut",
+        "name": "Cut",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd+V",
+        "command": "paste",
+        "name": "Paste",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd+Alt+V",
+        "command": "paste_cut",
+        "name": "Paste cut",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd+A",
+        "command": "select_all",
+        "name": "Select all",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd+D",
+        "command": "deselect",
+        "name": "Deselect",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Space",
+        "command": "move_cursor_down",
+        "name": "Move cursor down (extends selection)",
+        "platform": "mac",
+        "args": {
+            "toggle_selection": true
+        }
+    },
+    {
+        "keys": "Cmd+Backspace",
+        "command": "move_to_trash",
+        "name": "Delete",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd+.",
+        "command": "toggle_hidden_files",
+        "name": "Toggle hidden files",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd+P",
+        "command": "go_to",
+        "name": "Go to",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd+Shift+P",
+        "command": "command_palette",
+        "name": "Command palette",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd+Left",
+        "command": "go_back",
+        "name": "Go back",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd+Right",
+        "command": "go_forward",
+        "name": "Go forward",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd+I",
+        "command": "get_info",
+        "name": "Get info",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd+F5",
+        "command": "pack",
+        "name": "Pack",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd+R",
+        "command": "reload",
+        "name": "Reload",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd+F1",
+        "command": "sort_by_column",
+        "name": "Sort by column (by name)",
+        "platform": "mac",
+        "args": {
+            "column_index": 0
+        }
+    },
+    {
+        "keys": "Cmd+F2",
+        "command": "sort_by_column",
+        "name": "Sort by column (by size)",
+        "platform": "mac",
+        "args": {
+            "column_index": 1
+        }
+    },
+    {
+        "keys": "Cmd+F3",
+        "command": "sort_by_column",
+        "name": "Sort by column (by date)",
+        "platform": "mac",
+        "args": {
+            "column_index": 2
+        }
+    },
+    {
+        "keys": "Cmd+M",
+        "command": "minimize",
+        "name": "Minimize",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd+Q",
+        "command": "quit",
+        "name": "Quit",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd+Up",
+        "command": "go_up",
+        "name": "Go up",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Shift+Space",
+        "command": "quick_look",
+        "name": "Quick look",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd+Enter",
+        "command": "open_selected_files",
+        "name": "Open selected files",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd+Ctrl+F",
+        "command": "toggle_fullscreen",
+        "name": "Toggle fullscreen",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+Right",
+        "command": "open_in_right_pane",
+        "name": "Open in right pane",
+        "platform": "linux",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+Left",
+        "command": "open_in_left_pane",
+        "name": "Open in left pane",
+        "platform": "linux",
+        "args": null
+    },
+    {
+        "keys": "Ins",
+        "command": "move_cursor_down",
+        "name": "Move cursor down (extends selection)",
+        "platform": "linux",
+        "args": {
+            "toggle_selection": true
+        }
+    },
+    {
+        "keys": "Ctrl+C",
+        "command": "copy_to_clipboard",
+        "name": "Copy to clipboard",
+        "platform": "linux",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+X",
+        "command": "cut",
+        "name": "Cut",
+        "platform": "linux",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+V",
+        "command": "paste",
+        "name": "Paste",
+        "platform": "linux",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+A",
+        "command": "select_all",
+        "name": "Select all",
+        "platform": "linux",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+D",
+        "command": "deselect",
+        "name": "Deselect",
+        "platform": "linux",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+.",
+        "command": "toggle_hidden_files",
+        "name": "Toggle hidden files",
+        "platform": "linux",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+P",
+        "command": "go_to",
+        "name": "Go to",
+        "platform": "linux",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+Shift+P",
+        "command": "command_palette",
+        "name": "Command palette",
+        "platform": "linux",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+Q",
+        "command": "quit",
+        "name": "Quit",
+        "platform": "linux",
+        "args": null
+    },
+    {
+        "keys": "Alt+Left",
+        "command": "go_back",
+        "name": "Go back",
+        "platform": "linux",
+        "args": null
+    },
+    {
+        "keys": "Alt+Right",
+        "command": "go_forward",
+        "name": "Go forward",
+        "platform": "linux",
+        "args": null
+    },
+    {
+        "keys": "Alt+F5",
+        "command": "pack",
+        "name": "Pack",
+        "platform": "linux",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+R",
+        "command": "reload",
+        "name": "Reload",
+        "platform": "linux",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+F1",
+        "command": "sort_by_column",
+        "name": "Sort by column (by name)",
+        "platform": "linux",
+        "args": {
+            "column_index": 0
+        }
+    },
+    {
+        "keys": "Ctrl+F2",
+        "command": "sort_by_column",
+        "name": "Sort by column (by size)",
+        "platform": "linux",
+        "args": {
+            "column_index": 1
+        }
+    },
+    {
+        "keys": "Ctrl+F3",
+        "command": "sort_by_column",
+        "name": "Sort by column (by date)",
+        "platform": "linux",
+        "args": {
+            "column_index": 2
+        }
+    },
+    {
+        "keys": "Ctrl+Up",
+        "command": "go_up",
+        "name": "Go up",
+        "platform": "linux",
+        "args": null
+    },
+    {
+        "keys": "Escape/Enter/Backspace",
+        "command": "viewer_close",
+        "name": "Close viewer (all)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
+        "keys": "Tab",
+        "command": "viewer_switch_panes",
+        "name": "Switch panes (all)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+Shift+P",
+        "command": "viewer_open_palette",
+        "name": "Open viewer command palette (all)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
+        "keys": "Space",
+        "command": "video_toggle_pause",
+        "name": "Play / pause (video)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
+        "keys": "Right / Left",
+        "command": "video_seek_forward / video_seek_backward",
+        "name": "Seek ±5s (video)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
+        "keys": "Up / Down",
+        "command": "video_volume_up / video_volume_down",
+        "name": "Volume ±5 (video)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
+        "keys": "—",
+        "command": "video_mute",
+        "name": "Toggle mute (persists) (video)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
+        "keys": "—",
+        "command": "video_reset_volume",
+        "name": "Volume → 100 (video)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
+        "keys": "—",
+        "command": "video_restart",
+        "name": "Restart from 0:00 (video)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
+        "keys": "—",
+        "command": "image_reset_zoom",
+        "name": "Fit to window (image)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
+        "keys": "—",
+        "command": "image_actual_size",
+        "name": "Actual size (100%) (image)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
+        "keys": "—",
+        "command": "text_edit / text_reload",
+        "name": "Edit file / Reload from disk (text)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
+        "keys": "—",
+        "command": "text_toggle_auto_reload / text_toggle_tail",
+        "name": "Toggle auto-reload / tail mode (text)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
+        "keys": "—",
+        "command": "text_save / text_save_as / text_revert",
+        "name": "Save / Save as… / Revert (text)",
+        "platform": "viewer",
+        "args": null
+    }
+]

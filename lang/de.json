@@ -1,0 +1,26 @@
+{
+    "app": {
+        "title": "fman — Tastenkürzel"
+    },
+    "keybindings": {
+        "heading": "Tastenkürzel",
+        "intro": "Alle Standard-Tastenkürzel von fman. Nutze die Suche zum Filtern oder wähle eine Plattform.",
+        "search_placeholder": "Kürzel, Befehle oder Tasten suchen…",
+        "no_results": "Keine Kürzel passen zu deiner Suche.",
+        "col": {
+            "keys": "Tasten",
+            "name": "Aktion",
+            "command": "Befehl"
+        },
+        "filter": {
+            "all": "Alle"
+        }
+    },
+    "platform": {
+        "all": "Alle Plattformen",
+        "windows": "Windows",
+        "mac": "macOS",
+        "linux": "Linux",
+        "viewer": "Betrachter"
+    }
+}
