@@ -9,11 +9,9 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 $baseDir = dirname(__DIR__);
 $config = require $baseDir . '/config/app.php';
 
-// One config value owns the main-repo location; derive the two source paths from it.
-$fmanRepoDir = (string) $config['fman_repo_dir'];
 $generator = new KeybindingGenerator(
-    $fmanRepoDir . '/src/main/resources/base/Plugins/Core',
-    $fmanRepoDir . '/docs/KEYBINDINGS.md',
+    (string) $config['fman_core_dir'],
+    (string) $config['fman_keybindings_doc'],
 );
 
 $bindings = $generator->generate();

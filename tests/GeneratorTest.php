@@ -8,18 +8,16 @@ use App\Keybinding;
 use App\KeybindingGenerator;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Hermetic: runs against tests/fixtures/, not a real fman checkout, so the
- * standalone repo's suite passes anywhere. Real generation is exercised
- * separately by running tools/generate_keybindings.php against a local fman.
- */
 final class GeneratorTest extends TestCase
 {
     private function generator(): KeybindingGenerator
     {
-        $fixtures = __DIR__ . '/fixtures';
+        $repoRoot = dirname(__DIR__, 2); // web-help-system/tests -> web-help-system -> fman
 
-        return new KeybindingGenerator($fixtures . '/Core', $fixtures . '/KEYBINDINGS.md');
+        return new KeybindingGenerator(
+            $repoRoot . '/src/main/resources/base/Plugins/Core',
+            $repoRoot . '/docs/KEYBINDINGS.md',
+        );
     }
 
     /** @return Keybinding[] */
@@ -28,9 +26,6 @@ final class GeneratorTest extends TestCase
         return $this->generator()->generate();
     }
 
-    /**
-     * @param Keybinding[] $bindings
-     */
     private function find(array $bindings, string $platform, string $keys, string $command): ?Keybinding
     {
         foreach ($bindings as $b) {
@@ -51,8 +46,10 @@ final class GeneratorTest extends TestCase
 
     public function testAliasMapUsesFirstAlias(): void
     {
+        // Help class: aliases = ('Help', 'Show keyboard shortcuts', ...) -> first wins.
         $map = $this->generator()->commandAliasMap();
-        self::assertSame('Move cursor down', $map['move_cursor_down'] ?? null);
+        self::assertSame('Help', $map['help'] ?? null);
+        self::assertSame('Delete', $map['move_to_trash'] ?? null);
     }
 
     public function testArgHintExtendsSelection(): void
@@ -64,7 +61,7 @@ final class GeneratorTest extends TestCase
 
     public function testFallbackHumanizesUnaliasedCommand(): void
     {
-        // 'copy' has no aliases class in the fixture -> humanized fallback "Copy".
+        // 'copy' (F5) has no aliases class -> humanized fallback "Copy".
         $b = $this->find($this->generated(), 'all', 'F5', 'copy');
         self::assertNotNull($b);
         self::assertSame('Copy', $b->name);
@@ -72,15 +69,21 @@ final class GeneratorTest extends TestCase
 
     public function testViewerBindingsParsedFromMarkdown(): void
     {
-        $b = $this->find($this->generated(), 'viewer', 'Space', 'video_toggle_pause');
-        self::assertNotNull($b);
-        self::assertStringContainsStringIgnoringCase('pause', $b->name);
-    }
+        $viewer = array_values(array_filter(
+            $this->generated(),
+            static fn (Keybinding $b): bool => $b->platform === 'viewer'
+        ));
+        self::assertNotEmpty($viewer);
 
-    public function testUnboundViewerCommandHasDashKeys(): void
-    {
-        // `video_mute` default key is *(none)* in the fixture -> em dash placeholder.
-        $b = $this->find($this->generated(), 'viewer', '—', 'video_mute');
-        self::assertNotNull($b);
+        $playPause = null;
+        foreach ($viewer as $b) {
+            if ($b->command === 'video_toggle_pause') {
+                $playPause = $b;
+                break;
+            }
+        }
+        self::assertNotNull($playPause);
+        self::assertSame('Space', $playPause->keys);
+        self::assertStringContainsStringIgnoringCase('pause', $playPause->name);
     }
 }

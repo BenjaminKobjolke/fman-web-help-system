@@ -833,6 +833,20 @@
         "args": null
     },
     {
+        "keys": "—",
+        "command": "viewer_next_file / viewer_previous_file",
+        "name": "View next / previous file in the directory (all)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
+        "keys": "—",
+        "command": "viewer_toggle_same_type_advance",
+        "name": "Toggle \"advance only for same type\" (per viewer) (all)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
         "keys": "Space",
         "command": "video_toggle_pause",
         "name": "Play / pause (video)",

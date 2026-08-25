@@ -9,8 +9,8 @@ return [
     'log_file' => __DIR__ . '/../var/app.log',
     'log_level' => 'info',
 
-    // Local path to the fman main repo (per-machine). Only needed to REGENERATE
-    // public/data/keybindings.json — the site itself runs from that committed file.
-    // Default assumes fman is checked out as a sibling of this repo.
-    'fman_repo_dir' => __DIR__ . '/../../fman',
+    // Paths to fman source used by the keybindings generator. Relative to this
+    // file so the generator is portable across machines (no absolute paths).
+    'fman_core_dir' => __DIR__ . '/../../src/main/resources/base/Plugins/Core',
+    'fman_keybindings_doc' => __DIR__ . '/../../docs/KEYBINDINGS.md',
 ];

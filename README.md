@@ -4,10 +4,6 @@ A user-facing, server-rendered PHP help site for fman. First entry: a searchable
 mobile-friendly reference of **all keyboard shortcuts**, generated from fman's own
 source files so it never drifts from the real bindings.
 
-This is a **standalone repo**. It runs on its own from the committed
-`public/data/keybindings.json`; it only needs a local [fman](https://github.com/BenjaminKobjolke/fman)
-checkout to *regenerate* that file — configured via `fman_repo_dir` in `config/app.php`.
-
 ## How it works
 
 - `tools/generate_keybindings.php` reads fman's `Key Bindings*.json`, the command
@@ -29,13 +25,11 @@ checkout to *regenerate* that file — configured via `fman_repo_dir` in `config
 ## Setup
 
 ```bash
+cd web-help-system
 composer install
-cp config/app.php.example config/app.php    # set fman_repo_dir to your local fman checkout
+cp config/app.php.example config/app.php   # adjust if needed
 php tools/generate_keybindings.php          # writes public/data/keybindings.json
 ```
-
-`config/app.php` is gitignored (per-machine). `fman_repo_dir` defaults to a sibling
-`../fman` checkout; point it wherever your fman clone lives.
 
 ## Run
 

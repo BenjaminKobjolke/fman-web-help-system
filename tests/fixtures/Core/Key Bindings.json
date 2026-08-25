@@ -1,4 +1,0 @@
-[
-	{ "keys": ["Shift+Down"], "command": "move_cursor_down", "args": {"toggle_selection": true} },
-	{ "keys": ["F5"], "command": "copy" }
-]
