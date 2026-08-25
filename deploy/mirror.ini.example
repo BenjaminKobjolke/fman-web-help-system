@@ -1,0 +1,13 @@
+[FTP]
+FTP_HOST = example.com
+FTP_USER = username
+FTP_PASS = password
+DIRECTION = up
+CONCURRENT_UPLOADS_OR_DOWNLOADS = 1
+LOCAL_DIRECTORY = D:\wamp64\www\fman-web-help-system
+FTP_DIRECTORY = /public/sites/fast-file-manager/help
+
+# Fast incremental uploads: local SHA-256 cache, skips FTP scan, only changed files sent.
+# Caveat: deletion tracked via this cache — stale remote files from before the cache
+# existed are not pruned automatically.
+HASH_CACHE_FILE = D:\wamp64\www\fman-web-help-system\deploy\.ftp_sync_cache.db

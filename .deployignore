@@ -1,0 +1,12 @@
+# ftp-sync excludes (gitignore syntax) — dev-only files, not needed on server.
+/.git/
+/tests/
+/.phpunit.cache/
+/.php-cs-fixer.cache
+/.php-cs-fixer.php
+/phpstan.neon
+/phpunit.xml
+/composer.lock
+/README.md
+/deploy/.ftp_sync_cache.db
+/deploy/mirror.ini
