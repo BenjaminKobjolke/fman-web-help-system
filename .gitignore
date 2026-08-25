@@ -1,6 +1,9 @@
 /vendor/
 /config/app.php
-/var/
+/.claude/
+/PLAN_*.md
 /.php-cs-fixer.cache
 /.phpunit.result.cache
 /.phpunit.cache/
+/deploy/mirror.ini
+/deploy/.ftp_sync_cache.db
