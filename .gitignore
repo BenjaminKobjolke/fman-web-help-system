@@ -1,6 +1,7 @@
 /vendor/
 /config/app.php
 /.claude/
+/claude-plans/
 /PLAN_*.md
 /.php-cs-fixer.cache
 /.phpunit.result.cache
