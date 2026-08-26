@@ -12,12 +12,19 @@ final class GeneratorTest extends TestCase
 {
     private function generator(): KeybindingGenerator
     {
-        $repoRoot = dirname(__DIR__, 2); // web-help-system/tests -> web-help-system -> fman
+        // The fman checkout is wherever config/app.php points — this project no
+        // longer lives inside the fman repo, so its location cannot be assumed.
+        $config = require dirname(__DIR__) . '/config/app.php';
+        $coreDir = (string) ($config['fman_core_dir'] ?? '');
+        $doc = (string) ($config['fman_keybindings_doc'] ?? '');
 
-        return new KeybindingGenerator(
-            $repoRoot . '/src/main/resources/base/Plugins/Core',
-            $repoRoot . '/docs/KEYBINDINGS.md',
-        );
+        if (!is_dir($coreDir) || !is_file($doc)) {
+            self::markTestSkipped(
+                'fman source not found (fman_core_dir / fman_keybindings_doc in config/app.php).'
+            );
+        }
+
+        return new KeybindingGenerator($coreDir, $doc);
     }
 
     /** @return Keybinding[] */

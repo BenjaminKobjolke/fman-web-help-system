@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.title }} — {{ t(TK.APP_NAME) }}{% endblock %}
+
+{% block content %}
+    <article class="article">
+        <header class="page-head">
+            <h1>{{ article.title }}</h1>
+            <p class="intro">{{ article.summary }}</p>
+        </header>
+
+        {% if article.headings|length > 1 %}
+            <nav class="toc" aria-label="{{ t(TK.HELP_CONTENTS) }}">
+                <h2>{{ t(TK.HELP_CONTENTS) }}</h2>
+                <ul>
+                    {% for heading in article.headings %}
+                        <li class="toc-h{{ heading.level }}"><a href="#{{ heading.id }}">{{ heading.text }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        {% endif %}
+
+        {# Safe: this HTML is produced by our own build step from repo-controlled
+           markdown, with commonmark's html_input set to escape. #}
+        <div class="prose">{{ article.html|raw }}</div>
+
+        <p class="back"><a href="{{ base }}">{{ t(TK.HELP_BACK) }}</a></p>
+    </article>
+{% endblock %}

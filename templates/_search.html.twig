@@ -1,0 +1,13 @@
+{# Site-wide search. Rendered once per page — in the header, or hero-sized on the
+   start page. site-search.js fetches data/search.json the first time it is focused. #}
+<div class="site-search{% if hero|default(false) %} is-hero{% endif %}" data-site-search>
+    <input type="search" id="site-search" class="search"
+           placeholder="{{ t(TK.SEARCH_PLACEHOLDER) }}"
+           aria-label="{{ t(TK.SEARCH_PLACEHOLDER) }}"
+           autocomplete="off" role="combobox" aria-expanded="false"
+           aria-controls="site-search-results">
+    <div id="site-search-results" class="search-results" role="listbox" hidden
+         data-empty="{{ t(TK.SEARCH_NO_RESULTS) }}"
+         data-group-help="{{ t(TK.SEARCH_GROUP_HELP) }}"
+         data-group-shortcuts="{{ t(TK.SEARCH_GROUP_SHORTCUTS) }}"></div>
+</div>

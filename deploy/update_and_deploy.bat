@@ -1,10 +1,10 @@
 @echo off
 setlocal
-@rem Regenerate keybindings.json from fman source, then upload to FTP.
+@rem Regenerate keybindings + help + search data, then upload to FTP.
 cd /d "%~dp0.."
 
-echo Generating keybindings...
-php tools\generate_keybindings.php
+echo Generating site data...
+php tools\generate.php
 if %ERRORLEVEL% neq 0 (
     echo.
     echo ERROR: Generation failed.

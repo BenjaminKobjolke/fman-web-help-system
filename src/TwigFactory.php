@@ -20,7 +20,7 @@ final class TwigFactory
     {
     }
 
-    public function create(Localization $localization, bool $debug): Environment
+    public function create(Localization $localization, bool $debug, string $basePath = '/'): Environment
     {
         $twig = new Environment(new FilesystemLoader($this->templatesDir), [
             'debug' => $debug,
@@ -32,6 +32,9 @@ final class TwigFactory
             static fn (string $key, array $params = []): string => $localization->lang($key, $params)
         ));
         $twig->addGlobal('TK', new TranslationKeys());
+        // Every asset href and internal link is built from this — relative hrefs
+        // break as soon as an article URL sits one level deeper than the root.
+        $twig->addGlobal('base', $basePath);
 
         return $twig;
     }

@@ -1,0 +1,6 @@
+# Front controller: anything that is not a real file or directory (assets/, data/)
+# goes to index.php, which routes on the path. The root .htaccess forwards here first.
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L]

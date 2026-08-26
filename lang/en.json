@@ -1,6 +1,37 @@
 {
     "app": {
-        "title": "fman — Keyboard shortcuts"
+        "title": "fman — Help",
+        "name": "fman",
+        "tagline": "A fast, keyboard-driven file manager for Windows, macOS and Linux."
+    },
+    "nav": {
+        "home": "Home",
+        "keybindings": "Shortcuts"
+    },
+    "search": {
+        "placeholder": "Search the help and every shortcut…",
+        "no_results": "Nothing matches your search.",
+        "group": {
+            "help": "Help",
+            "shortcuts": "Shortcuts"
+        }
+    },
+    "home": {
+        "title": "fman help",
+        "intro": "Everything you need to get around fman — how its features work, and every default keyboard shortcut.",
+        "download": "Download for Windows",
+        "download_note": "Free, and every installation is activated. No licence key, no trial, no nag screen.",
+        "source": "View the source on GitHub",
+        "topics": "Topics",
+        "kb_card_summary": "Every default key binding, filterable by platform."
+    },
+    "help": {
+        "contents": "On this page",
+        "back": "Back to all topics"
+    },
+    "not_found": {
+        "title": "Page not found",
+        "body": "That help page does not exist. Try the search box, or start from the overview."
     },
     "keybindings": {
         "heading": "Keyboard shortcuts",

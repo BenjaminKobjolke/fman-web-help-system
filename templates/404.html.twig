@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ t(TK.NOT_FOUND_TITLE) }} — {{ t(TK.APP_NAME) }}{% endblock %}
+
+{% block content %}
+    <header class="page-head">
+        <h1>{{ t(TK.NOT_FOUND_TITLE) }}</h1>
+        <p class="intro">{{ t(TK.NOT_FOUND_BODY) }}</p>
+    </header>
+
+    <p class="back"><a href="{{ base }}">{{ t(TK.HELP_BACK) }}</a></p>
+{% endblock %}

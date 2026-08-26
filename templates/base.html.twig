@@ -4,12 +4,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{{ t(TK.APP_TITLE) }}{% endblock %}</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="{{ base }}assets/css/style.css">
 </head>
-<body>
+<body data-base="{{ base }}">
+    <header class="site-head">
+        <a class="brand" href="{{ base }}">{{ t(TK.APP_NAME) }}</a>
+        <nav class="site-nav">
+            <a href="{{ base }}"{% if page|default('') == 'home' %} class="is-current" aria-current="page"{% endif %}>{{ t(TK.NAV_HOME) }}</a>
+            <a href="{{ base }}keybindings"{% if page|default('') == 'keybindings' %} class="is-current" aria-current="page"{% endif %}>{{ t(TK.NAV_KEYBINDINGS) }}</a>
+        </nav>
+        {% if page|default('') != 'home' %}
+            {{ include('_search.html.twig') }}
+        {% endif %}
+    </header>
+
     <main class="container">
         {% block content %}{% endblock %}
     </main>
+
+    <script src="{{ base }}assets/vendor/fuse/fuse.basic.min.js"></script>
+    <script src="{{ base }}assets/js/site-search.js"></script>
     {% block scripts %}{% endblock %}
 </body>
 </html>

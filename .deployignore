@@ -10,3 +10,7 @@
 /README.md
 /deploy/.ftp_sync_cache.db
 /deploy/mirror.ini
+/content/
+/docs/
+/.claude/
+/claude-plans/

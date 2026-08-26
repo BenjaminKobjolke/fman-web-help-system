@@ -1,0 +1,905 @@
+[
+    {
+        "type": "help",
+        "title": "Command palette",
+        "subtitle": "Run any command by name with fuzzy search, instead of hunting for a shortcut.",
+        "url": "command-palette",
+        "text": "Run any command by name with fuzzy search, instead of hunting for a shortcut. Opening the palette How searching works Commands you can only reach from the palette Hidden search keywords Viewers have their own palettes The command palette is a fuzzy-search picker for running any command by name instead of hunting for a key binding. Type part of a command's name, pick from the filtered list, press Enter. Opening the palette Press Ctrl+Shift+P on Windows and Linux, or Cmd+Shift+P on macOS. How searching works Matching is fuzzy. The characters you type only have to appear in order, so vf finds View file. Word order does not matter. Space-separated words match in any order, so panes show finds Show all panes just as show panes does. In-order and word-start matches rank first; any-order matches fall to the bottom of the list. Shortcut hints. Each entry shows the key it is currently bound to, read live from your key bindings — rebind a command and the hint updates. It remembers your last pick. Reopening the palette pre-selects the command you ran last, so repeating an action is Open, then Enter. Scope. The palette lists every command available for the active pane, plus the global application commands. Commands you can only reach from the palette These have no default key binding, so the palette is the way in: Select theme — switch fman's colours, applied immediately. Set window opacity — make the window see-through, or hand the choice back to the theme. Center window — puts fman back in the middle of the screen it is already on. You will also find it by typing center window on screen, move window to center or middle. It centres within the available screen area, so the taskbar does not push it off-centre, and on two monitors it stays on the monitor it was already on. To give Center window a shortcut, add this to your key bindings: { \"keys\": [\"Ctrl+Alt+C\"], \"command\": \"center_window\" } Hidden search keywords A command can also be found by words that are not in its name. Those keywords are never displayed: typing transparency selects the row that still reads Set window opacity. Add your own in %APPDATA%/fman/Plugins/User/Settings/Command Keywords.json (the equivalent Plugins/User/Settings/ folder on macOS and Linux), next to your Key Bindings (<OS>).json: { \"set_window_opacity\": [\"transparency\", \"opacity\", \"alpha\"], \"pack\": [\"zip\", \"7z\", \"tar\", \"compress\"], \"video_mute\": [\"sound\", \"volume\", \"audio\"] } Exact matches come first. Typing a command's whole name, or a whole keyword, puts that row at the very top — which is why exit offers Quit before Extract to opposite, whose name merely happens to contain e, x, i and t in that order. Otherwise names match first. A row found by its real name ranks above one found only by a keyword, and only a name match highlights the characters you typed. The keys are command names — the same ones you use in your key bindings, viewer commands such as video_mute and viewer_next_file included. Your list replaces fman's for any command you name there, so repeat the built-in terms you want to keep. Every other command is left untouched. Terms are lowercase, and matched the same fuzzy way names are. Viewers have their own palettes Each in-pane file viewer has its own command palette, also on Ctrl+Shift+P, reaching the commands that make sense for what you are looking at. While a viewer is open the file list is hidden, so the global palette cannot reach it — that is why viewers ship their own. Viewer What its palette offers Text viewer Exit, Edit file, Save / Save as…, Reload / Revert, auto-reload and tail toggles, font-size zoom, Next / Previous file, Advance-same-type toggle Image viewer Zoom in / out, Fit to window, Actual size (100%), Reset zoom, Next / Previous file, Advance-same-type toggle, Exit Video viewer Play / Pause, Restart, Mute / Unmute, Reset volume, Next / Previous file, Advance-same-type toggle, Exit A viewer palette fuzzy-searches and shows shortcut hints exactly like the global one. The entries change with context — the text viewer offers different commands in view mode than in edit mode. Viewer commands are separate from the global ones. Bind your own keys to them in a separate Viewer Key Bindings (<OS>).json file."
+    },
+    {
+        "type": "help",
+        "title": "Windows network drives",
+        "subtitle": "Browsing UNC shares stays responsive, and how to get real file icons back.",
+        "url": "windows-network-drives",
+        "text": "Browsing UNC shares stays responsive, and how to get real file icons back. What to expect on a share Getting real icons back on network drives The Network… entry in the drive list Opening a UNC path — \\\\server\\share, or an RDP-redirected drive such as \\\\tsclient\\C\\... — keeps fman responsive, and fills the listing in far fewer network round trips than a plain file-by-file walk would. What to expect on a share Both panes stay responsive while a share is open, not just the one showing it. Hidden files behave exactly as they do locally. On Windows, hidden-ness comes from the file attribute alone — there is no dot-prefix rule — so .gitignore stays visible and Git's hidden .git folder stays hidden. A row that cannot be loaded is tried once, not retried forever. Use Reload or Refresh to try it again. Files on a network path get a generic icon per file extension rather than the real icon read out of each file. Local paths are unaffected. Getting real icons back on network drives Run Toggle network drive icons from the command palette — it is also listed as Show real icons on network drives. It flips the setting, reloads both panes, and persists across restarts. The setting lives in Core Settings.json: { \"network_file_icons\": true } The default is false, meaning generic icons. Expect slower, per-file behaviour on high-latency shares while it is turned on: real icons for files like .exe and .dll are stored inside the file, so showing them means reading every file over the wire. The Network… entry in the drive list Everything above is about UNC paths. The Network… entry in the drive list is a separate thing — it browses the list of servers and shares Windows knows about. Listing the network no longer opens every server it finds. It lists servers, and their shares one level down, without connecting to them. Before, a single unreachable machine could hold up the whole list for seconds. Rows appear while the folder is still being read. A listing that takes longer than half a second starts showing what it has so far instead of waiting for the whole enumeration. Fast local folders are unchanged — they finish before the first flush. A slow pane tells you it is working. After a short delay the pane paints a message in its centre with a seconds counter that keeps ticking, so a slow listing never looks like a frozen application. On a Network… pane the message names what it is waiting for: Searching network shares… Waiting for Windows to return the network browse list (14 s). A machine that is switched off or unreachable can hold this up. Everywhere else — including all of macOS and Linux — you get the generic form: Loading… Still reading this folder (2 s). The Network… entry is Windows-only. On macOS and Linux a mounted SMB share is an ordinary local path (/Volumes/..., /mnt/...), so a slow one shows the generic message."
+    },
+    {
+        "type": "help",
+        "title": "Window title",
+        "subtitle": "The window title shows both panes' paths, kept in sync as you navigate.",
+        "url": "window-title",
+        "text": "The window title shows both panes' paths, kept in sync as you navigate. Format Behaviour The fman window title shows the current path of both panes, so you can tell two windows apart from the taskbar or a window switcher. There is nothing to configure. Format fman - file manager - <left pane path> | <right pane path> For example: fman - file manager - C:\\test | D:\\GIT\\BenjaminKobjolke\\fman\\debug A fixed fman - file manager prefix. Then the pane paths in left, right order, separated by |. Behaviour It updates live. Navigating either pane — opening a folder, going up, jumping via the location bar — refreshes the whole title, not just that pane's half. Unrenderable paths are skipped rather than shown as garbage. If neither pane has a path that can be shown, the title falls back to just the prefix."
+    },
+    {
+        "type": "shortcut",
+        "title": "Move cursor down",
+        "subtitle": "Down",
+        "url": "keybindings#kb-all-move-cursor-down-down",
+        "text": "move_cursor_down Down all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Move cursor down",
+        "subtitle": "Num+Down",
+        "url": "keybindings#kb-all-move-cursor-down-num-down",
+        "text": "move_cursor_down Num+Down all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Move cursor down (extends selection)",
+        "subtitle": "Shift+Down",
+        "url": "keybindings#kb-all-move-cursor-down-shift-down",
+        "text": "move_cursor_down Shift+Down all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Move cursor up",
+        "subtitle": "Up",
+        "url": "keybindings#kb-all-move-cursor-up-up",
+        "text": "move_cursor_up Up all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Move cursor up",
+        "subtitle": "Num+Up",
+        "url": "keybindings#kb-all-move-cursor-up-num-up",
+        "text": "move_cursor_up Num+Up all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Move cursor up (extends selection)",
+        "subtitle": "Shift+Up",
+        "url": "keybindings#kb-all-move-cursor-up-shift-up",
+        "text": "move_cursor_up Shift+Up all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Move cursor home",
+        "subtitle": "Home",
+        "url": "keybindings#kb-all-move-cursor-home-home",
+        "text": "move_cursor_home Home all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Move cursor home",
+        "subtitle": "Num+Home",
+        "url": "keybindings#kb-all-move-cursor-home-num-home",
+        "text": "move_cursor_home Num+Home all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Move cursor home (extends selection)",
+        "subtitle": "Shift+Home",
+        "url": "keybindings#kb-all-move-cursor-home-shift-home",
+        "text": "move_cursor_home Shift+Home all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Move cursor end",
+        "subtitle": "End",
+        "url": "keybindings#kb-all-move-cursor-end-end",
+        "text": "move_cursor_end End all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Move cursor end",
+        "subtitle": "Num+End",
+        "url": "keybindings#kb-all-move-cursor-end-num-end",
+        "text": "move_cursor_end Num+End all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Move cursor end (extends selection)",
+        "subtitle": "Shift+End",
+        "url": "keybindings#kb-all-move-cursor-end-shift-end",
+        "text": "move_cursor_end Shift+End all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Move cursor page down",
+        "subtitle": "PgDown",
+        "url": "keybindings#kb-all-move-cursor-page-down-pgdown",
+        "text": "move_cursor_page_down PgDown all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Move cursor page down",
+        "subtitle": "Num+PgDown",
+        "url": "keybindings#kb-all-move-cursor-page-down-num-pgdown",
+        "text": "move_cursor_page_down Num+PgDown all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Move cursor page down (extends selection)",
+        "subtitle": "Shift+PgDown",
+        "url": "keybindings#kb-all-move-cursor-page-down-shift-pgdown",
+        "text": "move_cursor_page_down Shift+PgDown all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Move cursor page up",
+        "subtitle": "PgUp",
+        "url": "keybindings#kb-all-move-cursor-page-up-pgup",
+        "text": "move_cursor_page_up PgUp all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Move cursor page up",
+        "subtitle": "Num+PgUp",
+        "url": "keybindings#kb-all-move-cursor-page-up-num-pgup",
+        "text": "move_cursor_page_up Num+PgUp all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Move cursor page up (extends selection)",
+        "subtitle": "Shift+PgUp",
+        "url": "keybindings#kb-all-move-cursor-page-up-shift-pgup",
+        "text": "move_cursor_page_up Shift+PgUp all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Toggle selection",
+        "subtitle": "Space",
+        "url": "keybindings#kb-all-toggle-selection-space",
+        "text": "toggle_selection Space all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Switch panes",
+        "subtitle": "Tab",
+        "url": "keybindings#kb-all-switch-panes-tab",
+        "text": "switch_panes Tab all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Go up",
+        "subtitle": "Backspace",
+        "url": "keybindings#kb-all-go-up-backspace",
+        "text": "go_up Backspace all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Open",
+        "subtitle": "Enter",
+        "url": "keybindings#kb-all-open-enter",
+        "text": "open Enter all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Help",
+        "subtitle": "F1",
+        "url": "keybindings#kb-all-help-f1",
+        "text": "help F1 all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Edit",
+        "subtitle": "F4",
+        "url": "keybindings#kb-all-open-with-editor-f4",
+        "text": "open_with_editor F4 all"
+    },
+    {
+        "type": "shortcut",
+        "title": "New file",
+        "subtitle": "Shift+F4",
+        "url": "keybindings#kb-all-create-and-edit-file-shift-f4",
+        "text": "create_and_edit_file Shift+F4 all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Copy",
+        "subtitle": "F5",
+        "url": "keybindings#kb-all-copy-f5",
+        "text": "copy F5 all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Symlink",
+        "subtitle": "Shift+F5",
+        "url": "keybindings#kb-all-symlink-shift-f5",
+        "text": "symlink Shift+F5 all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Rename",
+        "subtitle": "Shift+F6",
+        "url": "keybindings#kb-all-rename-shift-f6",
+        "text": "rename Shift+F6 all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Move",
+        "subtitle": "F6",
+        "url": "keybindings#kb-all-move-f6",
+        "text": "move F6 all"
+    },
+    {
+        "type": "shortcut",
+        "title": "New folder",
+        "subtitle": "F7",
+        "url": "keybindings#kb-all-create-directory-f7",
+        "text": "create_directory F7 all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Delete",
+        "subtitle": "F8",
+        "url": "keybindings#kb-all-move-to-trash-f8",
+        "text": "move_to_trash F8 all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Delete",
+        "subtitle": "Delete",
+        "url": "keybindings#kb-all-move-to-trash-delete",
+        "text": "move_to_trash Delete all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Delete",
+        "subtitle": "Num+Delete",
+        "url": "keybindings#kb-all-move-to-trash-num-delete",
+        "text": "move_to_trash Num+Delete all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Terminal",
+        "subtitle": "F9",
+        "url": "keybindings#kb-all-open-terminal-f9",
+        "text": "open_terminal F9 all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Open native file manager",
+        "subtitle": "F10",
+        "url": "keybindings#kb-all-open-native-file-manager-f10",
+        "text": "open_native_file_manager F10 all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Copy paths to clipboard",
+        "subtitle": "F11",
+        "url": "keybindings#kb-all-copy-paths-to-clipboard-f11",
+        "text": "copy_paths_to_clipboard F11 all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Delete permanently",
+        "subtitle": "Shift+Delete",
+        "url": "keybindings#kb-all-delete-permanently-shift-delete",
+        "text": "delete_permanently Shift+Delete all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Show volumes (left pane)",
+        "subtitle": "Alt+F1",
+        "url": "keybindings#kb-all-show-volumes-alt-f1",
+        "text": "show_volumes Alt+F1 all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Show volumes (right pane)",
+        "subtitle": "Alt+F2",
+        "url": "keybindings#kb-all-show-volumes-alt-f2",
+        "text": "show_volumes Alt+F2 all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Move cursor down (extends selection)",
+        "subtitle": "Num+Insert",
+        "url": "keybindings#kb-all-move-cursor-down-num-insert",
+        "text": "move_cursor_down Num+Insert all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Increase font size",
+        "subtitle": "Alt+up",
+        "url": "keybindings#kb-all-increase-pane-font-size-alt-up",
+        "text": "increase_pane_font_size Alt+up all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Decrease font size",
+        "subtitle": "Alt+down",
+        "url": "keybindings#kb-all-decrease-pane-font-size-alt-down",
+        "text": "decrease_pane_font_size Alt+down all"
+    },
+    {
+        "type": "shortcut",
+        "title": "Open in right pane",
+        "subtitle": "Ctrl+Right",
+        "url": "keybindings#kb-windows-open-in-right-pane-ctrl-right",
+        "text": "open_in_right_pane Ctrl+Right windows"
+    },
+    {
+        "type": "shortcut",
+        "title": "Open in left pane",
+        "subtitle": "Ctrl+Left",
+        "url": "keybindings#kb-windows-open-in-left-pane-ctrl-left",
+        "text": "open_in_left_pane Ctrl+Left windows"
+    },
+    {
+        "type": "shortcut",
+        "title": "Move cursor down (extends selection)",
+        "subtitle": "Ins",
+        "url": "keybindings#kb-windows-move-cursor-down-ins",
+        "text": "move_cursor_down Ins windows"
+    },
+    {
+        "type": "shortcut",
+        "title": "Copy to clipboard",
+        "subtitle": "Ctrl+C",
+        "url": "keybindings#kb-windows-copy-to-clipboard-ctrl-c",
+        "text": "copy_to_clipboard Ctrl+C windows"
+    },
+    {
+        "type": "shortcut",
+        "title": "Cut",
+        "subtitle": "Ctrl+X",
+        "url": "keybindings#kb-windows-cut-ctrl-x",
+        "text": "cut Ctrl+X windows"
+    },
+    {
+        "type": "shortcut",
+        "title": "Paste",
+        "subtitle": "Ctrl+V",
+        "url": "keybindings#kb-windows-paste-ctrl-v",
+        "text": "paste Ctrl+V windows"
+    },
+    {
+        "type": "shortcut",
+        "title": "Select all",
+        "subtitle": "Ctrl+A",
+        "url": "keybindings#kb-windows-select-all-ctrl-a",
+        "text": "select_all Ctrl+A windows"
+    },
+    {
+        "type": "shortcut",
+        "title": "Deselect",
+        "subtitle": "Ctrl+D",
+        "url": "keybindings#kb-windows-deselect-ctrl-d",
+        "text": "deselect Ctrl+D windows"
+    },
+    {
+        "type": "shortcut",
+        "title": "Toggle hidden files",
+        "subtitle": "Ctrl+.",
+        "url": "keybindings#kb-windows-toggle-hidden-files-ctrl-",
+        "text": "toggle_hidden_files Ctrl+. windows"
+    },
+    {
+        "type": "shortcut",
+        "title": "Go to",
+        "subtitle": "Ctrl+P",
+        "url": "keybindings#kb-windows-go-to-ctrl-p",
+        "text": "go_to Ctrl+P windows"
+    },
+    {
+        "type": "shortcut",
+        "title": "Command palette",
+        "subtitle": "Ctrl+Shift+P",
+        "url": "keybindings#kb-windows-command-palette-ctrl-shift-p",
+        "text": "command_palette Ctrl+Shift+P windows"
+    },
+    {
+        "type": "shortcut",
+        "title": "Go back",
+        "subtitle": "Alt+Left",
+        "url": "keybindings#kb-windows-go-back-alt-left",
+        "text": "go_back Alt+Left windows"
+    },
+    {
+        "type": "shortcut",
+        "title": "Go forward",
+        "subtitle": "Alt+Right",
+        "url": "keybindings#kb-windows-go-forward-alt-right",
+        "text": "go_forward Alt+Right windows"
+    },
+    {
+        "type": "shortcut",
+        "title": "Pack",
+        "subtitle": "Alt+F5",
+        "url": "keybindings#kb-windows-pack-alt-f5",
+        "text": "pack Alt+F5 windows"
+    },
+    {
+        "type": "shortcut",
+        "title": "Reload",
+        "subtitle": "Ctrl+R",
+        "url": "keybindings#kb-windows-reload-ctrl-r",
+        "text": "reload Ctrl+R windows"
+    },
+    {
+        "type": "shortcut",
+        "title": "Sort by column (by name)",
+        "subtitle": "Ctrl+F1",
+        "url": "keybindings#kb-windows-sort-by-column-ctrl-f1",
+        "text": "sort_by_column Ctrl+F1 windows"
+    },
+    {
+        "type": "shortcut",
+        "title": "Sort by column (by size)",
+        "subtitle": "Ctrl+F2",
+        "url": "keybindings#kb-windows-sort-by-column-ctrl-f2",
+        "text": "sort_by_column Ctrl+F2 windows"
+    },
+    {
+        "type": "shortcut",
+        "title": "Sort by column (by date)",
+        "subtitle": "Ctrl+F3",
+        "url": "keybindings#kb-windows-sort-by-column-ctrl-f3",
+        "text": "sort_by_column Ctrl+F3 windows"
+    },
+    {
+        "type": "shortcut",
+        "title": "Go up",
+        "subtitle": "Ctrl+Up",
+        "url": "keybindings#kb-windows-go-up-ctrl-up",
+        "text": "go_up Ctrl+Up windows"
+    },
+    {
+        "type": "shortcut",
+        "title": "Show explorer properties",
+        "subtitle": "Alt+Enter",
+        "url": "keybindings#kb-windows-show-explorer-properties-alt-enter",
+        "text": "show_explorer_properties Alt+Enter windows"
+    },
+    {
+        "type": "shortcut",
+        "title": "Go to root of current drive",
+        "subtitle": "Ctrl+\\",
+        "url": "keybindings#kb-windows-go-to-root-of-current-drive-ctrl-",
+        "text": "go_to_root_of_current_drive Ctrl+\\ windows"
+    },
+    {
+        "type": "shortcut",
+        "title": "Open in right pane",
+        "subtitle": "Alt+Right",
+        "url": "keybindings#kb-mac-open-in-right-pane-alt-right",
+        "text": "open_in_right_pane Alt+Right mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Open in left pane",
+        "subtitle": "Alt+Left",
+        "url": "keybindings#kb-mac-open-in-left-pane-alt-left",
+        "text": "open_in_left_pane Alt+Left mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Copy to clipboard",
+        "subtitle": "Cmd+C",
+        "url": "keybindings#kb-mac-copy-to-clipboard-cmd-c",
+        "text": "copy_to_clipboard Cmd+C mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Cut",
+        "subtitle": "Cmd+X",
+        "url": "keybindings#kb-mac-cut-cmd-x",
+        "text": "cut Cmd+X mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Paste",
+        "subtitle": "Cmd+V",
+        "url": "keybindings#kb-mac-paste-cmd-v",
+        "text": "paste Cmd+V mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Paste cut",
+        "subtitle": "Cmd+Alt+V",
+        "url": "keybindings#kb-mac-paste-cut-cmd-alt-v",
+        "text": "paste_cut Cmd+Alt+V mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Select all",
+        "subtitle": "Cmd+A",
+        "url": "keybindings#kb-mac-select-all-cmd-a",
+        "text": "select_all Cmd+A mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Deselect",
+        "subtitle": "Cmd+D",
+        "url": "keybindings#kb-mac-deselect-cmd-d",
+        "text": "deselect Cmd+D mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Move cursor down (extends selection)",
+        "subtitle": "Space",
+        "url": "keybindings#kb-mac-move-cursor-down-space",
+        "text": "move_cursor_down Space mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Delete",
+        "subtitle": "Cmd+Backspace",
+        "url": "keybindings#kb-mac-move-to-trash-cmd-backspace",
+        "text": "move_to_trash Cmd+Backspace mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Toggle hidden files",
+        "subtitle": "Cmd+.",
+        "url": "keybindings#kb-mac-toggle-hidden-files-cmd-",
+        "text": "toggle_hidden_files Cmd+. mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Go to",
+        "subtitle": "Cmd+P",
+        "url": "keybindings#kb-mac-go-to-cmd-p",
+        "text": "go_to Cmd+P mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Command palette",
+        "subtitle": "Cmd+Shift+P",
+        "url": "keybindings#kb-mac-command-palette-cmd-shift-p",
+        "text": "command_palette Cmd+Shift+P mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Go back",
+        "subtitle": "Cmd+Left",
+        "url": "keybindings#kb-mac-go-back-cmd-left",
+        "text": "go_back Cmd+Left mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Go forward",
+        "subtitle": "Cmd+Right",
+        "url": "keybindings#kb-mac-go-forward-cmd-right",
+        "text": "go_forward Cmd+Right mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Get info",
+        "subtitle": "Cmd+I",
+        "url": "keybindings#kb-mac-get-info-cmd-i",
+        "text": "get_info Cmd+I mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Pack",
+        "subtitle": "Cmd+F5",
+        "url": "keybindings#kb-mac-pack-cmd-f5",
+        "text": "pack Cmd+F5 mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Reload",
+        "subtitle": "Cmd+R",
+        "url": "keybindings#kb-mac-reload-cmd-r",
+        "text": "reload Cmd+R mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Sort by column (by name)",
+        "subtitle": "Cmd+F1",
+        "url": "keybindings#kb-mac-sort-by-column-cmd-f1",
+        "text": "sort_by_column Cmd+F1 mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Sort by column (by size)",
+        "subtitle": "Cmd+F2",
+        "url": "keybindings#kb-mac-sort-by-column-cmd-f2",
+        "text": "sort_by_column Cmd+F2 mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Sort by column (by date)",
+        "subtitle": "Cmd+F3",
+        "url": "keybindings#kb-mac-sort-by-column-cmd-f3",
+        "text": "sort_by_column Cmd+F3 mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Minimize",
+        "subtitle": "Cmd+M",
+        "url": "keybindings#kb-mac-minimize-cmd-m",
+        "text": "minimize Cmd+M mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Quit",
+        "subtitle": "Cmd+Q",
+        "url": "keybindings#kb-mac-quit-cmd-q",
+        "text": "quit Cmd+Q mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Go up",
+        "subtitle": "Cmd+Up",
+        "url": "keybindings#kb-mac-go-up-cmd-up",
+        "text": "go_up Cmd+Up mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Quick look",
+        "subtitle": "Shift+Space",
+        "url": "keybindings#kb-mac-quick-look-shift-space",
+        "text": "quick_look Shift+Space mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Open selected files",
+        "subtitle": "Cmd+Enter",
+        "url": "keybindings#kb-mac-open-selected-files-cmd-enter",
+        "text": "open_selected_files Cmd+Enter mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Toggle fullscreen",
+        "subtitle": "Cmd+Ctrl+F",
+        "url": "keybindings#kb-mac-toggle-fullscreen-cmd-ctrl-f",
+        "text": "toggle_fullscreen Cmd+Ctrl+F mac"
+    },
+    {
+        "type": "shortcut",
+        "title": "Open in right pane",
+        "subtitle": "Ctrl+Right",
+        "url": "keybindings#kb-linux-open-in-right-pane-ctrl-right",
+        "text": "open_in_right_pane Ctrl+Right linux"
+    },
+    {
+        "type": "shortcut",
+        "title": "Open in left pane",
+        "subtitle": "Ctrl+Left",
+        "url": "keybindings#kb-linux-open-in-left-pane-ctrl-left",
+        "text": "open_in_left_pane Ctrl+Left linux"
+    },
+    {
+        "type": "shortcut",
+        "title": "Move cursor down (extends selection)",
+        "subtitle": "Ins",
+        "url": "keybindings#kb-linux-move-cursor-down-ins",
+        "text": "move_cursor_down Ins linux"
+    },
+    {
+        "type": "shortcut",
+        "title": "Copy to clipboard",
+        "subtitle": "Ctrl+C",
+        "url": "keybindings#kb-linux-copy-to-clipboard-ctrl-c",
+        "text": "copy_to_clipboard Ctrl+C linux"
+    },
+    {
+        "type": "shortcut",
+        "title": "Cut",
+        "subtitle": "Ctrl+X",
+        "url": "keybindings#kb-linux-cut-ctrl-x",
+        "text": "cut Ctrl+X linux"
+    },
+    {
+        "type": "shortcut",
+        "title": "Paste",
+        "subtitle": "Ctrl+V",
+        "url": "keybindings#kb-linux-paste-ctrl-v",
+        "text": "paste Ctrl+V linux"
+    },
+    {
+        "type": "shortcut",
+        "title": "Select all",
+        "subtitle": "Ctrl+A",
+        "url": "keybindings#kb-linux-select-all-ctrl-a",
+        "text": "select_all Ctrl+A linux"
+    },
+    {
+        "type": "shortcut",
+        "title": "Deselect",
+        "subtitle": "Ctrl+D",
+        "url": "keybindings#kb-linux-deselect-ctrl-d",
+        "text": "deselect Ctrl+D linux"
+    },
+    {
+        "type": "shortcut",
+        "title": "Toggle hidden files",
+        "subtitle": "Ctrl+.",
+        "url": "keybindings#kb-linux-toggle-hidden-files-ctrl-",
+        "text": "toggle_hidden_files Ctrl+. linux"
+    },
+    {
+        "type": "shortcut",
+        "title": "Go to",
+        "subtitle": "Ctrl+P",
+        "url": "keybindings#kb-linux-go-to-ctrl-p",
+        "text": "go_to Ctrl+P linux"
+    },
+    {
+        "type": "shortcut",
+        "title": "Command palette",
+        "subtitle": "Ctrl+Shift+P",
+        "url": "keybindings#kb-linux-command-palette-ctrl-shift-p",
+        "text": "command_palette Ctrl+Shift+P linux"
+    },
+    {
+        "type": "shortcut",
+        "title": "Quit",
+        "subtitle": "Ctrl+Q",
+        "url": "keybindings#kb-linux-quit-ctrl-q",
+        "text": "quit Ctrl+Q linux"
+    },
+    {
+        "type": "shortcut",
+        "title": "Go back",
+        "subtitle": "Alt+Left",
+        "url": "keybindings#kb-linux-go-back-alt-left",
+        "text": "go_back Alt+Left linux"
+    },
+    {
+        "type": "shortcut",
+        "title": "Go forward",
+        "subtitle": "Alt+Right",
+        "url": "keybindings#kb-linux-go-forward-alt-right",
+        "text": "go_forward Alt+Right linux"
+    },
+    {
+        "type": "shortcut",
+        "title": "Pack",
+        "subtitle": "Alt+F5",
+        "url": "keybindings#kb-linux-pack-alt-f5",
+        "text": "pack Alt+F5 linux"
+    },
+    {
+        "type": "shortcut",
+        "title": "Reload",
+        "subtitle": "Ctrl+R",
+        "url": "keybindings#kb-linux-reload-ctrl-r",
+        "text": "reload Ctrl+R linux"
+    },
+    {
+        "type": "shortcut",
+        "title": "Sort by column (by name)",
+        "subtitle": "Ctrl+F1",
+        "url": "keybindings#kb-linux-sort-by-column-ctrl-f1",
+        "text": "sort_by_column Ctrl+F1 linux"
+    },
+    {
+        "type": "shortcut",
+        "title": "Sort by column (by size)",
+        "subtitle": "Ctrl+F2",
+        "url": "keybindings#kb-linux-sort-by-column-ctrl-f2",
+        "text": "sort_by_column Ctrl+F2 linux"
+    },
+    {
+        "type": "shortcut",
+        "title": "Sort by column (by date)",
+        "subtitle": "Ctrl+F3",
+        "url": "keybindings#kb-linux-sort-by-column-ctrl-f3",
+        "text": "sort_by_column Ctrl+F3 linux"
+    },
+    {
+        "type": "shortcut",
+        "title": "Go up",
+        "subtitle": "Ctrl+Up",
+        "url": "keybindings#kb-linux-go-up-ctrl-up",
+        "text": "go_up Ctrl+Up linux"
+    },
+    {
+        "type": "shortcut",
+        "title": "Close viewer (all)",
+        "subtitle": "Escape/Enter/Backspace",
+        "url": "keybindings#kb-viewer-viewer-close-escape-enter-backspace",
+        "text": "viewer_close Escape/Enter/Backspace viewer"
+    },
+    {
+        "type": "shortcut",
+        "title": "Switch panes (all)",
+        "subtitle": "Tab",
+        "url": "keybindings#kb-viewer-viewer-switch-panes-tab",
+        "text": "viewer_switch_panes Tab viewer"
+    },
+    {
+        "type": "shortcut",
+        "title": "Open viewer command palette (all)",
+        "subtitle": "Ctrl+Shift+P",
+        "url": "keybindings#kb-viewer-viewer-open-palette-ctrl-shift-p",
+        "text": "viewer_open_palette Ctrl+Shift+P viewer"
+    },
+    {
+        "type": "shortcut",
+        "title": "View next / previous file in the directory (all)",
+        "subtitle": "—",
+        "url": "keybindings#kb-viewer-viewer-next-file-viewer-previous-file-",
+        "text": "viewer_next_file / viewer_previous_file — viewer"
+    },
+    {
+        "type": "shortcut",
+        "title": "Toggle \"advance only for same type\" (per viewer) (all)",
+        "subtitle": "—",
+        "url": "keybindings#kb-viewer-viewer-toggle-same-type-advance-",
+        "text": "viewer_toggle_same_type_advance — viewer"
+    },
+    {
+        "type": "shortcut",
+        "title": "Play / pause (video)",
+        "subtitle": "Space",
+        "url": "keybindings#kb-viewer-video-toggle-pause-space",
+        "text": "video_toggle_pause Space viewer"
+    },
+    {
+        "type": "shortcut",
+        "title": "Seek ±5s (video)",
+        "subtitle": "Right / Left",
+        "url": "keybindings#kb-viewer-video-seek-forward-video-seek-backward-right-left",
+        "text": "video_seek_forward / video_seek_backward Right / Left viewer"
+    },
+    {
+        "type": "shortcut",
+        "title": "Volume ±5 (video)",
+        "subtitle": "Up / Down",
+        "url": "keybindings#kb-viewer-video-volume-up-video-volume-down-up-down",
+        "text": "video_volume_up / video_volume_down Up / Down viewer"
+    },
+    {
+        "type": "shortcut",
+        "title": "Toggle mute (persists) (video)",
+        "subtitle": "—",
+        "url": "keybindings#kb-viewer-video-mute-",
+        "text": "video_mute — viewer"
+    },
+    {
+        "type": "shortcut",
+        "title": "Volume → 100 (video)",
+        "subtitle": "—",
+        "url": "keybindings#kb-viewer-video-reset-volume-",
+        "text": "video_reset_volume — viewer"
+    },
+    {
+        "type": "shortcut",
+        "title": "Restart from 0:00 (video)",
+        "subtitle": "—",
+        "url": "keybindings#kb-viewer-video-restart-",
+        "text": "video_restart — viewer"
+    },
+    {
+        "type": "shortcut",
+        "title": "Fit to window (image)",
+        "subtitle": "—",
+        "url": "keybindings#kb-viewer-image-reset-zoom-",
+        "text": "image_reset_zoom — viewer"
+    },
+    {
+        "type": "shortcut",
+        "title": "Actual size (100%) (image)",
+        "subtitle": "—",
+        "url": "keybindings#kb-viewer-image-actual-size-",
+        "text": "image_actual_size — viewer"
+    },
+    {
+        "type": "shortcut",
+        "title": "Edit file / Reload from disk (text)",
+        "subtitle": "—",
+        "url": "keybindings#kb-viewer-text-edit-text-reload-",
+        "text": "text_edit / text_reload — viewer"
+    },
+    {
+        "type": "shortcut",
+        "title": "Toggle auto-reload / tail mode (text)",
+        "subtitle": "—",
+        "url": "keybindings#kb-viewer-text-toggle-auto-reload-text-toggle-tail-",
+        "text": "text_toggle_auto_reload / text_toggle_tail — viewer"
+    },
+    {
+        "type": "shortcut",
+        "title": "Save / Save as… / Revert (text)",
+        "subtitle": "—",
+        "url": "keybindings#kb-viewer-text-save-text-save-as-text-revert-",
+        "text": "text_save / text_save_as / text_revert — viewer"
+    }
+]

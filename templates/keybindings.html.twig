@@ -52,6 +52,6 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="assets/vendor/fuse/fuse.basic.min.js"></script>
-    <script src="assets/js/search.js"></script>
+    {# fuse.js is already loaded by base.html.twig for the site-wide search. #}
+    <script src="{{ base }}assets/js/search.js"></script>
 {% endblock %}

@@ -19,6 +19,7 @@ final class Container
     private ?Localization $localization = null;
     private ?Environment $twig = null;
     private ?KeybindingRepository $keybindings = null;
+    private ?HelpRepository $help = null;
 
     public function __construct(private readonly string $baseDir)
     {
@@ -63,7 +64,11 @@ final class Container
     {
         if ($this->twig === null) {
             $factory = new TwigFactory($this->baseDir . '/templates');
-            $this->twig = $factory->create($this->localization(), (bool) ($this->config['debug'] ?? false));
+            $this->twig = $factory->create(
+                $this->localization(),
+                (bool) ($this->config['debug'] ?? false),
+                $this->basePath(),
+            );
         }
 
         return $this->twig;
@@ -76,5 +81,23 @@ final class Container
         }
 
         return $this->keybindings;
+    }
+
+    public function helpRepository(): HelpRepository
+    {
+        if ($this->help === null) {
+            $this->help = new HelpRepository($this->baseDir . '/public/data/help.json');
+        }
+
+        return $this->help;
+    }
+
+    /** URL prefix the site is mounted under, e.g. "/" or "/fast-file-manager/help/". */
+    public function basePath(): string
+    {
+        return BasePath::fromScriptName(
+            (string) ($_SERVER['SCRIPT_NAME'] ?? '/index.php'),
+            (string) ($_SERVER['REQUEST_URI'] ?? ''),
+        );
     }
 }

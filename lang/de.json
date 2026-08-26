@@ -1,6 +1,37 @@
 {
     "app": {
-        "title": "fman — Tastenkürzel"
+        "title": "fman — Hilfe",
+        "name": "fman",
+        "tagline": "Ein schneller, tastaturgesteuerter Dateimanager für Windows, macOS und Linux."
+    },
+    "nav": {
+        "home": "Start",
+        "keybindings": "Tastenkürzel"
+    },
+    "search": {
+        "placeholder": "Hilfe und alle Tastenkürzel durchsuchen…",
+        "no_results": "Nichts passt zu deiner Suche.",
+        "group": {
+            "help": "Hilfe",
+            "shortcuts": "Tastenkürzel"
+        }
+    },
+    "home": {
+        "title": "fman Hilfe",
+        "intro": "Alles, was du für fman brauchst — wie die Funktionen arbeiten und jedes Standard-Tastenkürzel.",
+        "download": "Für Windows herunterladen",
+        "download_note": "Kostenlos, und jede Installation ist freigeschaltet. Kein Lizenzschlüssel, keine Testphase, kein Hinweisfenster.",
+        "source": "Quellcode auf GitHub ansehen",
+        "topics": "Themen",
+        "kb_card_summary": "Alle Standard-Tastenkürzel, nach Plattform filterbar."
+    },
+    "help": {
+        "contents": "Auf dieser Seite",
+        "back": "Zurück zu allen Themen"
+    },
+    "not_found": {
+        "title": "Seite nicht gefunden",
+        "body": "Diese Hilfeseite gibt es nicht. Nutze die Suche oder starte bei der Übersicht."
     },
     "keybindings": {
         "heading": "Tastenkürzel",

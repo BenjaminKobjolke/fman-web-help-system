@@ -89,15 +89,40 @@
         });
     }
 
-    // Default the platform filter to the visitor's OS, if we have a section for it.
-    var ua = (navigator.platform || '').toLowerCase();
-    var guess = ua.indexOf('win') !== -1 ? 'windows'
-        : ua.indexOf('mac') !== -1 ? 'mac'
-        : ua.indexOf('linux') !== -1 ? 'linux' : '';
-    if (guess && filters) {
-        var preset = filters.querySelector('.filter[data-filter="' + guess + '"]');
-        if (preset) {
-            preset.click();
+    function selectFilter(platform) {
+        if (!platform || !filters) {
+            return false;
         }
+        var preset = filters.querySelector('.filter[data-filter="' + platform + '"]');
+        if (!preset) {
+            return false;
+        }
+        preset.click();
+
+        return true;
+    }
+
+    // Arriving from the site-wide search with #kb-... in the URL: show that row's
+    // platform, or the OS guess below would hide the very row we linked to.
+    var target = window.location.hash.length > 1
+        ? document.getElementById(window.location.hash.slice(1))
+        : null;
+
+    if (target) {
+        selectFilter(target.getAttribute('data-platform'));
+        target.classList.add('is-targeted');
+        // After the filter has reflowed, and after the browser's own jump to the
+        // anchor — which happens on load and would otherwise land on stale offsets.
+        window.requestAnimationFrame(function () {
+            target.scrollIntoView({ block: 'center' });
+        });
+    } else {
+        // Otherwise default the platform filter to the visitor's OS.
+        var ua = (navigator.platform || '').toLowerCase();
+        selectFilter(
+            ua.indexOf('win') !== -1 ? 'windows'
+                : ua.indexOf('mac') !== -1 ? 'mac'
+                    : ua.indexOf('linux') !== -1 ? 'linux' : ''
+        );
     }
 })();
