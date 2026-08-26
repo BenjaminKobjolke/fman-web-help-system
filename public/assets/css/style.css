@@ -416,6 +416,31 @@ kbd {
    Help article
    --------------------------------------------------------------------------- */
 
+.breadcrumb {
+    margin: 0 0 0.35rem;
+    font-size: 0.9rem;
+}
+
+.breadcrumb a {
+    color: var(--muted);
+}
+
+.breadcrumb a:hover {
+    color: var(--accent);
+}
+
+.subpages {
+    margin: 0 0 2rem;
+}
+
+.subpages h2 {
+    margin: 0 0 0.6rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
 .toc {
     margin: 0 0 1.5rem;
     padding: 0.75rem 1rem;

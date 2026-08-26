@@ -25,7 +25,7 @@ try {
     if ($route === '') {
         echo $twig->render('home.html.twig', [
             'page' => 'home',
-            'articles' => $container->helpRepository()->all(),
+            'articles' => $container->helpRepository()->topLevel(),
         ]);
 
         return;
@@ -54,7 +54,12 @@ try {
         return;
     }
 
-    echo $twig->render('help.html.twig', ['page' => 'help', 'article' => $article]);
+    echo $twig->render('help.html.twig', [
+        'page' => 'help',
+        'article' => $article,
+        'parent' => $article->parent === '' ? null : $container->helpRepository()->bySlug($article->parent),
+        'children' => $container->helpRepository()->childrenOf($article->slug),
+    ]);
 } catch (Throwable $e) {
     $container->logger()->error('Request failed', ['route' => $route, 'exception' => $e->getMessage()]);
     http_response_code(500);

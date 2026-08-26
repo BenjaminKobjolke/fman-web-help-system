@@ -55,6 +55,8 @@ final class HelpGenerator
             $articles[] = $article;
         }
 
+        $this->assertParents($articles, $seen);
+
         usort(
             $articles,
             static fn (HelpArticle $a, HelpArticle $b): int => [$a->order, $a->title] <=> [$b->order, $b->title]
@@ -87,10 +89,50 @@ final class HelpGenerator
             summary: $meta['summary'],
             order: (int) ($meta['order'] ?? 0),
             source: $meta['source'] ?? '',
+            parent: $meta['parent'] ?? '',
             html: $html,
             headings: $this->extractHeadings($html),
             text: $this->plainText($html),
         );
+    }
+
+    /**
+     * Subpages are one level deep on purpose: a parent article lists its
+     * children, and a child links back. Nesting deeper would need a real tree
+     * in the templates for no reader benefit.
+     *
+     * @param HelpArticle[]         $articles
+     * @param array<string, string> $files slug => source file
+     */
+    private function assertParents(array $articles, array $files): void
+    {
+        $parents = [];
+        foreach ($articles as $article) {
+            $parents[$article->slug] = $article->parent;
+        }
+
+        foreach ($articles as $article) {
+            if ($article->parent === '') {
+                continue;
+            }
+            if (!isset($parents[$article->parent])) {
+                throw new RuntimeException(
+                    'Help article ' . $files[$article->slug] . ' has parent "' . $article->parent
+                    . '", which is not an article.'
+                );
+            }
+            if ($article->parent === $article->slug) {
+                throw new RuntimeException(
+                    'Help article ' . $files[$article->slug] . ' is its own parent.'
+                );
+            }
+            if ($parents[$article->parent] !== '') {
+                throw new RuntimeException(
+                    'Help article ' . $files[$article->slug] . ' nests under "' . $article->parent
+                    . '", which is itself a subpage. Subpages are only one level deep.'
+                );
+            }
+        }
     }
 
     private function assertSlug(string $slug, string $file): void

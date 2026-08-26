@@ -52,6 +52,29 @@ final class HelpRepository
         return $this->articles = $articles;
     }
 
+    /**
+     * @return HelpArticle[] the articles the start page lists — subpages are
+     *                       reached through their parent instead
+     */
+    public function topLevel(): array
+    {
+        return array_values(array_filter(
+            $this->all(),
+            static fn (HelpArticle $a): bool => $a->parent === ''
+        ));
+    }
+
+    /**
+     * @return HelpArticle[] in display order
+     */
+    public function childrenOf(string $slug): array
+    {
+        return array_values(array_filter(
+            $this->all(),
+            static fn (HelpArticle $a): bool => $a->parent === $slug
+        ));
+    }
+
     public function bySlug(string $slug): ?HelpArticle
     {
         foreach ($this->all() as $article) {

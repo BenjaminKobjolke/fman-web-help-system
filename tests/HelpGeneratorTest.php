@@ -54,6 +54,86 @@ final class HelpGeneratorTest extends TestCase
         self::assertStringContainsString('<p>Intro text.</p>', $articles[0]->html);
     }
 
+    public function testSubpageKeepsItsParentSlug(): void
+    {
+        $this->write('file-viewers.md', $this->article());
+        $this->write(
+            'text-viewer.md',
+            "---
+title: Text viewer
+summary: S.
+order: 50
+parent: file-viewers
+---
+
+Body.
+"
+        );
+
+        $articles = (new HelpGenerator($this->dir))->generate();
+        $parents = [];
+        foreach ($articles as $article) {
+            $parents[$article->slug] = $article->parent;
+        }
+
+        self::assertSame(['file-viewers' => '', 'text-viewer' => 'file-viewers'], $parents);
+    }
+
+    public function testUnknownParentIsRejected(): void
+    {
+        $this->write(
+            'text-viewer.md',
+            "---
+title: Text viewer
+summary: S.
+order: 50
+parent: nope
+---
+
+Body.
+"
+        );
+
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage('which is not an article');
+
+        (new HelpGenerator($this->dir))->generate();
+    }
+
+    public function testSubpagesMayNotNestDeeper(): void
+    {
+        $this->write('file-viewers.md', $this->article());
+        $this->write(
+            'text-viewer.md',
+            "---
+title: Text viewer
+summary: S.
+order: 50
+parent: file-viewers
+---
+
+Body.
+"
+        );
+        $this->write(
+            'tail-mode.md',
+            "---
+title: Tail mode
+summary: S.
+order: 51
+parent: text-viewer
+---
+
+Body.
+"
+        );
+
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage('only one level deep');
+
+        (new HelpGenerator($this->dir))->generate();
+    }
+
     public function testHeadingsGetIdsAndAreExtracted(): void
     {
         $this->write('window-title.md', $this->article("## Format\n\nText.\n\n### Notes on it\n\nMore.\n"));

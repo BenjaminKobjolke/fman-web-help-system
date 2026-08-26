@@ -20,6 +20,7 @@ final class SearchIndexBuilderTest extends TestCase
             summary: 'What the title shows.',
             order: 30,
             source: 'docs/WINDOW_TITLE.md',
+            parent: '',
             html: '<p>Body text.</p>',
             headings: [['level' => 2, 'id' => 'format', 'text' => 'Format']],
             text: 'Body text.',

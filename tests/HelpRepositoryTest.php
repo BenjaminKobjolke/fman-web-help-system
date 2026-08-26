@@ -44,6 +44,25 @@ final class HelpRepositoryTest extends TestCase
         self::assertSame(['command-palette', 'window-title'], $slugs);
     }
 
+    public function testTopLevelSkipsSubpagesAndChildrenAreFoundByParent(): void
+    {
+        file_put_contents($this->file, json_encode([
+            ['slug' => 'file-viewers', 'title' => 'File viewers', 'summary' => 'A', 'order' => 40],
+            ['slug' => 'text-viewer', 'title' => 'Text viewer', 'summary' => 'B', 'order' => 50, 'parent' => 'file-viewers'],
+            ['slug' => 'image-viewer', 'title' => 'Image viewer', 'summary' => 'C', 'order' => 60, 'parent' => 'file-viewers'],
+        ]));
+        $repo = new HelpRepository($this->file);
+
+        self::assertSame(
+            ['file-viewers'],
+            array_map(static fn ($a) => $a->slug, $repo->topLevel())
+        );
+        self::assertSame(
+            ['text-viewer', 'image-viewer'],
+            array_map(static fn ($a) => $a->slug, $repo->childrenOf('file-viewers'))
+        );
+    }
+
     public function testBySlugFindsAnArticle(): void
     {
         $this->seed();

@@ -27,7 +27,8 @@
     },
     "help": {
         "contents": "Auf dieser Seite",
-        "back": "Zurück zu allen Themen"
+        "back": "Zurück zu allen Themen",
+        "subpages": "In diesem Bereich"
     },
     "not_found": {
         "title": "Seite nicht gefunden",

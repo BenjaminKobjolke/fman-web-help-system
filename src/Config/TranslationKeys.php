@@ -32,6 +32,7 @@ final class TranslationKeys
 
     public const HELP_CONTENTS = 'help.contents';
     public const HELP_BACK = 'help.back';
+    public const HELP_SUBPAGES = 'help.subpages';
 
     public const NOT_FOUND_TITLE = 'not_found.title';
     public const NOT_FOUND_BODY = 'not_found.body';

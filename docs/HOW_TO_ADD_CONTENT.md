@@ -50,9 +50,31 @@ no multi-line values. A colon inside the value is fine; only the first one split
 | `summary` | yes | One sentence. Shown on the start-page card and in search results |
 | `order` | no | Sort position among the start-page cards. Steps of 10 |
 | `source` | in practice | The fman doc this was derived from, repo-relative |
+| `parent` | no | Slug of the article this is a subpage of |
 
 `source` is what lets a later update find the existing article instead of creating a
 second one for the same feature. Keep it even when you write an article by hand.
+
+### Subpages
+
+An article with `parent: <slug>` becomes a subpage: it drops off the start page and
+is reached through its parent, which lists it under *In this section*. The subpage
+gets a breadcrumb link back. Both pages stay in the search index and keep their own
+URL — nothing is nested in the path.
+
+```markdown
+---
+title: Text viewer
+summary: Read and quickly edit a text file inside the pane.
+order: 50
+parent: file-viewers
+source: docs/views/TEXT_VIEWER.md
+---
+```
+
+Subpages are **one level deep**. The generator throws if the parent slug does not
+exist, or if it is itself a subpage. `order` still sorts them — within their parent's
+list instead of on the start page.
 
 ### Body
 
