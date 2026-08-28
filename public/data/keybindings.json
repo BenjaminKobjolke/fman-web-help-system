@@ -922,5 +922,26 @@
         "name": "Save / Save as… / Revert (text)",
         "platform": "viewer",
         "args": null
+    },
+    {
+        "keys": "/ (view mode)",
+        "command": "text_find",
+        "name": "Prompt for a search query, jump to the first match (text)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
+        "keys": "n / N (view mode)",
+        "command": "text_find_next / text_find_previous",
+        "name": "Next / previous match (wraps) (text)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
+        "keys": "Escape (view mode, while searching)",
+        "command": "text_search_exit",
+        "name": "Leave search mode (text)",
+        "platform": "viewer",
+        "args": null
     }
 ]
