@@ -3,6 +3,8 @@
 /.claude/
 /claude-plans/
 /PLAN_*.md
+/PLAN.md
+/HANDOFF.md
 /.php-cs-fixer.cache
 /.phpunit.result.cache
 /.phpunit.cache/
