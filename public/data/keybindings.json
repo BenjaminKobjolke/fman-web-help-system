@@ -46,6 +46,20 @@
         }
     },
     {
+        "keys": "Ctrl+J",
+        "command": "move_cursor_down",
+        "name": "Move cursor down",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+K",
+        "command": "move_cursor_up",
+        "name": "Move cursor up",
+        "platform": "all",
+        "args": null
+    },
+    {
         "keys": "Home",
         "command": "move_cursor_home",
         "name": "Move cursor home",
@@ -847,6 +861,27 @@
         "args": null
     },
     {
+        "keys": "—",
+        "command": "viewer_delete_file",
+        "name": "Move the viewed file to the trash, confirmation and all (all)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
+        "keys": "—",
+        "command": "viewer_rename_file",
+        "name": "Prompt for a new name for the viewed file (all)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
+        "keys": "—",
+        "command": "viewer_toggle_close_after_delete",
+        "name": "Toggle whether a delete closes the viewer or goes to the next file (global) (all)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
         "keys": "Space",
         "command": "video_toggle_pause",
         "name": "Play / pause (video)",
@@ -920,6 +955,13 @@
         "keys": "—",
         "command": "text_save / text_save_as / text_revert",
         "name": "Save / Save as… / Revert (text)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
+        "keys": "—",
+        "command": "text_reset_font_size",
+        "name": "Reset the viewer's own zoom (not the pane's) (text)",
         "platform": "viewer",
         "args": null
     },

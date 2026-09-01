@@ -128,6 +128,57 @@ It derives the slug from the doc's **H1**, kebab-cased, not from the filename: t
 filenames are inconsistent and one is misspelled (`COMMAND_PALLETTE.md` holds
 `# Command palette` → `command-palette`).
 
+## Catching up with fman
+
+Doing this one doc at a time only works if somebody remembers. The fman repo moves
+faster than that, so there is a second skill that catches the whole site up in one
+run: `.claude/skills/fman-help-sync/SKILL.md`.
+
+It needs no copy of the fman docs and no script. The fman checkout is already a git
+repo, so one committed file here records where the site last caught up:
+
+```
+tools\fman_docs_sync.txt      <- one line: the fman commit this site is synced to
+```
+
+```bash
+git -C <fman> log  --oneline     <sha>..HEAD -- docs/    # what changed, and why
+git -C <fman> diff --name-status <sha>..HEAD -- docs/    # A / M / D / R per file
+git -C <fman> diff               <sha>..HEAD -- docs/THEMES.md
+```
+
+A modified doc updates the article whose `source:` line points at it, keeping its
+filename, `order` and `parent`. A renamed doc gets that `source:` line repointed —
+that is the whole reason renames do not go unnoticed. A deleted doc is **reported,
+never auto-deleted**: a doc usually gets merged into another one rather than the
+feature disappearing, and the article is hand-written work a diff cannot rebuild.
+
+The generator runs on **every** sync, even when no doc changed: key bindings are
+parsed out of the fman source, and two of their three inputs live outside `docs/`,
+so a changed shortcut produces an empty docs diff.
+
+The new SHA is written only after `tools\generate.bat` and `tools\run_tests.bat`
+both pass, so a failed run retries the same range next time.
+
+### What gets published
+
+A new fman doc becomes an article automatically, which makes it worth being blunt
+about what belongs here:
+
+**Publish only what a person *using* fman can act on** — a command, a key binding,
+a setting, a view, a message they see. A doc whose whole subject is building,
+maintaining or releasing fman, or writing plugins against its internals, does not
+belong on this site. The reader is running the file manager, not developing it, and
+publishing that content makes the site look addressed to someone else. It is the
+same mistake as copying an `## Implementation` section, one level up.
+
+So `CREATE_NEW_RELEASE.md` and `PLUGINS_API.md` never become articles.
+`KEYBINDINGS.md` does not either — those bindings are parsed out of the fman source
+on every generator run and served at `/keybindings`, so a hand-written page would
+just go stale against the generated table.
+
+A doc that mixes both still gets an article, written from the user-facing part only.
+
 ## Changing a keyboard shortcut
 
 Shortcuts are **not** written here. They are parsed out of the fman source on every
