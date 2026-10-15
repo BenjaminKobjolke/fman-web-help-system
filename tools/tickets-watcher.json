@@ -1,0 +1,11 @@
+{
+  "files": {
+    "TICKETS_WATCHER_COMMANDS.md": 2
+  },
+  "command_check_scripts": [
+    "generate.bat",
+    "generate_help.bat",
+    "generate_keybindings.bat",
+    "run_tests.bat"
+  ]
+}
