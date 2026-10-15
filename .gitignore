@@ -10,3 +10,8 @@
 /.phpunit.cache/
 /deploy/mirror.ini
 /deploy/.ftp_sync_cache.db
+tickets/
+graphify-out/
+tmp/commit_msg.tmp
+code_analysis_results/
+.reasonix/
