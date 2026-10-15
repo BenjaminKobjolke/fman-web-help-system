@@ -8,10 +8,11 @@ php tools\generate.php
 if %ERRORLEVEL% neq 0 (
     echo.
     echo ERROR: Generation failed.
-    pause
+    if not defined TICKETS_WATCHER_COMMAND_RUN pause
     exit /b 1
 )
 
 echo.
 call "%~dp0sync_help.bat"
-endlocal
+set "result=%ERRORLEVEL%"
+endlocal & exit /b %result%

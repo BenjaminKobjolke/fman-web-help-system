@@ -2,4 +2,5 @@
 setlocal
 cd /d "%~dp0.."
 php tools\generate.php
-endlocal
+set "result=%ERRORLEVEL%"
+endlocal & exit /b %result%

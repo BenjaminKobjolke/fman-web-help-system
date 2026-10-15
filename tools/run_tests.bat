@@ -2,4 +2,5 @@
 setlocal
 cd /d "%~dp0.."
 php vendor\bin\phpunit --colors=always
-endlocal
+set "result=%ERRORLEVEL%"
+endlocal & exit /b %result%
