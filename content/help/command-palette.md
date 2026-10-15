@@ -35,6 +35,10 @@ These have no default key binding, so the palette is the way in:
 - **Select theme** — switch fman's colours, applied immediately.
 - **Set window opacity** — make the window see-through, or hand the choice back
   to the theme.
+- **Follow shortcut** — Windows only, and only listed while the cursor is on a
+  `.lnk` file: goes to the shortcut's destination instead of launching it (also
+  found by *lnk*, *link target*, *destination*). A folder is opened; for a file,
+  its folder is opened with the cursor on it.
 - **Center window** — puts fman back in the middle of the screen it is already
   on. You will also find it by typing *center window on screen*, *move window to
   center* or *middle*. It centres within the available screen area, so the
@@ -87,13 +91,16 @@ that is why viewers ship their own.
 
 | Viewer | What its palette offers |
 |--------|-------------------------|
-| Text viewer | Exit, Edit file, Save / Save as…, Reload / Revert, auto-reload and tail toggles, font-size zoom, Next / Previous file, Advance-same-type toggle |
-| Image viewer | Zoom in / out, Fit to window, Actual size (100%), Reset zoom, Next / Previous file, Advance-same-type toggle, Exit |
-| Video viewer | Play / Pause, Restart, Mute / Unmute, Reset volume, Next / Previous file, Advance-same-type toggle, Exit |
+| Text viewer | Exit, Edit file, Save / Save as…, Reload / Revert, auto-reload and tail toggles, font-size zoom, Next / Previous file, Advance-same-type toggle, Delete file, Rename file…, Close-after-delete toggle, Copy / Move and other pane commands (view mode, with a file), Find… / Find next / Find previous / Exit search mode |
+| Image viewer | Zoom in / out, Fit to window, Actual size (100%), Reset zoom, Next / Previous file, Advance-same-type toggle, Delete file, Rename file…, Close-after-delete toggle, Copy / Move and other pane commands, Exit |
+| Video viewer | Play / Pause, Restart, Mute / Unmute, Reset volume, Next / Previous file, Advance-same-type toggle, Delete file, Rename file…, Close-after-delete toggle, Copy / Move and other pane commands, Exit |
 
 A viewer palette fuzzy-searches and shows shortcut hints exactly like the global
 one. The entries change with context — the text viewer offers different commands
-in view mode than in edit mode.
+in view mode than in edit mode, and *Exit search mode* only while its search is
+on.
 
-Viewer commands are separate from the global ones. Bind your own keys to them in
-a separate `Viewer Key Bindings (<OS>).json` file.
+Viewer-only entries are bound in a separate `Viewer Key Bindings (<OS>).json`
+file. The pane commands that also appear there — Copy, Move and the like — are
+ordinary global commands: their shortcuts, and Shift+Enter edits from the
+palette, use your normal key bindings file.

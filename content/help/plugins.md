@@ -5,15 +5,16 @@ order: 240
 source: docs/PLUGINS.md
 ---
 
-fman is plugins all the way down. The file list, the archive support and every
-command in the palette live in the shipped **Core** plugin, loaded through the
-same mechanism your own plugins use.
+fman is plugins all the way down. The file list, archive support and most
+commands in the palette live in the shipped **Core** plugin. The shipped
+**Robocopy** plugin adds Windows-only copy and move commands. Both load through
+the same mechanism your own plugins use.
 
 ## Where they live
 
 | Directory | What goes there |
 |---|---|
-| The shipped `Plugins` folder | The **Core** plugin. Loads first, and is never reloaded at runtime. |
+| The shipped `Plugins` folder | The **Core** and **Robocopy** plugins. Load first, and are never reloaded at runtime. |
 | `%APPDATA%\fman\Plugins\Third-party` | Plugins installed with **Install plugin**. |
 | `%APPDATA%\fman\Plugins\User` | Your own. `User\Settings` always loads **last**, so its JSON wins. |
 

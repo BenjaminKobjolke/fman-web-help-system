@@ -18,6 +18,9 @@ a quick change.
    pane's file list visible).
 2. The contents fill the pane. Arrow keys move the cursor, **Shift+arrow**
    selects, the mouse selects too, and long lines wrap to the pane width.
+   **Home** / **End** jump to the top / bottom of the file and **PgUp** /
+   **PgDown** page through it. (That is view mode; while editing, Home / End go
+   to the start / end of the line as usual.)
 3. **Escape**, **Enter** or **Backspace** closes the viewer and puts the cursor
    back on the same file.
 4. **Tab** switches to the other pane. The viewer stays open; **Tab** again
@@ -89,6 +92,9 @@ viewer listens for too — it looks up the current binding rather than assuming
 
 ## Bindable commands
 
+In view mode for a file, suitable file-list shortcuts such as `F5` (Copy) also
+work.
+
 The palette actions are viewer-only commands you bind in your own
 `Viewer Key Bindings (<OS>).json` — a separate file from the normal key
 bindings. A rebind always beats the default key.
@@ -102,6 +108,10 @@ bindings. A rebind always beats the default key.
 | `text_save` | none (palette only) | edit | Save file |
 | `text_save_as` | none (palette only) | edit | Save file as… |
 | `text_revert` | none (palette only) | edit | Revert / reload from disk |
+| `text_go_to_top` | Home (view mode) | both | Jump to the top of the file |
+| `text_go_to_bottom` | End (view mode) | both | Jump to the bottom of the file |
+| `text_page_up` | PgUp (view mode) | both | Page up |
+| `text_page_down` | PgDown (view mode) | both | Page down |
 | `viewer_close` | Escape/Enter/Backspace | both | Close viewer |
 | `viewer_switch_panes` | Tab | view only | Switch panes |
 | `viewer_open_palette` | Ctrl+Shift+P | both | Open viewer command palette |

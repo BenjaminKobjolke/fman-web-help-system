@@ -16,7 +16,7 @@ For moving a file somewhere else, or renaming *and* moving in one step, use
 ## Usage
 
 1. Put the cursor on a file or folder.
-2. Press `Shift+F6` — or run **Rename** from the command palette, or pick
+2. Press `F2` or `Shift+F6` — or run **Rename** from the command palette, or pick
    **Rename** from the file's right-click menu.
 3. The name becomes an editable field in place, with part of it preselected.
 4. Type the new name and press `Enter`. `Esc` cancels.
@@ -27,7 +27,7 @@ After a successful rename the cursor follows the item to its new name.
 
 | Command name | Palette label | Default key | Shown when |
 |---|---|---|---|
-| `rename` | Rename | `Shift+F6` | something is under the cursor |
+| `rename` | Rename | `F2`, `Shift+F6` | something is under the cursor |
 
 It is also in the right-click menu of any item, file or folder. It is
 deliberately absent from the menu you get on empty space in a pane, where there
@@ -70,6 +70,10 @@ both give up.
 
 A permission failure produces the "Access was denied" wording above; any other
 failure says *"Could not rename X to Y."* Both offer Retry.
+
+In a folder that needs administrator rights (`C:\Program Files\…`) the rename
+raises a UAC prompt instead — Retry could never succeed there. See
+*Administrator rights for protected folders*.
 
 ## Notes
 

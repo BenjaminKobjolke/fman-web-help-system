@@ -45,13 +45,18 @@ over the wire.
 Everything above is about UNC paths. The *Network…* entry in the drive list is a
 separate thing — it browses the list of servers and shares Windows knows about.
 
+From the network overview, **Open native file manager** (`F10`) opens Explorer's
+Network page. Inside a server, it opens `\\SERVER` in Explorer.
+
 - **Listing the network no longer opens every server it finds.** It lists
   servers, and their shares one level down, without connecting to them. Before,
   a single unreachable machine could hold up the whole list for seconds.
 - **Rows appear while the folder is still being read.** A listing that takes
   longer than half a second starts showing what it has so far instead of waiting
   for the whole enumeration. Fast local folders are unchanged — they finish
-  before the first flush.
+  before the first flush. So is a huge folder on a fast drive: one that turns up
+  more than 1000 files in that half second keeps showing the loading message
+  until it is completely listed, then appears in one go.
 - **A slow pane tells you it is working.** After a short delay the pane paints a
   message in its centre with a seconds counter that keeps ticking, so a slow
   listing never looks like a frozen application.

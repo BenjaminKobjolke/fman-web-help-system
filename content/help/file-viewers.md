@@ -54,7 +54,11 @@ You don't choose which viewer opens:
 - **Switch panes:** `Tab` / `Shift+Tab`, same as the file list. The viewer stays
   open; `Tab` back returns focus to it. (In text edit mode `Tab` types a tab.)
 - **Own command palette:** `Ctrl+Shift+P` opens a palette scoped to the viewer,
-  separate from the global one.
+  separate from the global one. It also offers the pane commands that make sense
+  for the file on screen.
+- **Shared file shortcuts:** `F5` copies the viewed file to the other pane, `F6`
+  moves it, and other suitable file-list shortcuts work too. Viewer-specific keys
+  win.
 - **Next / previous file:** **Next file** and **Previous file** in the viewer
   palette step to the neighbouring file in the folder, following the pane's sort
   order, without closing the viewer. **Advance only for same type** (on by

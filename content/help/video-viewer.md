@@ -25,6 +25,8 @@ keyboard-controlled, no on-screen sliders.
 
 ## Controls
 
+Suitable file-list shortcuts such as `F5` (Copy) also work while viewing a video.
+
 | Key | Action |
 |---|---|
 | Space | Play / pause |

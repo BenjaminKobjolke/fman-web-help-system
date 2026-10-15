@@ -187,6 +187,13 @@
         "args": null
     },
     {
+        "keys": "F2",
+        "command": "rename",
+        "name": "Rename",
+        "platform": "all",
+        "args": null
+    },
+    {
         "keys": "F4",
         "command": "open_with_editor",
         "name": "Edit",
@@ -274,6 +281,13 @@
         "keys": "F11",
         "command": "copy_paths_to_clipboard",
         "name": "Copy paths to clipboard",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Shift+F11",
+        "command": "copy_file_name",
+        "name": "Copy file name",
         "platform": "all",
         "args": null
     },
@@ -983,6 +997,20 @@
         "keys": "Escape (view mode, while searching)",
         "command": "text_search_exit",
         "name": "Leave search mode (text)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
+        "keys": "Home / End (view mode)",
+        "command": "text_go_to_top / text_go_to_bottom",
+        "name": "Jump to the top / bottom of the file (text)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
+        "keys": "PgUp / PgDown (view mode)",
+        "command": "text_page_up / text_page_down",
+        "name": "Page up / down (text)",
         "platform": "viewer",
         "args": null
     }

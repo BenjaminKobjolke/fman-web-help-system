@@ -22,6 +22,8 @@ list — the text viewer's counterpart for image files, so you can look at a
    brings focus back to it.
 5. **Ctrl+Shift+P** opens the viewer's own command palette.
 
+Suitable file-list shortcuts such as `F5` (Copy) also work here.
+
 ## Zoom
 
 The viewer has its own scale zoom, independent of the text viewer's font zoom
@@ -48,6 +50,8 @@ the image. In fit mode there is nothing to pan — the whole image is visible.
 - **Read-only.** There is no edit mode; an image cannot be modified in place.
 - **Animated GIFs play** automatically while open, and scaling applies to the
   animation, not just one frame.
+- **Photo orientation is respected.** JPEG photos follow their EXIF orientation.
+  Other formats, including WebP, are shown as stored.
 - **One viewer at a time per pane.** Opening an image while a text viewer (or
   another image) is open in that pane replaces it. The other pane is unaffected.
 - **Follows the active theme** — the letterbox background matches the file
