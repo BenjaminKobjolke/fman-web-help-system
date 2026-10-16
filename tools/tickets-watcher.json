@@ -7,5 +7,17 @@
     "generate_help.bat",
     "generate_keybindings.bat",
     "run_tests.bat"
-  ]
+  ],
+  "analysis_commands": [
+    "tools\\run_tests.bat"
+  ],
+  "analysis_commands_seen": {
+    "scripts": [
+      "generate.bat",
+      "generate_help.bat",
+      "generate_keybindings.bat",
+      "run_tests.bat"
+    ],
+    "tests": true
+  }
 }
