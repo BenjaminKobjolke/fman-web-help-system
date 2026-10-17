@@ -19,5 +19,10 @@
       "run_tests.bat"
     ],
     "tests": true
+  },
+  "analysis_command_states": {
+    "tools\\run_tests.bat": {
+      "test": "green"
+    }
   }
 }
