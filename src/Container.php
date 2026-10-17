@@ -68,6 +68,12 @@ final class Container
                 $this->localization(),
                 (bool) ($this->config['debug'] ?? false),
                 $this->basePath(),
+                [
+                    'name' => (string) ($this->config['app_name'] ?? 'fman'),
+                    'download_url' => (string) ($this->config['download_url'] ?? 'https://github.com/BenjaminKobjolke/fman/releases'),
+                    'source_url' => (string) ($this->config['source_url'] ?? 'https://github.com/BenjaminKobjolke/fman'),
+                ],
+                $this->keybindingRepository()->exists(),
             );
         }
 

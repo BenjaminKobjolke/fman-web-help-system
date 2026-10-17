@@ -63,4 +63,16 @@ final class KeybindingRepositoryTest extends TestCase
         $this->expectException(RuntimeException::class);
         $repo->all();
     }
+
+    public function testExistsReturnsTrueForExistingFile(): void
+    {
+        self::assertTrue((new KeybindingRepository($this->tmpFile))->exists());
+    }
+
+    public function testExistsReturnsFalseForMissingFile(): void
+    {
+        $repo = new KeybindingRepository(sys_get_temp_dir() . '/does-not-exist-kb.json');
+
+        self::assertFalse($repo->exists());
+    }
 }

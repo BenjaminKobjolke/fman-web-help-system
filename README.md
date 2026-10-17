@@ -99,3 +99,16 @@ if it is absent.
 Re-run `tools\generate.bat` and commit the updated files under `public/data/`. The
 deployed site needs only those — it does not read fman's source at runtime.
 `deploy\update_and_deploy.bat` does both: regenerate, then FTP-mirror.
+
+## Reuse for another app
+
+Copy the site and edit `config/app.php`: set `app_name`, `download_url` and
+`source_url` (either URL may be empty to hide its link). Update the `{app}`
+placeholders and other app-specific copy in `lang/en.json` and `lang/de.json`, then
+replace the articles in `content/help/`. The fman keybindings generator is optional:
+leave `fman_core_dir` unset or empty, and add `public/data/keybindings.json` only if
+the app has shortcuts. Its JSON is an array of rows with `keys`, `command`, `name`,
+`platform` and optional `args`, matching `src/Keybinding.php`.
+
+Remove the fman-only skills under `.claude/skills/fman-help-*` and
+`tools/fman_docs_sync.txt` from the copied project.

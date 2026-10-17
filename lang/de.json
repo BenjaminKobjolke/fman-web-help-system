@@ -1,7 +1,7 @@
 {
     "app": {
-        "title": "fman — Hilfe",
-        "name": "fman",
+        "title": "{app} — Hilfe",
+        "name": "{app}",
         "tagline": "Ein schneller, tastaturgesteuerter Dateimanager für Windows, macOS und Linux."
     },
     "nav": {
@@ -17,8 +17,8 @@
         }
     },
     "home": {
-        "title": "fman Hilfe",
-        "intro": "Alles, was du für fman brauchst — wie die Funktionen arbeiten und jedes Standard-Tastenkürzel.",
+        "title": "{app} Hilfe",
+        "intro": "Alles, was du für {app} brauchst — wie die Funktionen arbeiten und jedes Standard-Tastenkürzel.",
         "download": "Für Windows herunterladen",
         "download_note": "Kostenlos, und jede Installation ist freigeschaltet. Kein Lizenzschlüssel, keine Testphase, kein Hinweisfenster.",
         "source": "Quellcode auf GitHub ansehen",
@@ -36,7 +36,7 @@
     },
     "keybindings": {
         "heading": "Tastenkürzel",
-        "intro": "Alle Standard-Tastenkürzel von fman. Nutze die Suche zum Filtern oder wähle eine Plattform.",
+        "intro": "Alle Standard-Tastenkürzel von {app}. Nutze die Suche zum Filtern oder wähle eine Plattform.",
         "search_placeholder": "Kürzel, Befehle oder Tasten suchen…",
         "no_results": "Keine Kürzel passen zu deiner Suche.",
         "col": {

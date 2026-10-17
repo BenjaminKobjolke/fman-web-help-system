@@ -31,7 +31,7 @@ try {
         return;
     }
 
-    if ($route === 'keybindings') {
+    if ($route === 'keybindings' && $container->keybindingRepository()->exists()) {
         echo $twig->render('keybindings.html.twig', [
             'page' => 'keybindings',
             'groups' => $container->keybindingRepository()->groupedByPlatform(),

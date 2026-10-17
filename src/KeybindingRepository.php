@@ -19,12 +19,17 @@ final class KeybindingRepository
     {
     }
 
+    public function exists(): bool
+    {
+        return is_file($this->jsonPath);
+    }
+
     /**
      * @return Keybinding[]
      */
     public function all(): array
     {
-        if (!is_file($this->jsonPath)) {
+        if (!$this->exists()) {
             throw new RuntimeException(
                 'Keybindings data not found: ' . $this->jsonPath
                 . ' — run tools/generate_keybindings.php first.'

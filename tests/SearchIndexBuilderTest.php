@@ -56,4 +56,24 @@ final class SearchIndexBuilderTest extends TestCase
         self::assertSame('Ctrl+Shift+P', $record['subtitle']);
         self::assertSame('keybindings#kb-windows-command-palette-ctrl-shift-p', $record['url']);
     }
+
+    public function testEmptyBindingsIndexesOnlyHelpArticles(): void
+    {
+        $article = new HelpArticle(
+            slug: 'window-title',
+            title: 'Window title',
+            summary: 'What the title shows.',
+            order: 30,
+            source: 'docs/WINDOW_TITLE.md',
+            parent: '',
+            html: '<p>Body text.</p>',
+            headings: [],
+            text: 'Body text.',
+        );
+
+        $records = (new SearchIndexBuilder())->build([$article], []);
+
+        self::assertCount(1, $records);
+        self::assertSame(['help'], array_column($records, 'type'));
+    }
 }

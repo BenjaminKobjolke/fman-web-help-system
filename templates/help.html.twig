@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ article.title }} — {{ t(TK.APP_NAME) }}{% endblock %}
+{% block title %}{{ article.title }} — {{ t(TK.APP_NAME, {'{app}': app.name}) }}{% endblock %}
 
 {% block content %}
     <article class="article">

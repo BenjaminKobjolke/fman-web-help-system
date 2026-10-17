@@ -3,15 +3,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}{{ t(TK.APP_TITLE) }}{% endblock %}</title>
+    <title>{% block title %}{{ t(TK.APP_TITLE, {'{app}': app.name}) }}{% endblock %}</title>
     <link rel="stylesheet" href="{{ base }}assets/css/style.css">
 </head>
 <body data-base="{{ base }}">
     <header class="site-head">
-        <a class="brand" href="{{ base }}">{{ t(TK.APP_NAME) }}</a>
+        <a class="brand" href="{{ base }}">{{ t(TK.APP_NAME, {'{app}': app.name}) }}</a>
         <nav class="site-nav">
             <a href="{{ base }}"{% if page|default('') == 'home' %} class="is-current" aria-current="page"{% endif %}>{{ t(TK.NAV_HOME) }}</a>
-            <a href="{{ base }}keybindings"{% if page|default('') == 'keybindings' %} class="is-current" aria-current="page"{% endif %}>{{ t(TK.NAV_KEYBINDINGS) }}</a>
+            {% if has_keybindings %}
+                <a href="{{ base }}keybindings"{% if page|default('') == 'keybindings' %} class="is-current" aria-current="page"{% endif %}>{{ t(TK.NAV_KEYBINDINGS) }}</a>
+            {% endif %}
         </nav>
         {% if page|default('') != 'home' %}
             {{ include('_search.html.twig') }}

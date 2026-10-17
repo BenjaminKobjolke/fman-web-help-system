@@ -3,7 +3,7 @@
 {% block content %}
     <header class="page-head">
         <h1>{{ t(TK.KB_HEADING) }}</h1>
-        <p class="intro">{{ t(TK.KB_INTRO) }}</p>
+        <p class="intro">{{ t(TK.KB_INTRO, {'{app}': app.name}) }}</p>
     </header>
 
     <div class="controls">

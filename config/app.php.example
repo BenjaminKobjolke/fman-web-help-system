@@ -8,9 +8,13 @@ return [
     'default_lang' => 'en',
     'log_file' => __DIR__ . '/../var/app.log',
     'log_level' => 'info',
+    'app_name' => 'fman',
+    'download_url' => 'https://github.com/BenjaminKobjolke/fman/releases',
+    'source_url' => 'https://github.com/BenjaminKobjolke/fman',
 
-    // Paths to fman source used by the keybindings generator. Relative to this
-    // file so the generator is portable across machines (no absolute paths).
+    // Optional paths to fman source used by the keybindings generator. Leave
+    // unset or empty when this app has no generated keybindings.
+    // Relative to this file so the generator is portable across machines.
     'fman_core_dir' => __DIR__ . '/../../src/main/resources/base/Plugins/Core',
     'fman_keybindings_doc' => __DIR__ . '/../../docs/KEYBINDINGS.md',
 ];

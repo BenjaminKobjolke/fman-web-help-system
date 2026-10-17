@@ -2,30 +2,34 @@
 
 {% block content %}
     <section class="hero">
-        <h1>{{ t(TK.HOME_TITLE) }}</h1>
+        <h1>{{ t(TK.HOME_TITLE, {'{app}': app.name}) }}</h1>
         <p class="tagline">{{ t(TK.APP_TAGLINE) }}</p>
-        <p class="intro">{{ t(TK.HOME_INTRO) }}</p>
+        <p class="intro">{{ t(TK.HOME_INTRO, {'{app}': app.name}) }}</p>
 
         {{ include('_search.html.twig', {hero: true}) }}
 
-        {# ponytail: one app, one repo — the URLs live here rather than in config.
-           Move them out only if a second download target ever appears. #}
-        <p class="actions">
-            <a class="button button-primary"
-               href="https://github.com/BenjaminKobjolke/fman/releases">{{ t(TK.HOME_DOWNLOAD) }}</a>
-            <a class="button button-ghost"
-               href="https://github.com/BenjaminKobjolke/fman">{{ t(TK.HOME_SOURCE) }}</a>
-        </p>
+        {% if app.download_url or app.source_url %}
+            <p class="actions">
+                {% if app.download_url %}
+                    <a class="button button-primary" href="{{ app.download_url }}">{{ t(TK.HOME_DOWNLOAD) }}</a>
+                {% endif %}
+                {% if app.source_url %}
+                    <a class="button button-ghost" href="{{ app.source_url }}">{{ t(TK.HOME_SOURCE) }}</a>
+                {% endif %}
+            </p>
+        {% endif %}
         <p class="note">{{ t(TK.HOME_DOWNLOAD_NOTE) }}</p>
     </section>
 
     <section class="topics">
         <h2>{{ t(TK.HOME_TOPICS) }}</h2>
         <div class="cards">
-            <a class="card" href="{{ base }}keybindings">
-                <h3>{{ t(TK.KB_HEADING) }}</h3>
-                <p>{{ t(TK.HOME_KB_CARD_SUMMARY) }}</p>
-            </a>
+            {% if has_keybindings %}
+                <a class="card" href="{{ base }}keybindings">
+                    <h3>{{ t(TK.KB_HEADING) }}</h3>
+                    <p>{{ t(TK.HOME_KB_CARD_SUMMARY) }}</p>
+                </a>
+            {% endif %}
             {% for article in articles %}
                 <a class="card" href="{{ base }}{{ article.slug }}">
                     <h3>{{ article.title }}</h3>

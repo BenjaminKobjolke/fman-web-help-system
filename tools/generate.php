@@ -12,15 +12,21 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 $baseDir = dirname(__DIR__);
 $config = require $baseDir . '/config/app.php';
 
-// 1. Keyboard shortcuts, parsed out of the fman source checkout.
-$keybindingGenerator = new KeybindingGenerator(
-    (string) $config['fman_core_dir'],
-    (string) $config['fman_keybindings_doc'],
-);
-$bindings = $keybindingGenerator->generate();
 $keybindingsPath = $baseDir . '/public/data/keybindings.json';
-$keybindingGenerator->writeJson($bindings, $keybindingsPath);
-fwrite(STDOUT, sprintf("Wrote %d keybindings -> %s\n", count($bindings), $keybindingsPath));
+
+// 1. Keyboard shortcuts, optionally parsed out of the fman source checkout.
+$coreDir = trim((string) ($config['fman_core_dir'] ?? ''));
+if ($coreDir !== '') {
+    $keybindingGenerator = new KeybindingGenerator(
+        $coreDir,
+        (string) ($config['fman_keybindings_doc'] ?? ''),
+    );
+    $bindings = $keybindingGenerator->generate();
+    $keybindingGenerator->writeJson($bindings, $keybindingsPath);
+    fwrite(STDOUT, sprintf("Wrote %d keybindings -> %s\n", count($bindings), $keybindingsPath));
+} else {
+    fwrite(STDOUT, "Skipped keybindings generation (fman_core_dir is not configured).\n");
+}
 
 // 2. Help articles, rendered from the markdown in content/help/.
 $helpGenerator = new HelpGenerator($baseDir . '/content/help');
@@ -32,7 +38,9 @@ fwrite(STDOUT, sprintf("Wrote %d help articles -> %s\n", count($articles), $help
 // 3. The flat index the site-wide search box fetches. Built from the two files
 //    above, via the repository, so it can never describe a shape the site does not serve.
 $searchBuilder = new SearchIndexBuilder();
-$records = $searchBuilder->build($articles, (new KeybindingRepository($keybindingsPath))->all());
+$keybindingRepository = new KeybindingRepository($keybindingsPath);
+$bindings = $keybindingRepository->exists() ? $keybindingRepository->all() : [];
+$records = $searchBuilder->build($articles, $bindings);
 $searchPath = $baseDir . '/public/data/search.json';
 $searchBuilder->writeJson($records, $searchPath);
 fwrite(STDOUT, sprintf("Wrote %d search records -> %s\n", count($records), $searchPath));
