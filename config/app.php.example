@@ -8,7 +8,7 @@ return [
     'default_lang' => 'en',
     'log_file' => __DIR__ . '/../var/app.log',
     'log_level' => 'info',
-    'app_name' => 'fman',
+    'app_name' => 'fman++',
     'download_url' => 'https://github.com/BenjaminKobjolke/fman/releases',
     'source_url' => 'https://github.com/BenjaminKobjolke/fman',
 

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ t(TK.NOT_FOUND_TITLE) }} — {{ t(TK.APP_NAME) }}{% endblock %}
+{% block title %}{{ t(TK.NOT_FOUND_TITLE) }} — {{ t(TK.APP_NAME, {'{app}': app.name}) }}{% endblock %}
 
 {% block content %}
     <header class="page-head">
