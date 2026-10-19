@@ -100,6 +100,10 @@ be published as-is — a reader of this site cannot open those files.
 
 An article is a **rewrite**, not a copy:
 
+Call the product `fman++` in article prose, even when the source doc still says
+`fman`. Keep technical spellings such as paths, the `fman` command line and
+`fman.exe`, the `fman` GitHub topic, and `FMAN_*` variables unchanged.
+
 | Source section | Do |
 |---|---|
 | Intro, what the feature does | Keep, lead with it |
