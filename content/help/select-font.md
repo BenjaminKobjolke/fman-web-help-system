@@ -1,13 +1,13 @@
 ---
 title: Select font
-summary: Pick the typeface fman draws its UI in, from the palette, applied immediately.
+summary: Pick the typeface fman++ draws its UI in, from the palette, applied immediately.
 order: 210
 parent: fonts
 source: docs/functions/select-font.md
 ---
 
-**Select font** picks which font family fman draws its UI in. The default is
-the one fman has always used on your platform; six more ship with it, and every
+**Select font** picks which font family fman++ draws its UI in. The default is
+the one fman++ has always used on your platform; six more ship with it, and every
 font installed on the machine is offered too.
 
 ## Usage
@@ -20,7 +20,7 @@ font installed on the machine is offered too.
 It applies **immediately** — no restart — and is remembered across restarts.
 
 **Theme default** is the way back: it forgets your choice so the active theme
-decides again, which for a theme that names no font means fman's default for the
+decides again, which for a theme that names no font means fman++'s default for the
 platform (`Roboto` on Windows, `Open Sans` on Linux, `Helvetica Neue` on macOS).
 
 **Reset font** does exactly that without making you scroll a list of every font
@@ -52,9 +52,9 @@ above.
 { "keys": ["Ctrl+Alt+F"], "command": "select_font" }
 ```
 
-## Fonts fman bundles
+## Fonts fman++ bundles
 
-Six families ship with fman on top of the two it has always used (`Roboto` and
+Six families ship with fman++ on top of the two it has always used (`Roboto` and
 `Open Sans`), so a theme can ask for one without depending on what your machine
 has installed:
 
@@ -78,8 +78,8 @@ run **Reset font**:
 
 1. Your **Select font** choice, if you have made one.
 2. Otherwise the active theme's `"font"`.
-3. Otherwise fman's default for the platform.
+3. Otherwise fman++'s default for the platform.
 
-A family fman cannot find is **not** an error — Qt quietly falls back to its own
+A family fman++ cannot find is **not** an error — Qt quietly falls back to its own
 font. So if a pick appears to do nothing, the family is not installed under that
 exact name.

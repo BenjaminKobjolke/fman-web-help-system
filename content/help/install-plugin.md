@@ -1,12 +1,12 @@
 ---
 title: Install plugin
-summary: Find fman plugins on GitHub and install one from the palette, without a restart.
+summary: Find fman++ plugins on GitHub and install one from the palette, without a restart.
 order: 250
 parent: plugins
 source: docs/INSTALL_PLUGINS.md
 ---
 
-**Install plugin** finds fman plugins on GitHub, downloads one, unpacks it into
+**Install plugin** finds fman++ plugins on GitHub, downloads one, unpacks it into
 your data directory and loads it — without a restart.
 
 ## Running it
@@ -15,18 +15,18 @@ Press `Ctrl+Shift+P` and run **Install plugin**. There is no default key
 binding, and the command works regardless of which pane has focus.
 
 It also takes an optional `github_repo` parameter of the form `owner/name`.
-Passing it skips the picker and installs that repo directly — this is how fman's
+Passing it skips the picker and installs that repo directly — this is how fman++'s
 own "you pressed a key that does nothing" dialog offers you
 `mherrmann/ArrowNavigation` and `mherrmann/SwitchPanesWithArrowKeys`.
 
 ## What happens
 
-1. **Discover** — fman queries GitHub for repos carrying *both* the topics
-   `fman` and `plugin`, and caches the result for the rest of the fman session.
+1. **Discover** — fman++ queries GitHub for repos carrying *both* the topics
+   `fman` and `plugin`, and caches the result for the rest of the fman++ session.
 2. **Pick** — the results appear in a quicksearch picker: the plugin name, the
    repo description as the subtitle, and the star count as the hint (`123 ★`).
    Plugins you already have are filtered out.
-3. **Resolve a version** — fman asks for the repo's latest release tag. If the
+3. **Resolve a version** — fman++ asks for the repo's latest release tag. If the
    repo has never published a release, it falls back to the newest commit on the
    default branch. So an unreleased plugin still installs; it is just pinned to
    a commit.
@@ -54,13 +54,13 @@ decides the order.
 
 ## Rate limits and privacy
 
-- fman talks to the public GitHub API **anonymously** — no token, no sign-in.
+- fman++ talks to the public GitHub API **anonymously** — no token, no sign-in.
   Anonymous calls are limited to **60 requests an hour** per IP, and search to
   **10 a minute**. A normal install is three or four requests, so on a shared or
   NAT'd address you may still hit the limit.
-- fman sends no identifying data with these requests. GitHub sees your IP and
+- fman++ sends no identifying data with these requests. GitHub sees your IP and
   the default user agent, and nothing in the URL but the query.
-- **Nothing is contacted until you run the command.** fman does not poll GitHub
+- **Nothing is contacted until you run the command.** fman++ does not poll GitHub
   in the background, and there is no update check for installed plugins.
 
 ## Updating a plugin
@@ -68,7 +68,7 @@ decides the order.
 There is no **Update plugin** command. Updating means **Remove plugin**, then
 **Install plugin** again.
 
-After an install, fman records the repo and the installed version in the
+After an install, fman++ records the repo and the installed version in the
 plugin's `Plugin.json`:
 
 ```json
@@ -94,7 +94,7 @@ retrying.
 
 ## Installing without GitHub
 
-Nothing about fman's plugin loader requires GitHub. Copy a plugin directory into
+Nothing about fman++'s plugin loader requires GitHub. Copy a plugin directory into
 `%APPDATA%\fman\Plugins\User\` and run **Reload plugins**.
 
 On macOS and Linux that path is `~/Library/Application Support/fman/Plugins/User`

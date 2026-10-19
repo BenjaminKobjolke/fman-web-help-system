@@ -12,7 +12,7 @@ selects the row that still reads **Set window opacity**; typing *zip* finds
 **Pack**. These hidden keywords are never displayed — they only widen what
 finds a command.
 
-fman ships a set of them, and you can add your own: either from inside the
+fman++ ships a set of them, and you can add your own: either from inside the
 palette or by editing the JSON file by hand.
 
 ## Editing keywords from the palette
@@ -52,7 +52,7 @@ its keywords, so typing `quit` still finds the row. It is a keyword hit now, so
 the row shows **Exit** and underlines nothing.
 
 *Reset name* appears in the entry menu only while a rename is in place, and
-hands the label back to fman's own.
+hands the label back to fman++'s own.
 
 Renames live in `Command Titles.json` — a flat map of command name to one
 label:
@@ -65,7 +65,7 @@ label:
 ```
 
 Same keys, same per-OS user file and same merge rules as the keyword file
-below; fman ships no titles of its own, so an absent file simply means no
+below; fman++ ships no titles of its own, so an absent file simply means no
 renames.
 
 ## Where they are stored
@@ -83,14 +83,14 @@ renames.
 - **The keys are command names**, the same ones your key bindings use — viewer
   commands included, which is why the global and the viewer palettes read one
   file.
-- **fman's own list** ships with the application and is never modified.
+- **fman++'s own list** ships with the application and is never modified.
 - **Your edits** land in
   `%APPDATA%/fman/Plugins/User/Settings/Command Keywords (Windows).json`
   (equivalent per-OS `Plugins/User/Settings/` folder elsewhere), next to your
   `Key Bindings (<OS>).json`.
-- Unlike key bindings, a command you name in your file **replaces** fman's
+- Unlike key bindings, a command you name in your file **replaces** fman++'s
   list for that command — the other commands are untouched. That is why the
-  in-palette editor always writes the whole list back, fman's terms included:
+  in-palette editor always writes the whole list back, fman++'s terms included:
   adding one keyword keeps the rest working.
 - Terms are lowercase, and matched the same fuzzy way names are.
 

@@ -7,7 +7,7 @@ source: docs/functions/select-icon-set.md
 ---
 
 **Select icon set** picks which icons the file list draws, and there are
-companion commands for how big and what color. By default fman shows the ones
+companion commands for how big and what color. By default fman++ shows the ones
 your operating system supplies; the bundled **Material** set gives a distinct
 icon to each language, config file and well-known folder name instead.
 
@@ -28,7 +28,7 @@ the OS icons too, so it is useful even on **System**.
 **Set icon color** recolors the set — Green, Cyan, Blue, Amber, Red, Magenta,
 White or Grey, plus **Theme default**. Each icon keeps its own shading, so it is
 a recolor rather than a silhouette. It has no effect on **System**: those icons
-come from the OS, not from fman.
+come from the OS, not from fman++.
 
 ## The size follows the font zoom
 

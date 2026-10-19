@@ -30,7 +30,7 @@ a quick change.
 ## Editing
 
 The viewer opens read-only. Press **Ctrl+Shift+P** for its own palette — a
-fuzzy-search picker scoped to this viewer, separate from fman's global command
+fuzzy-search picker scoped to this viewer, separate from fman++'s global command
 palette.
 
 **In view mode:** *Exit viewer*, *Edit file*, *Reload from disk*,

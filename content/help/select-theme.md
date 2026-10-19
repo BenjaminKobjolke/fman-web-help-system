@@ -1,12 +1,12 @@
 ---
 title: Select theme
-summary: Switch fman's colors from the command palette, applied immediately and remembered.
+summary: Switch fman++'s colors from the command palette, applied immediately and remembered.
 order: 300
 parent: themes
 source: docs/functions/select-theme.md
 ---
 
-**Select theme** switches fman's color theme from the command palette and
+**Select theme** switches fman++'s color theme from the command palette and
 applies it immediately — no restart.
 
 ## Usage

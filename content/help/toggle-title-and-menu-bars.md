@@ -1,18 +1,18 @@
 ---
 title: Toggle title bar and menu bar
-summary: Take the window frame away for a borderless fman — and how to get it back once there is nothing left to click.
+summary: Take the window frame away for a borderless fman++ — and how to get it back once there is nothing left to click.
 order: 320
 parent: window-title
 source: docs/functions/window-bars.md
 ---
 
-Two commands turn off window chrome fman does not need. Each toggles on its own,
+Two commands turn off window chrome fman++ does not need. Each toggles on its own,
 applies immediately, and is remembered across restarts.
 
 - **Toggle title bar** — the OS title bar around the window. Every platform.
-- **Toggle menu bar** — fman's **Help** menu. **macOS only:** that menu is the
-  only one fman has, and it lives in the system menu bar at the top of the
-  screen rather than inside fman's window. On Windows and Linux fman has no menu
+- **Toggle menu bar** — fman++'s **Help** menu. **macOS only:** that menu is the
+  only one fman++ has, and it lives in the system menu bar at the top of the
+  screen rather than inside fman++'s window. On Windows and Linux fman++ has no menu
   at all, so the command is not registered and does not appear in the palette.
 
 ## Usage
@@ -63,14 +63,14 @@ Windows and Linux the palette is then only reachable by its key binding.
   showing it again restores the size the window had before the toggle.
 - **The state survives a restart without a flash.** Both bars are applied before
   the window is first shown, so a hidden bar is never briefly visible at startup.
-- **Hiding the title bar hides the window title with it.** fman still sets the
+- **Hiding the title bar hides the window title with it.** fman++ still sets the
   two-pane path string, nothing draws it, and it returns unchanged when the bar
   does.
 - **On macOS the menu bar is the system one**, at the top of the screen rather
-  than inside fman's window. **Toggle menu bar** hides the **Help** menu there.
+  than inside fman++'s window. **Toggle menu bar** hides the **Help** menu there.
   **Toggle title bar** works everywhere.
 - **The two bars never sit on top of each other.** On macOS the Help menu is in
-  the system bar, not below fman's title bar; on Windows and Linux there is no
+  the system bar, not below fman++'s title bar; on Windows and Linux there is no
   menu.
 - The state is saved as `title_bar_visible` and `menu_bar_visible` in
   `%APPDATA%/fman/Local/Settings.json`, beside `theme` and `window_opacity`. A

@@ -8,7 +8,7 @@ source: docs/PURCHASING.md
 There is nothing to buy. **Every installation of this fork is activated.**
 
 No license, no license key, no trial period, no registration, no feature gating,
-no "unregistered" nag screen. fman starts straight into the file manager, every
+no "unregistered" nag screen. fman++ starts straight into the file manager, every
 time.
 
 ## Nothing is contacted

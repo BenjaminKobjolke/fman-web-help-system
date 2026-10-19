@@ -5,9 +5,9 @@ order: 40
 source: docs/viewers/FILE_VIEWERS.md
 ---
 
-fman can show a file's contents **inside the active pane**, replacing the file
+fman++ can show a file's contents **inside the active pane**, replacing the file
 list until you close it — no external app launch, no waiting. You can peek at
-(and, for text, quickly edit) a file without leaving fman.
+(and, for text, quickly edit) a file without leaving fman++.
 
 ## Opening a viewer
 

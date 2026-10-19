@@ -5,8 +5,8 @@ order: 260
 source: docs/STATUSBAR.md
 ---
 
-The status bar is the strip along the bottom of fman's window. It shows one
-line of text at a time — the last message fman or a plugin had to say — and
+The status bar is the strip along the bottom of fman++'s window. It shows one
+line of text at a time — the last message fman++ or a plugin had to say — and
 nothing else.
 
 ## What it shows
@@ -49,7 +49,7 @@ find the row. They are hidden keywords, so it still reads **Toggle status bar**.
 
 ## Notes
 
-- **Messages are not lost, just not drawn.** fman and plugins keep posting them
+- **Messages are not lost, just not drawn.** fman++ and plugins keep posting them
   while the bar is hidden, and the latest one is there when you bring the bar
   back. Nothing errors, nothing queues up.
 - **Hiding it is not the same as hiding the title bar.** The status bar is an

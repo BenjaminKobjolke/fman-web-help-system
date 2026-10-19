@@ -32,14 +32,14 @@ Press `Ctrl+Shift+P` on Windows and Linux, or `Cmd+Shift+P` on macOS.
 
 These have no default key binding, so the palette is the way in:
 
-- **Select theme** — switch fman's colours, applied immediately.
+- **Select theme** — switch fman++'s colours, applied immediately.
 - **Set window opacity** — make the window see-through, or hand the choice back
   to the theme.
 - **Follow shortcut** — Windows only, and only listed while the cursor is on a
   `.lnk` file: goes to the shortcut's destination instead of launching it (also
   found by *lnk*, *link target*, *destination*). A folder is opened; for a file,
   its folder is opened with the cursor on it.
-- **Center window** — puts fman back in the middle of the screen it is already
+- **Center window** — puts fman++ back in the middle of the screen it is already
   on. You will also find it by typing *center window on screen*, *move window to
   center* or *middle*. It centres within the available screen area, so the
   taskbar does not push it off-centre, and on two monitors it stays on the
@@ -78,7 +78,7 @@ Add your own in `%APPDATA%/fman/Plugins/User/Settings/Command Keywords.json`
   typed.
 - **The keys are command names** — the same ones you use in your key bindings,
   viewer commands such as `video_mute` and `viewer_next_file` included.
-- **Your list replaces fman's** for any command you name there, so repeat the
+- **Your list replaces fman++'s** for any command you name there, so repeat the
   built-in terms you want to keep. Every other command is left untouched.
 - Terms are lowercase, and matched the same fuzzy way names are.
 

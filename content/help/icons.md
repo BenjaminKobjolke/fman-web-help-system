@@ -5,11 +5,11 @@ order: 220
 source: docs/ICONS.md
 ---
 
-By default fman shows the icons your operating system supplies — the Windows
+By default fman++ shows the icons your operating system supplies — the Windows
 shell, GTK on Linux, the Finder's on macOS. That is the **System** set: one grey
 page for every text-ish file, one folder for every folder.
 
-An **icon set** replaces them with a picture per file type. One ships with fman:
+An **icon set** replaces them with a picture per file type. One ships with fman++:
 
 - **System** — the default. The OS icons.
 - **Material** — the Material Icon Theme, the set VS Code users know: a distinct
@@ -133,7 +133,7 @@ My Icons/
 ```
 
 `manifest.json` is the VS Code file icon theme shape, reduced to the five keys
-fman reads. Every one is optional:
+fman++ reads. Every one is optional:
 
 | Key | What it does |
 |---|---|
@@ -152,7 +152,7 @@ suffix, longest first, so `foo.d.ts` takes the `d.ts` icon rather than the `ts`
 one.
 
 Lookups are case-insensitive and **every manifest key must be lower-case** —
-fman lower-cases the file name, not your keys.
+fman++ lower-cases the file name, not your keys.
 
 An icon name resolves to `svg/<name>.svg`. Naming an icon the set does not ship
 is not an error: that file falls back to the OS icon. Names may only contain

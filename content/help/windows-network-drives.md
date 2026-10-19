@@ -6,7 +6,7 @@ source: docs/WINDOWS_NETWORK_SUPPORT.md
 ---
 
 Opening a UNC path — `\\server\share`, or an RDP-redirected drive such as
-`\\tsclient\C\...` — keeps fman responsive, and fills the listing in far fewer
+`\\tsclient\C\...` — keeps fman++ responsive, and fills the listing in far fewer
 network round trips than a plain file-by-file walk would.
 
 ## What to expect on a share

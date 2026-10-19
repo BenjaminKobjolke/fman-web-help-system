@@ -1,16 +1,16 @@
 ---
 title: View file
-summary: Open the file under the cursor in fman's own viewer instead of an external application.
+summary: Open the file under the cursor in fman++'s own viewer instead of an external application.
 order: 310
 parent: file-viewers
 source: docs/functions/view-file.md
 ---
 
-**View file** opens fman's internal viewer on the file under the cursor,
+**View file** opens fman++'s internal viewer on the file under the cursor,
 showing its contents inside the active pane instead of launching an external
 application.
 
-fman picks the viewer from the file:
+fman++ picks the viewer from the file:
 
 - **Images** (`.png`, `.jpg`, `.jpeg`, `.gif`, `.bmp`, `.webp`, `.ico`, `.svg`)
   open the image viewer.

@@ -1,12 +1,12 @@
 ---
 title: Open or view
-summary: Make Enter open files in fman's internal viewer without losing folder navigation.
+summary: Make Enter open files in fman++'s internal viewer without losing folder navigation.
 order: 130
 parent: file-viewers
 source: docs/functions/open-or-view.md
 ---
 
-**Open or view** opens fman's internal viewer on the file under the cursor, the
+**Open or view** opens fman++'s internal viewer on the file under the cursor, the
 same as **View file** — but falls back to the normal **open** action whenever the
 internal viewer cannot handle the target, instead of showing an alert.
 

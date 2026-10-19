@@ -5,7 +5,7 @@ order: 150
 source: docs/ARCHIVES.md
 ---
 
-fman browses and edits `.zip`, `.7z` and `.tar` archives as if they were
+fman++ browses and edits `.zip`, `.7z` and `.tar` archives as if they were
 folders. You can step into one, look around, and copy files in or out the same
 way you would with any directory.
 
@@ -22,6 +22,6 @@ Long-running operations show a progress bar that fills as the work proceeds.
 
 Canceling an operation stops it immediately. While updating an existing archive
 — packing, deleting or renaming inside it — the work happens in a temporary file
-next to the archive, which fman deletes after a canceled run, so a canceled
+next to the archive, which fman++ deletes after a canceled run, so a canceled
 operation does not leave a stray file behind. Your original archive is left as it
 was.

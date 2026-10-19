@@ -1,6 +1,6 @@
 ---
 title: Fonts
-summary: Which typeface fman draws its UI in — what ships with it, what a theme may ask for, and how to add your own.
+summary: Which typeface fman++ draws its UI in — what ships with it, what a theme may ask for, and how to add your own.
 order: 200
 source: docs/FONTS.md
 ---
@@ -10,7 +10,7 @@ This is the *family*, not the size. How big the file list's text is belongs to
 
 ## Bundled families
 
-fman ships eight families, so a theme can ask for a look without depending on
+fman++ ships eight families, so a theme can ask for a look without depending on
 what your machine happens to have installed.
 
 | Family | Kind | Used by | Licence |
@@ -27,7 +27,7 @@ what your machine happens to have installed.
 Every family is offered under every theme — the pairing above is only what each
 theme asks for by default. Monokai, Dark and Light name no font on purpose.
 
-Roboto and Open Sans are the families fman has always drawn in, and they are the
+Roboto and Open Sans are the families fman++ has always drawn in, and they are the
 only two that are not on every platform:
 
 | Build | Ships |
@@ -55,9 +55,9 @@ The list is long, because it really is every installed family — type a few
 letters instead of scrolling. The palette matches initials too, so `jbm` finds
 *JetBrains Mono*.
 
-### A family fman cannot find is not an error
+### A family fman++ cannot find is not an error
 
-Qt quietly falls back to its own font. fman cannot tell a typo from a family you
+Qt quietly falls back to its own font. fman++ cannot tell a typo from a family you
 happen not to have installed, so it never refuses one. If a pick appears to do
 nothing, the family is not installed under that exact name.
 
@@ -74,7 +74,7 @@ A theme may name a font family beside its colors:
 
 The value is a family **name**, not a file: anything Qt can see, bundled or
 installed — `Consolas`, `Menlo`, `DejaVu Sans Mono`. Leaving the key out means
-"don't touch it", so switching theme always sets the family, fman's default
+"don't touch it", so switching theme always sets the family, fman++'s default
 included.
 
 Your own choice wins over the theme's and survives a theme switch, until you
@@ -84,7 +84,7 @@ pick **Theme default** again:
 |---|---|---|
 | 1 | Your **Select font** choice | `font` in `%APPDATA%/fman/Local/Settings.json` |
 | 2 | The active theme's `"font"` | the theme's JSON file |
-| 3 | fman's default for the platform | built in |
+| 3 | fman++'s default for the platform | built in |
 
 ### The platform defaults
 

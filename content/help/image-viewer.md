@@ -13,7 +13,7 @@ list — the text viewer's counterpart for image files, so you can look at a
 ## Usage
 
 1. Put the cursor on an image and run **View file** from the command palette —
-   the same command as for text; fman picks the viewer by file type. (**View
+   the same command as for text; fman++ picks the viewer by file type. (**View
    file in other pane** opens it in the opposite pane instead.)
 2. The image fills the pane, scaled to fit by default.
 3. **Escape**, **Enter** or **Backspace** closes the viewer, cursor back on the

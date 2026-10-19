@@ -13,7 +13,7 @@ columns in the file panes.
 1. Open the command palette and search "column".
 2. Run **Toggle size column** to hide the Size column; run it again to bring it
    back. Same for **Toggle modified column**.
-3. Both panes always change together, and the choice survives restarting fman.
+3. Both panes always change together, and the choice survives restarting fman++.
 
 ## Commands
 

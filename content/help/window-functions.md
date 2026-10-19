@@ -1,11 +1,11 @@
 ---
 title: Window functions
-summary: Everything that changes the fman window itself — the bars, how see-through it is, and where it sits on screen.
+summary: Everything that changes the fman++ window itself — the bars, how see-through it is, and where it sits on screen.
 order: 330
 source: docs/WINDOW_FUNCTIONS.md
 ---
 
-These are the commands that change fman's **window itself** rather than what is
+These are the commands that change fman++'s **window itself** rather than what is
 inside it: how much of it you see, how solid it is, and where it sits on the
 screen.
 
@@ -16,7 +16,7 @@ remembered across restarts.
 | Command | What it does |
 |---|---|
 | `toggle_title_bar` | Hides the OS title bar, and the window frame with it |
-| `toggle_menu_bar` | Hides fman's **Help** menu — **macOS only** |
+| `toggle_menu_bar` | Hides fman++'s **Help** menu — **macOS only** |
 | `toggle_status_bar` | Hides the message strip along the bottom |
 | `set_window_opacity` | Makes the whole window see-through |
 | `center_window` | Puts the window back in the middle of its screen |
@@ -41,7 +41,7 @@ Two things worth knowing before hiding the title bar:
 ## How solid the window is
 
 **Set window opacity** offers **Theme default**, then `100%` down to `70%`. The
-whole window fades, text included — fman does not do background-only
+whole window fades, text included — fman++ does not do background-only
 translucency, and dialogs are separate windows that stay opaque.
 
 **Theme default** is the way back to letting the theme decide. It is not the
@@ -52,7 +52,7 @@ choice wins over it and survives a theme switch.
 ## Dimming behind dialogs
 
 While a modal dialog is open — the command palette, prompts, alerts, the
-file-open dialog — fman lays a **scrim** over the main window, so the dialog
+file-open dialog — fman++ lays a **scrim** over the main window, so the dialog
 reads against the file list instead of competing with it.
 
 This works precisely *because* opacity does not reach dialogs: they are
@@ -68,7 +68,7 @@ full contrast.
 
 ## Center window
 
-**Center window** puts fman back in the middle of the screen it is already on.
+**Center window** puts fman++ back in the middle of the screen it is already on.
 
 - Centered within the screen's *available* area, so a taskbar does not push the
   window off-centre.

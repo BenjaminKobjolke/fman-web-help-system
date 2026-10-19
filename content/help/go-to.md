@@ -23,15 +23,15 @@ Desktop, AppData, `%TEMP%`.
 ## Where the suggestions come from
 
 Suggestions are the directories you have already visited, ranked by how often —
-fman counts every path change in `Visited Paths.json`. Your home directory,
+fman++ counts every path change in `Visited Paths.json`. Your home directory,
 Desktop, Documents and Downloads are always in the list too, even if you have
-never opened them in fman.
+never opened them in fman++.
 
-From three characters on, fman also asks the OS search index — Windows Search,
+From three characters on, fman++ also asks the OS search index — Windows Search,
 Spotlight on macOS — for up to ten more folders whose name starts with your
-query, so a directory you have never opened in fman can still show up.
+query, so a directory you have never opened in fman++ can still show up.
 
-If a directory you pick has since been deleted, fman drops it from the history
+If a directory you pick has since been deleted, fman++ drops it from the history
 instead of showing an error, so it stops being suggested.
 
 ## Typing paths
@@ -99,7 +99,7 @@ Bind any of them like any other command:
   pruned.
 - **Desktop, Documents and Downloads are read from the registry**, not assumed
   to sit under `~`. OneDrive's "back up your folders" moves all three into
-  `~/OneDrive`. Off Windows, and if the value is missing, fman falls back to
+  `~/OneDrive`. Off Windows, and if the value is missing, fman++ falls back to
   `~/Desktop` and friends.
 - **A destination that does not exist is hidden, not broken.** A machine without
   a Downloads folder simply has no **Go to downloads** row, so the palette never

@@ -1,12 +1,12 @@
 ---
 title: Window opacity
-summary: Make the fman window see-through, at a level that survives theme switches.
+summary: Make the fman++ window see-through, at a level that survives theme switches.
 order: 90
 parent: themes
 source: docs/functions/window-opacity.md
 ---
 
-fman's window can be made see-through from the command palette. The change
+fman++'s window can be made see-through from the command palette. The change
 applies immediately and is remembered across restarts.
 
 ## Usage
@@ -29,7 +29,7 @@ palette too. It has no default key binding; bind one like any other command:
 
 ## Notes
 
-- **The whole window fades, text included.** fman does not do background-only
+- **The whole window fades, text included.** fman++ does not do background-only
   translucency.
 - **Only the main window fades.** The command palette, prompts, alerts and
   progress dialogs are separate windows and stay fully opaque, so whatever you
@@ -49,6 +49,6 @@ palette too. It has no default key binding; bind one like any other command:
 
 The fade lives in a Windows window style flag. A window manager that overwrites
 that style instead of adding to it — a common line in AutoHotkey maximize or
-resize scripts — drops the flag and the window turns opaque again. fman does not
+resize scripts — drops the flag and the window turns opaque again. fman++ does not
 notice, so it still reports the old value. Pick the value again from the palette
 to bring the fade back, or fix the script.

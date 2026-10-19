@@ -5,7 +5,7 @@ order: 80
 source: docs/THEMES.md
 ---
 
-fman ships eleven color themes and can load your own. Switching applies
+fman++ ships eleven color themes and can load your own. Switching applies
 immediately and is remembered across restarts.
 
 ## Switching theme
@@ -16,7 +16,7 @@ immediately and is remembered across restarts.
 3. Pick one. The panes, header, status bar, location bar, dialogs and the
    palette itself recolor right away.
 
-Bundled: **Monokai** (the default, fman's classic look), **Dark**, **Light**,
+Bundled: **Monokai** (the default, fman++'s classic look), **Dark**, **Light**,
 **Solarized Dark**, **Solarized Light**, **Nord**, **Dracula**, **Gruvbox
 Dark**, **High Contrast**, **WezTerm**, **Matrix**.
 
@@ -55,7 +55,7 @@ A theme is **one JSON file** listing only the colors it changes:
   `~/.config/fman/Themes` on Linux. A file there shadows a bundled theme of the
   same name.
 - Unknown color names and invalid values are ignored, not fatal — a typo costs
-  you that one color, it never stops fman from starting.
+  you that one color, it never stops fman++ from starting.
 - Values are any color Qt understands: `#rgb`, `#rrggbb`, `white`. A value
   containing `;`, `{` or `}` is rejected.
 
@@ -95,7 +95,7 @@ looks wrong. The derived names are `base_bg`, `readonly_fg`, `input_border`,
 
 ### Transparency
 
-A theme may also make fman's window see-through. This is the one thing in a
+A theme may also make fman++'s window see-through. This is the one thing in a
 theme file that is not a color, so it sits beside `colors`, not inside it:
 
 ```json
@@ -105,7 +105,7 @@ theme file that is not a color, so it sits beside `colors`, not inside it:
 }
 ```
 
-- `1.0` is fully opaque, `0.3` the most transparent fman allows. A value outside
+- `1.0` is fully opaque, `0.3` the most transparent fman++ allows. A value outside
   that range, or one that is not a number, is ignored.
 - The whole window fades, text included. Dialogs are separate windows and stay
   opaque.
@@ -131,7 +131,7 @@ in it, write the color's name with a `$`:
 .statusbar { color: $pane_fg; }
 ```
 
-Put **only what you change** in that file. Copying fman's whole base stylesheet
+Put **only what you change** in that file. Copying fman++'s whole base stylesheet
 into it copies its color values too, and those then override every theme — the
 classic symptom is a command palette that stays light-on-dark after you switch
 to a light theme.

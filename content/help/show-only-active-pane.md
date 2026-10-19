@@ -5,7 +5,7 @@ order: 120
 source: docs/functions/show-only-active-pane.md
 ---
 
-You can collapse fman's dual-pane layout down to just the active pane, so it
+You can collapse fman++'s dual-pane layout down to just the active pane, so it
 fills the whole window.
 
 ## Usage
@@ -35,6 +35,6 @@ Neither has a default key binding. Bind them like any other command:
 
 ## Notes
 
-- The state is not remembered: fman always starts with all panes visible.
+- The state is not remembered: fman++ always starts with all panes visible.
 - With only a single pane open, **Show only active pane** does not appear —
   there is nothing to collapse.

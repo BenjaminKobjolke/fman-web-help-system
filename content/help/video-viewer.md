@@ -13,7 +13,7 @@ keyboard-controlled, no on-screen sliders.
 ## Usage
 
 1. Put the cursor on a video and run **View file** from the command palette —
-   the same command as for text and images; fman picks the viewer by file type.
+   the same command as for text and images; fman++ picks the viewer by file type.
    (**View file in other pane** opens it in the opposite pane instead.)
 2. The video fills the pane and starts playing immediately. A `current / total`
    time readout — `0:12 / 3:45` — sits below it.
@@ -84,10 +84,10 @@ Video is decoded by libmpv, which brings its own codecs — `mp4`, `mkv`, `webm`
 installed on the system.
 
 - **On Windows there is nothing to set up.** The first time you open a video,
-  fman downloads the required library once into your user data directory, with a
+  fman++ downloads the required library once into your user data directory, with a
   real progress dialog you can cancel. Cancel it, or let it fail, and you get an
   alert instead of the viewer — nothing else breaks.
 - **On macOS and Linux, install mpv yourself:** `brew install mpv` or
-  `apt install libmpv2`. fman finds it automatically.
+  `apt install libmpv2`. fman++ finds it automatically.
 - If the library is missing, only the video viewer is affected. Browsing files
   and every other command keep working.

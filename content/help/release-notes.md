@@ -1,11 +1,11 @@
 ---
 title: Release notes
-summary: Browse what changed in each fman release without leaving the app.
+summary: Browse what changed in each fman++ release without leaving the app.
 order: 140
 source: docs/views/RELEASE_NOTES.md
 ---
 
-You can read fman's release notes inside the app, newest release first, without
+You can read fman++'s release notes inside the app, newest release first, without
 opening a browser.
 
 ## Usage

@@ -1,6 +1,6 @@
 ---
 title: Changing key bindings from the palette
-summary: Add or remove a shortcut for any command from inside fman, without editing a JSON file.
+summary: Add or remove a shortcut for any command from inside fman++, without editing a JSON file.
 order: 190
 parent: command-palette
 source: docs/COMMAND_PALETTE_KEYBINDINGS.md
@@ -8,7 +8,7 @@ source: docs/COMMAND_PALETTE_KEYBINDINGS.md
 
 You don't have to edit a JSON file to rebind a key. Every command in the
 command palette can be given a shortcut — or have one taken away — from inside
-fman, in the same **Shift+Enter** menu that edits a command's keywords and
+fman++, in the same **Shift+Enter** menu that edits a command's keywords and
 name.
 
 ## The three screens
@@ -31,7 +31,7 @@ F5  (default)
 ```
 
 *(yours)* is a binding from your own file — yours to delete. *(default)* is one
-fman ships; removing it works differently (below).
+fman++ ships; removing it works differently (below).
 
 ## Adding a shortcut
 
@@ -39,13 +39,13 @@ fman ships; removing it works differently (below).
 combination — you never type the string, so there is no way to misspell
 `PgDown` or `Num+Down`. Press Escape to back out.
 
-If the combination already runs something else, fman names that command and
+If the combination already runs something else, fman++ names that command and
 asks whether to take the key over:
 
 > `F5` currently runs `copy`. Bind it to "Pack" instead?
 
 Answering yes is honest about what happens: your binding is written to the
-**front** of your own file, and fman dispatches the first match it finds, so
+**front** of your own file, and fman++ dispatches the first match it finds, so
 yours wins and `copy` loses `F5`. Answering no changes nothing.
 
 Changes take effect immediately — no restart, and no `reload_plugins`.
@@ -55,7 +55,7 @@ Changes take effect immediately — no restart, and no `reload_plugins`.
 Pick a shortcut, then *Remove*. What that means depends on where it came from:
 
 - **One of yours** is deleted from your file outright.
-- **A shipped default** cannot be deleted — fman never writes to the files it
+- **A shipped default** cannot be deleted — fman++ never writes to the files it
   ships. It is *shadowed* instead: removing `F5` writes a binding of `F5` to
   the `do_nothing` command, which is a real command that does exactly that. The
   key stops working, the palette stops advertising it, and you can see why by
@@ -87,7 +87,7 @@ beside it in `Viewer Key Bindings (Windows).json`. On macOS and Linux the
 folder and the `(Mac)` / `(Linux)` suffix change; nothing else does.
 
 The editor only ever writes that one file, so everything it does is reversible
-by deleting a line from it. After each write fman reloads its settings, which
+by deleting a line from it. After each write fman++ reloads its settings, which
 is what makes a new binding live without a restart.
 
 ## Two things it can't do
@@ -95,7 +95,7 @@ is what makes a new binding live without a restart.
 - **Bind Escape.** Escape cancels the capture dialog, so it can never be
   recorded. Add it by hand if you really want it.
 - **Spot a differently-spelled duplicate.** Shortcuts are compared as plain
-  strings throughout fman, so a hand-written `Shift+Ctrl+P` and a captured
+  strings throughout fman++, so a hand-written `Shift+Ctrl+P` and a captured
   `Ctrl+Shift+P` look like two unrelated keys — the conflict prompt won't fire
   and both entries stay in the file. The dialog always writes one canonical
   modifier order, so this only bites files you edited yourself.

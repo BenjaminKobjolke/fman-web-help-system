@@ -26,7 +26,7 @@ Only one operation runs at a time, including destination selection and cleanup.
 Starting another reports **“A Robocopy operation is already active.”**
 
 **Cancel** stops the running `robocopy.exe`; whatever was already copied or
-moved stays as it is. If fman itself crashes during a transfer, `robocopy.exe`
+moved stays as it is. If fman++ itself crashes during a transfer, `robocopy.exe`
 keeps running.
 
 ## What to expect

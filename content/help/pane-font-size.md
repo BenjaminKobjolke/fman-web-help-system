@@ -14,7 +14,7 @@ theme's original size.
    smaller. Both panes always change together.
 2. Search "font size" in the command palette for the same two actions, plus
    **Reset font size**, which is palette-only.
-3. The chosen size is remembered and survives restarting fman.
+3. The chosen size is remembered and survives restarting fman++.
 
 This zooms only the two file-list panes. The text viewer and image viewer have
 their own zoom, which reuses these same shortcuts while a viewer is open.

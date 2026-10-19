@@ -5,9 +5,9 @@ order: 370
 source: docs/functions/elevation.md
 ---
 
-fman runs without administrator rights. When a file operation targets a folder
-that needs them — `C:\Program Files\…`, `C:\Windows\…` — fman hands that one
-operation to Windows, which shows the usual UAC prompt and carries it out. fman
+fman++ runs without administrator rights. When a file operation targets a folder
+that needs them — `C:\Program Files\…`, `C:\Windows\…` — fman++ hands that one
+operation to Windows, which shows the usual UAC prompt and carries it out. fman++
 itself stays unelevated: programs you start from it, drag and drop and network
 drives all keep working as before.
 
@@ -25,17 +25,17 @@ one UAC prompt per operation:
 | Copy (`F5`), paste, drag and drop | UAC prompt, Windows' own copy dialog |
 | Move (`F6`), cut and paste | UAC prompt, Windows' own move dialog |
 | Rename (`F2`) | UAC prompt |
-| Delete, Delete permanently | UAC prompt (after fman's own confirmation) |
+| Delete, Delete permanently | UAC prompt (after fman++'s own confirmation) |
 
 Declining the prompt cancels the operation. New file and New folder then say
 *"You do not have enough permissions to create …"*; the others do nothing.
 
 ## Notes
 
-- **Windows' dialogs, not fman's.** An elevated copy or move is done by Windows,
+- **Windows' dialogs, not fman++'s.** An elevated copy or move is done by Windows,
   exactly as in Explorer, so progress, "replace or skip" and folder-merge
   questions come from Windows for that operation. Everywhere else you still get
-  fman's own dialogs.
+  fman++'s own dialogs.
 - **One prompt for the whole selection.** Copying 50 files asks once.
 - **Moving out counts too.** Moving a file *out of* a protected folder needs
   rights there, because the original is removed, so it is elevated as well.

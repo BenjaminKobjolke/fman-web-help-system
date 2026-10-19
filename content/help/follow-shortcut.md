@@ -45,5 +45,5 @@ There is no default key binding. To add one, put this in your
   launches them.
 - The shortcut's arguments and working directory are ignored; only its target
   matters.
-- Symbolic links and junctions are not shortcuts: fman already follows those
+- Symbolic links and junctions are not shortcuts: fman++ already follows those
   when you open them.

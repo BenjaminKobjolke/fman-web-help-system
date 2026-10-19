@@ -5,13 +5,13 @@ order: 270
 source: docs/TUTORIAL.md
 ---
 
-The tutorial is fman's onboarding tour: a small speech bubble that walks you
+The tutorial is fman++'s onboarding tour: a small speech bubble that walks you
 through GoTo, the command palette and the two panes.
 
 It starts by itself on the first run, in the left pane. Afterwards you can start
 it again from the command palette (`Ctrl+Shift+P` → **Tutorial**), and on macOS
 from the **Help** menu. If you abort the tour on a first run and then reach for
-the mouse, fman offers it once more.
+the mouse, fman++ offers it once more.
 
 A second tour, **Cleanup guide**, uses the same bubble to walk you through
 tidying a folder.
@@ -46,7 +46,7 @@ Each step decides for itself whether the bubble takes focus:
 | Press a key in the pane — "press *Tab*", "press *F5*", "type its name" | the directory pane |
 | Acknowledge and move on — "Yes"/"No", "Continue", "Close" | the bubble's buttons |
 
-While a bubble holds the keyboard, fman's own shortcuts do not fire and the
+While a bubble holds the keyboard, fman++'s own shortcuts do not fire and the
 pane's cursor row loses its highlight. Both come back when the step closes and
 focus is handed back to the pane, so the next step's instructions land where you
 expect.

@@ -1,11 +1,11 @@
 ---
 title: Plugins
-summary: Install, list, remove and reload plugins — and what fman tells you when two of them collide.
+summary: Install, list, remove and reload plugins — and what fman++ tells you when two of them collide.
 order: 240
 source: docs/PLUGINS.md
 ---
 
-fman is plugins all the way down. The file list, archive support and most
+fman++ is plugins all the way down. The file list, archive support and most
 commands in the palette live in the shipped **Core** plugin. The shipped
 **Robocopy** plugin adds Windows-only copy and move commands. Both load through
 the same mechanism your own plugins use.
@@ -48,8 +48,8 @@ see the change — no restart.
 - **Pane locations are preserved** across the reload. A pane sitting inside a
   file system that gets reloaded would otherwise lose its path.
 - **Core is not reloaded.** Only third-party and user plugins. To pick up a
-  change in Core, restart fman.
-- **fman itself is not reloaded** either. When you are working on fman's own
+  change in Core, restart fman++.
+- **fman++ itself is not reloaded** either. When you are working on fman++'s own
   source, **Reload plugins** runs the version that was loaded at startup.
 
 ## Two plugins, one package name
@@ -72,7 +72,7 @@ its *package* name are two different things:
 Two differently-named plugin folders, one package name — typically the same
 plugin installed twice: once from the plugin list, once as a git clone you edit.
 
-fman says so on load, rather than letting you wonder why your edits do nothing:
+fman++ says so on load, rather than letting you wonder why your edits do nothing:
 
 ```
 Two plugins contain a package named 'sync_selected_files_to_other_pane_for_windows':
@@ -84,9 +84,9 @@ Only the second one is used. Please remove one of them.
 ```
 
 It is a warning, not a refusal: loading continues and the second copy wins. Fix
-it by deleting one of the two plugin directories, then restarting fman or
+it by deleting one of the two plugin directories, then restarting fman++ or
 running **Reload plugins**.
 
-The same alert appears if a plugin's package name collides with a module fman
+The same alert appears if a plugin's package name collides with a module fman++
 has already imported — a package called `json` or `core`, say. The two paths in
 the message tell the two cases apart.
