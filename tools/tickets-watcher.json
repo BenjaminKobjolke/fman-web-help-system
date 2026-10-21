@@ -6,6 +6,7 @@
     "generate.bat",
     "generate_help.bat",
     "generate_keybindings.bat",
+    "graphify_update.bat",
     "run_tests.bat"
   ],
   "analysis_commands": [
