@@ -14,3 +14,10 @@
 /docs/
 /.claude/
 /claude-plans/
+/CLAUDE.md
+/CODING_RULES.md
+/IMPLEMENTATION_FLOW.md
+/coding-rules.json
+/tools/coding_rules_delegate.sh
+/tools/coding_rules_delegate.ps1
+/tools/graphify_update.bat
