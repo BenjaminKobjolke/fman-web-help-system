@@ -1,0 +1,44 @@
+{
+  "log_level": "all",
+  "max_lines_per_file": {
+    "enabled": true,
+    "warning": 300,
+    "error": 500,
+    "exclude_patterns": ["vendor/**", "node_modules/**", ".git/**"]
+  },
+  "pmd_duplicates": {
+    "enabled": true,
+    "minimum_tokens": 100,
+    "exclude_patterns": {
+      "php": ["vendor/**", "node_modules/**", ".git/**"]
+    }
+  },
+  "pmd_similar_code": {
+    "enabled": false,
+    "minimum_tokens": 100,
+    "ignore_identifiers": true,
+    "ignore_literals": true,
+    "ignore_annotations": false,
+    "exclude_patterns": {
+      "php": ["vendor/**", "node_modules/**", ".git/**"]
+    }
+  },
+  "phpstan_analyze": {
+    "enabled": true,
+    "level": 5,
+    "bootstrap_files": ["vendor/autoload.php"],
+    "exclude_patterns": ["vendor/**", "node_modules/**", ".git/**"]
+  },
+  "php_cs_fixer": {
+    "enabled": true,
+    "rules": "@PSR12",
+    "exclude_patterns": ["vendor/**", "node_modules/**", ".git/**"]
+  },
+  "intelephense_analyze": {
+    "enabled": true,
+    "min_severity": "warning",
+    "timeout": 5,
+    "exclude_patterns": ["vendor/**", "node_modules/**", ".git/**"],
+    "ignore_unused_underscore": true
+  }
+}

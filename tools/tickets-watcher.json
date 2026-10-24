@@ -3,6 +3,10 @@
     "TICKETS_WATCHER_COMMANDS.md": 2
   },
   "command_check_scripts": [
+    "analyze_changed_and_new_files.bat",
+    "analyze_code.bat",
+    "analyze_code_config.bat",
+    "analyze_code_config.example.bat",
     "generate.bat",
     "generate_help.bat",
     "generate_keybindings.bat",
@@ -10,10 +14,18 @@
     "run_tests.bat"
   ],
   "analysis_commands": [
+    "tools\\analyze_changed_and_new_files.bat",
     "tools\\run_tests.bat"
   ],
+  "analysis_command_kinds": {
+    "tools\\analyze_changed_and_new_files.bat": "code_quality"
+  },
   "analysis_commands_seen": {
     "scripts": [
+      "analyze_changed_and_new_files.bat",
+      "analyze_code.bat",
+      "analyze_code_config.bat",
+      "analyze_code_config.example.bat",
       "generate.bat",
       "generate_help.bat",
       "generate_keybindings.bat",
@@ -22,6 +34,9 @@
     "tests": true
   },
   "analysis_command_states": {
+    "tools\\analyze_changed_and_new_files.bat": {
+      "code_quality": "green"
+    },
     "tools\\run_tests.bat": {
       "test": "green"
     }

@@ -28,3 +28,18 @@ they are intentionally referenced, not imported.
 
 # graphify
 This project's code directory is src/.
+
+## Code Analysis
+
+After **any** implementation, finished plan, or bug fix, run the changed-files analyzer and fix
+every reported issue that applies to your changes before considering the work complete:
+
+```bash
+powershell -Command "cd 'D:\\wamp64\\www\\fman-web-help-system'; cmd /c '.\\tools\\analyze_changed_and_new_files.bat'"
+```
+
+Use `tools/analyze_code.bat` for a whole-project audit, an explicit analyzer request, before a
+release or merge, after shared-code refactors, or when the working tree is clean. Reports are
+per-rule CSV files in `code_analysis_results/`; a missing CSV means that rule found nothing.
+Rerun the changed-files analyzer after fixes until clean. Its cache invalidates when source files
+change.
