@@ -12,8 +12,8 @@ final class BasePathTest extends TestCase
     public function testStripsPublicUnderASubdirectoryMount(): void
     {
         self::assertSame(
-            '/fast-file-manager/help/',
-            BasePath::fromScriptName('/fast-file-manager/help/public/index.php')
+            '/fman-plus-plus/help/',
+            BasePath::fromScriptName('/fman-plus-plus/help/public/index.php')
         );
     }
 
@@ -30,10 +30,10 @@ final class BasePathTest extends TestCase
     public function testDropsHostPrefixNotPresentInTheRequestUrl(): void
     {
         self::assertSame(
-            '/fast-file-manager/help/',
+            '/fman-plus-plus/help/',
             BasePath::fromScriptName(
-                '/public/sites/fast-file-manager/help/public/index.php',
-                '/fast-file-manager/help/window-title'
+                '/public/sites/fman-plus-plus/help/public/index.php',
+                '/fman-plus-plus/help/window-title'
             )
         );
     }
@@ -41,10 +41,10 @@ final class BasePathTest extends TestCase
     public function testKeepsTheFullPrefixWhenTheRequestUsesIt(): void
     {
         self::assertSame(
-            '/public/sites/fast-file-manager/help/',
+            '/public/sites/fman-plus-plus/help/',
             BasePath::fromScriptName(
-                '/public/sites/fast-file-manager/help/public/index.php',
-                '/public/sites/fast-file-manager/help/'
+                '/public/sites/fman-plus-plus/help/public/index.php',
+                '/public/sites/fman-plus-plus/help/'
             )
         );
     }
@@ -53,13 +53,13 @@ final class BasePathTest extends TestCase
     {
         self::assertSame(
             'window-title',
-            BasePath::route('/fast-file-manager/help/window-title', '/fast-file-manager/help/')
+            BasePath::route('/fman-plus-plus/help/window-title', '/fman-plus-plus/help/')
         );
     }
 
     public function testRouteIsEmptyForTheStartPage(): void
     {
-        self::assertSame('', BasePath::route('/fast-file-manager/help/', '/fast-file-manager/help/'));
+        self::assertSame('', BasePath::route('/fman-plus-plus/help/', '/fman-plus-plus/help/'));
     }
 
     public function testRouteIgnoresTheQueryString(): void

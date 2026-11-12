@@ -39,8 +39,8 @@ final class BasePath
 
     /**
      * Some hosts expose the site under a shorter URL than SCRIPT_NAME suggests:
-     * "/public/sites/fast-file-manager/help/public/index.php" is served as
-     * "/fast-file-manager/help/". Drop leading segments until what is left is a
+     * "/public/sites/fman-plus-plus/help/public/index.php" is served as
+     * "/fman-plus-plus/help/". Drop leading segments until what is left is a
      * real prefix of the requested path; the longest match wins.
      */
     private static function trimToRequest(string $dir, string $requestUri): string

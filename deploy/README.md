@@ -25,8 +25,9 @@ Regenerates the keybindings data from fman's source, then uploads the site to FT
    Set `FTP_HOST`, `FTP_USER`, `FTP_PASS`. Keep:
    - `DIRECTION = up`
    - `LOCAL_DIRECTORY = D:\wamp64\www\fman-web-help-system` (project root)
-   - `FTP_DIRECTORY = /public/sites/fast-file-manager/help` (remote target)
+   - `FTP_DIRECTORY = /public/sites/fman-plus-plus/help` (remote target)
    - `HASH_CACHE_FILE = ...\deploy\.ftp_sync_cache.db`
+   - The hash cache belongs to one remote folder. When `FTP_DIRECTORY` changes, delete `deploy\.ftp_sync_cache.db` so the next upload sends every file.
 
 3. **App config** — the generator reads fman source paths from `config/app.php`:
    ```

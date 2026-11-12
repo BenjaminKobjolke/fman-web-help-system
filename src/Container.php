@@ -98,7 +98,7 @@ final class Container
         return $this->help;
     }
 
-    /** URL prefix the site is mounted under, e.g. "/" or "/fast-file-manager/help/". */
+    /** URL prefix the site is mounted under, e.g. "/" or "/fman-plus-plus/help/". */
     public function basePath(): string
     {
         return BasePath::fromScriptName(
