@@ -35,6 +35,11 @@ Neither has a default key binding. Bind them like any other command:
 
 ## Notes
 
-- The state is not remembered: fman++ always starts with all panes visible.
+- Pane visibility is saved in `Session.json` and restored the next time fman++
+  starts. Start with `fman --single-pane` to hide all but the first pane when
+  all panes are visible; an existing session with hidden panes keeps its saved
+  visibility. Hidden panes keep their folders and can be restored with **Show
+  all panes**.
 - With only a single pane open, **Show only active pane** does not appear —
   there is nothing to collapse.
+- **Add pane** and **Remove pane** are hidden until all panes are visible.

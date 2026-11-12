@@ -30,8 +30,12 @@ The viewer has its own scale zoom, independent of the text viewer's font zoom
 and the file panes' zoom.
 
 - Whatever keys **Increase font size** / **Decrease font size** are bound to
-  (`Alt+Up` / `Alt+Down` by default) also zoom the image — the same shortcut the
-  text viewer reuses, so there is nothing extra to learn.
+  (`Alt+Up` / `Alt+Down` by default, plus `Ctrl+=` / `Ctrl++` and `Ctrl+-` on
+  Windows/Linux or matching `Cmd` shortcuts on Mac) also zoom the image — the
+  same shortcuts the text viewer reuses.
+- Hold **Ctrl** and turn the mouse wheel to zoom one step per vertical notch;
+  on Mac, hold **Cmd** instead. Partial touchpad deltas accumulate. Without
+  Ctrl/Cmd, the wheel scrolls normally.
 - The viewer's palette (`Ctrl+Shift+P`) has **Zoom in** and **Zoom out**, plus
   **Fit to window**, **Actual size (100%)** and **Reset zoom**. Fit to window
   and Reset zoom both return to fit mode.

@@ -18,8 +18,8 @@ palette or by editing the JSON file by hand.
 ## Editing keywords from the palette
 
 Open the palette (`Ctrl+Shift+P`), find the row you want, then press
-**Shift+Enter** instead of Enter. Enter runs a command; Shift+Enter opens a
-menu about it.
+**Shift+Enter** (or click **⋯** on the selected or hovered row) instead of
+Enter. Enter runs a command; Shift+Enter opens the *More actions* menu.
 
 Three screens, each a normal fuzzy-searchable list:
 
@@ -39,7 +39,8 @@ Notes:
 - Changes apply on the next keystroke. No restart.
 - The viewer palettes have the same Shift+Enter, for the viewer commands
   (`video_mute`, `viewer_next_file`, …). A viewer entry that ships no command
-  name has nothing to store keywords under and says so in the status bar.
+  name has nothing to store keywords under and says so in the status bar. The
+  selected or hovered row's **⋯** button opens the same *More actions* menu.
 
 ## Renaming a command
 

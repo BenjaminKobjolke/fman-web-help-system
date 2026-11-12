@@ -9,6 +9,9 @@ By default fman++ shows the icons your operating system supplies — the Windows
 shell, GTK on Linux, the Finder's on macOS. That is the **System** set: one grey
 page for every text-ish file, one folder for every folder.
 
+On Windows, operating-system icons are fetched in the background as files
+load, so a slow shell lookup does not stall drawing or scrolling.
+
 An **icon set** replaces them with a picture per file type. One ships with fman++:
 
 - **System** — the default. The OS icons.
@@ -114,6 +117,20 @@ understands.
 - **Files on network drives** already avoid the OS icon, because asking the
   shell for a `.exe`'s icon on a share reads that file over the wire. An icon
   set answers there without touching the wire, so it is the cheaper option.
+
+## Windows overlay icons
+
+Windows shell overlays show per-file status marks, such as TortoiseSVN's
+modified indicator. They are off by default because Windows looks up each
+file separately, which can slow very large folders. Run **Toggle overlay
+icons** from the command palette to turn them on; the setting is
+`shell_overlay_icons` in `Core Settings.json`.
+
+With the System icon set, each file uses its own Windows icon. Other icon sets
+keep their file-type icons and draw the Windows overlay over them. Network
+paths remain excluded unless **Toggle network drive icons** is also enabled.
+When enabled, fman++ listens for shell changes and refreshes panes showing an
+affected folder, so an overlay update appears without Refresh.
 
 ## Writing your own icon set
 

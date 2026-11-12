@@ -16,7 +16,7 @@ Desktop, AppData, `%TEMP%`.
 2. Start typing. The list filters as you go: directories whose *path* starts
    with what you typed rank first, then ones whose *name* does, then substring
    matches, then loose character matches. Type `home` for your home directory,
-   `desktop` for the Desktop.
+   `desktop` for the Desktop. Type `>` first to switch to the Command Palette.
 3. Press `Tab` to complete the highlighted entry and keep typing below it.
 4. Press `Enter`, or click, to open it in the active pane.
 
@@ -33,6 +33,16 @@ query, so a directory you have never opened in fman++ can still show up.
 
 If a directory you pick has since been deleted, fman++ drops it from the history
 instead of showing an error, so it stops being suggested.
+
+## Incognito mode
+
+Run **Toggle incognito mode** from the command palette to stop adding Go To
+visits to history. Existing suggestions and saved history remain available.
+When you quit, fman++ keeps the pane folders saved before you enabled the mode.
+Turning it off returns each pane to its earlier folder and file; a deleted
+folder resolves to its nearest existing parent. Window size, position and
+version are still saved. Incognito mode turns off after restarting fman++.
+The status bar shows a permanent **Incognito** marker while it is on.
 
 ## Typing paths
 
@@ -53,6 +63,8 @@ One command per destination, all palette-only and none bound to a key:
 | `go_to_documents` | Go to documents | your Documents | all |
 | `go_to_downloads` | Go to downloads | your Downloads | all |
 | `go_to_app_data` | Go to AppData | `%APPDATA%`; `~/Library/Application Support` on macOS; `$XDG_CONFIG_HOME` or `~/.config` on Linux | all |
+| `go_to_plugins_directory` | Go to fman++ plugins directory | `%APPDATA%\fman\Plugins` on Windows, `~/Library/Application Support/fman/Plugins` on macOS, or `~/.config/fman/Plugins` on Linux; follows `FMAN_DATA_DIRECTORY` | all |
+| `open_settings` | Open Settings / Open Preferences | `Plugins/User/Settings` in the app's data directory | all |
 | `go_to_temp` | Go to temp | `%TEMP%`, `/tmp` | all |
 | `go_to_local_app_data` | Go to local AppData | `%LOCALAPPDATA%` | Windows |
 | `go_to_program_data` | Go to ProgramData | `%PROGRAMDATA%` | Windows |
@@ -64,9 +76,9 @@ These exist because GoTo cannot suggest them: it seeds its suggestions from the
 `ProgramData` never appear, and `%TEMP%` lives outside your home directory
 entirely. Typing the path still works — the commands just give it a name.
 
-*Home*, *user profile*, *appdata*, *roaming*, *%temp%*, *installed programs* and
-friends find these rows too. They are hidden keywords, so the row still reads
-**Go home**.
+*Home*, *user profile*, *appdata*, *roaming*, *plugins folder*, *%temp%*,
+*installed programs* and friends find these rows too. They are hidden keywords,
+so the row still reads **Go home**.
 
 ## The rest of the navigation family
 
@@ -106,3 +118,6 @@ Bind any of them like any other command:
   offers a jump that would fail.
 - Everything opens in the **active pane**, and an unreadable directory is
   reported rather than raising an error.
+- If a query finds no folders in the OS index, longer queries beginning with
+  that text skip the index search, keeping longer non-matching queries
+  responsive.

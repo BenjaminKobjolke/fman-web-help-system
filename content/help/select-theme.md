@@ -23,7 +23,8 @@ applies it immediately — no restart.
 
 **Monokai** (default), **Dark**, **Light**, **Solarized Dark**,
 **Solarized Light**, **Nord**, **Dracula**, **Gruvbox Dark**,
-**High Contrast**, **WezTerm** and **Matrix**.
+**High Contrast**, **WezTerm**, **Matrix**, **Windows 11 Light** and
+**Windows 11 Dark**.
 
 **Matrix** also ships slightly translucent (`"opacity": 0.92`). Use
 **Set window opacity** to override that, or to fade any other theme.
@@ -33,7 +34,7 @@ applies it immediately — no restart.
 - **Icons.** A theme may name an icon set and an icon size, so switching theme
   can change every icon in the panes. **Select icon set** overrides that, or
   picks a set without changing your colors.
-- **Font.** A theme may name a font family too — eight of the eleven bundled
+- **Font.** A theme may name a font family too — eight of the thirteen bundled
   themes do. **Select font** overrides that, or picks a family without changing
   your colors.
 

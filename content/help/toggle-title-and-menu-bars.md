@@ -42,6 +42,12 @@ Bind them like any other command:
 { "keys": ["Ctrl+Alt+M"], "command": "toggle_menu_bar" }
 ```
 
+Below the panes, **Toggle status bar** controls the window-wide message strip.
+**Toggle pane status lines** shows or hides the short-lived message line under
+each pane, and **Toggle pane messages in status bar** controls whether those
+messages also appear in the window bar. These settings persist across restarts;
+see [Status bar](status-bar.md).
+
 ## Before you turn the title bar off
 
 **A window with no title bar has no close button and cannot be dragged.** It is

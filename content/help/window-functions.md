@@ -18,9 +18,15 @@ remembered across restarts.
 | `toggle_title_bar` | Hides the OS title bar, and the window frame with it |
 | `toggle_menu_bar` | Hides fman++'s **Help** menu — **macOS only** |
 | `toggle_status_bar` | Hides the message strip along the bottom |
+| `toggle_pane_status_lines` | Shows or hides the message line under each pane |
+| `toggle_pane_messages_in_status_bar` | Copies pane messages to the window status bar |
 | `set_window_opacity` | Makes the whole window see-through |
 | `center_window` | Puts the window back in the middle of its screen |
-| `minimize` | Minimizes the window |
+| `minimize` | Minimizes the window to the taskbar |
+
+On Windows, **Minimize to taskbar** keeps fman++ in the taskbar. The optional
+system-tray behavior and its commands are described in
+[System tray](system-tray.md).
 
 The dim behind dialogs is the odd one out: it has no command, because it is not
 something you switch on. It is a theme color.
@@ -28,7 +34,9 @@ something you switch on. It is a theme color.
 ## The bars around the panes
 
 The title bar, the macOS menu bar and the status bar each toggle on their own,
-and each stays off across restarts.
+and each stays off across restarts. The pane status commands control the
+per-pane message lines and whether their messages are copied to the window bar;
+see [Pane status lines](status-bar.md#pane-status-lines).
 
 Two things worth knowing before hiding the title bar:
 
@@ -42,7 +50,8 @@ Two things worth knowing before hiding the title bar:
 
 **Set window opacity** offers **Theme default**, then `100%` down to `70%`. The
 whole window fades, text included — fman++ does not do background-only
-translucency, and dialogs are separate windows that stay opaque.
+translucency. The command palette, pick lists and text prompts are drawn inside
+the window and follow its opacity; alerts and progress dialogs stay opaque.
 
 **Theme default** is the way back to letting the theme decide. It is not the
 same as `100%`, which pins the window opaque under every theme, including one
@@ -51,13 +60,12 @@ choice wins over it and survives a theme switch.
 
 ## Dimming behind dialogs
 
-While a modal dialog is open — the command palette, prompts, alerts, the
-file-open dialog — fman++ lays a **scrim** over the main window, so the dialog
-reads against the file list instead of competing with it.
+While the command palette, another pick list or a text prompt is open, fman++
+lays a **scrim** over the main window. These dialogs are drawn inside the
+movable, resizable window; clicking the scrim closes them like Esc. Alerts and
+the file-open dialog remain separate modal windows.
 
-This works precisely *because* opacity does not reach dialogs: they are
-top-level windows of their own, so dimming the main window leaves the dialog at
-full contrast.
+The embedded dialog stays clear above the dimmed file list.
 
 - It is the `scrim_bg` color token, and its **alpha byte is the strength**.
   `#80000000` — the default — is 50% black, `#40000000` a quarter, and

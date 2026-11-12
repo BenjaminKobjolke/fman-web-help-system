@@ -18,7 +18,9 @@ immediately and is remembered across restarts.
 
 Bundled: **Monokai** (the default, fman++'s classic look), **Dark**, **Light**,
 **Solarized Dark**, **Solarized Light**, **Nord**, **Dracula**, **Gruvbox
-Dark**, **High Contrast**, **WezTerm**, **Matrix**.
+Dark**, **High Contrast**, **WezTerm**, **Matrix**, **Windows 11 Light** and
+**Windows 11 Dark**. The Windows 11 themes imitate Explorer and keep the System
+icons and default font.
 
 *Change theme*, *color scheme*, *colors*, *dark mode* and *skin* find the
 command in the palette too. It has no default key binding; bind one like any
@@ -70,17 +72,18 @@ popup.
 |---|---|
 | `pane_bg` | File list / dialog / overlay / filter-bar background |
 | `pane_fg` | File rows |
+| `pane_new_fg` | Tint used by file-age shading |
 | `pane_fg_dir` | Directory rows |
 | `pane_selected_fg` | Text of selected files |
 | `pane_cursor_bg` | Cursor row, and the pane's focus rectangle |
 | `header_bg` | Column-header gradient, input borders |
-| `muted_fg` | Header text, labels, checkboxes, item descriptions |
+| `muted_fg` | Header text, labels, checkboxes, item descriptions, palette and Go To captions |
 | `bright_fg` | Input text, status-bar text, highlighted matches |
-| `border` | Overlay / filter-bar border, status-bar top edge |
+| `border` | Overlay / filter-bar border, status-bar top edge, dialog outline |
 | `input_bg` | Text fields (rename editor, prompts) |
 | `window_bg` | Window and dialog chrome |
 | `statusbar_bg_top` | Status-bar gradient |
-| `popup_bg` | Quicksearch / command-palette background |
+| `popup_bg` | Quicksearch / command-palette and dialog background |
 | `popup_item_fg` | Command-palette entry titles |
 | `popup_selected_bg` | Selected entry in the palette |
 
@@ -92,6 +95,11 @@ looks wrong. The derived names are `base_bg`, `readonly_fg`, `input_border`,
 `popup_input_fg`, `popup_input_border_top` / `_left` / `_right`,
 `main_window_bg`, `button_bg`, `alt_row_bg`, `button_fg`, `palette_mid`,
 `palette_dark` and `palette_shadow`.
+
+Hidden files and folders use faded `pane_hidden_fg` and `pane_hidden_fg_dir`
+colors unless a theme sets them. They default to 60% of the regular text color.
+Set either token to the corresponding regular foreground color to keep its text
+at full strength.
 
 ### Transparency
 
@@ -107,8 +115,9 @@ theme file that is not a color, so it sits beside `colors`, not inside it:
 
 - `1.0` is fully opaque, `0.3` the most transparent fman++ allows. A value outside
   that range, or one that is not a number, is ignored.
-- The whole window fades, text included. Dialogs are separate windows and stay
-  opaque.
+- The whole window fades, text included. The command palette, pick lists and
+  text prompts are drawn inside the window and follow its opacity; alerts and
+  progress dialogs remain separate and stay opaque.
 - Leaving the key out means fully opaque, not "keep what the last theme had" —
   switching themes always sets the opacity.
 - Your own choice beats the theme's; see *Window opacity*.
@@ -137,5 +146,5 @@ classic symptom is a command palette that stays light-on-dark after you switch
 to a light theme.
 
 The selectors it understands are `*` (everything), `th` (column headers),
-`.statusbar`, `.locationbar`, `.quicksearch-query`, `.quicksearch-item`, and
+`.statusbar`, `.pane-statusbar`, `.locationbar`, `.quicksearch-query`, `.quicksearch-item`, and
 `.quicksearch-item-title` / `-highlight` / `-hint` / `-description`.

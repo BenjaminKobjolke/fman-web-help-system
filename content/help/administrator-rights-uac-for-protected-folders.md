@@ -29,6 +29,8 @@ one UAC prompt per operation:
 
 Declining the prompt cancels the operation. New file and New folder then say
 *"You do not have enough permissions to create …"*; the others do nothing.
+For a non-local file system, fman++ does not try a UAC prompt and shows the
+original creation error instead.
 
 ## Notes
 

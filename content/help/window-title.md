@@ -5,24 +5,26 @@ order: 30
 source: docs/WINDOW_TITLE_AND_BARS.md
 ---
 
-The fman++ window title shows the current path of both panes, so you can tell two
-windows apart from the taskbar or a window switcher. There is nothing to
-configure.
+The fman++ window title shows the folder names from both panes, so you can tell
+windows apart from the taskbar or a window switcher. It updates as either pane
+navigates.
 
 ## Format
 
 ```
-fman++ - file manager - <left pane path> | <right pane path>
+<left folder> | <right folder> - fman++
 ```
 
 For example:
 
 ```
-fman++ - file manager - C:\test | D:\GIT\BenjaminKobjolke\fman\debug
+test | debug - fman++
 ```
 
-- A fixed `fman++ - file manager` prefix.
-- Then the pane paths in **left, right** order, separated by ` | `.
+- Folder names in **left, right** order, separated by ` | `, followed by
+  ` - fman++`. A folder name is the part after the last slash; trailing
+  separators are ignored. Drive roots and URLs without a folder segment keep
+  their full text.
 
 ## Behaviour
 
@@ -30,7 +32,7 @@ fman++ - file manager - C:\test | D:\GIT\BenjaminKobjolke\fman\debug
   jumping via the location bar — refreshes the whole title, not just that pane's
   half.
 - **Unrenderable paths are skipped** rather than shown as garbage. If neither
-  pane has a path that can be shown, the title falls back to just the prefix.
+  pane has a path that can be shown, the title is just `fman++`.
 
 ## The bars around the panes
 
@@ -49,5 +51,8 @@ The window keeps the screen space it had either way: hiding the title bar grows
 the panes into the row the bar occupied instead of shrinking the window, and
 showing the bar again puts the window back at exactly the size it was.
 
-The bar *below* the panes has its own command, **Toggle status bar**, on every
-platform.
+The bars and messages below the panes have three commands: **Toggle status
+bar** hides the window-wide message strip, **Toggle pane status lines** shows
+or hides each pane's message line, and **Toggle pane messages in status bar**
+controls whether pane messages also appear in the window bar. Their settings
+persist across restarts; see [Status bar](status-bar.md).

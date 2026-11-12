@@ -41,11 +41,23 @@ palette.
 *Enable/Disable auto-reload*, *Enable/Disable tail mode (follow end)*,
 *Increase font size*, *Decrease font size*, *Reset font size*, *Exit viewer*.
 
+For supported JSON and XML-based extensions, valid content is pretty-printed
+automatically. In view mode, **Show original** and **Pretty print** switch
+between the stored text and its formatted display. Reloads keep the selected
+display mode. Syntax colors are on by default for file types recognized by
+Pygments; **Disable syntax colors** and **Enable syntax colors** toggle them for
+the current viewer session. Files without a matching lexer stay plain text,
+and highlighting is skipped for text over 512 KiB.
+
 - **Not every file can be edited.** *Edit file* only makes the buffer editable
   if the file was not size-truncated and its bytes are strict UTF-8 — the
   replacement decoding used for display is lossy, so saving it back would
   corrupt the original. A file that does not qualify gets an alert explaining
   why instead of edit mode.
+- **Saving pretty-printed content reformats the file.** Save writes the text
+  shown in the viewer. Choose **Show original** before editing to preserve the
+  original formatting; the status bar warns when you enter edit mode from the
+  formatted display.
 - **Tab behaves differently in edit mode.** In view mode it switches panes; once
   editing, it types a literal tab character. Use *Exit viewer* to leave edit
   mode.
@@ -78,9 +90,12 @@ palette.
 The viewer has its own font-size zoom, independent of the file panes' zoom.
 
 - Whatever keys **Increase font size** / **Decrease font size** are bound to
-  (`Alt+Up` / `Alt+Down` by default) also zoom the viewer's text — there is no
-  separate binding to learn, and it works in edit mode without interfering with
-  typing.
+  (`Alt+Up` / `Alt+Down` by default, plus `Ctrl+=` / `Ctrl++` and `Ctrl+-` on
+  Windows/Linux or matching `Cmd` shortcuts on Mac) also zoom the viewer's text.
+  It works in view and edit mode without interfering with typing.
+- Hold **Ctrl** and turn the mouse wheel to zoom one step per vertical notch;
+  on Mac, hold **Cmd** instead. Partial touchpad deltas accumulate. Without
+  Ctrl/Cmd, the wheel scrolls normally.
 - The same two actions plus a palette-only **Reset font size** are in the
   viewer's palette, each showing its current shortcut.
 - The chosen size is remembered separately from the pane zoom and survives a
@@ -108,6 +123,8 @@ bindings. A rebind always beats the default key.
 | `text_save` | none (palette only) | edit | Save file |
 | `text_save_as` | none (palette only) | edit | Save file as… |
 | `text_revert` | none (palette only) | edit | Revert / reload from disk |
+| `text_toggle_pretty` | none (palette only) | view | Switch between pretty-printed and original JSON/XML text |
+| `text_toggle_syntax_colors` | none (palette only) | both | Toggle syntax colors for this viewer session |
 | `text_go_to_top` | Home (view mode) | both | Jump to the top of the file |
 | `text_go_to_bottom` | End (view mode) | both | Jump to the bottom of the file |
 | `text_page_up` | PgUp (view mode) | both | Page up |

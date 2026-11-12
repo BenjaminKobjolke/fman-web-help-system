@@ -40,6 +40,32 @@ on high-latency shares while it is turned on: real icons for files like `.exe`
 and `.dll` are stored inside the file, so showing them means reading every file
 over the wire.
 
+## Connecting to a share
+
+On Windows, enter `smb://server/share` in **Go To** to open a share. The
+`\\server\share` and `//server/share` forms work too. Entering only
+`smb://server` opens that server's share list. If Windows needs credentials,
+its own login window appears; **Remember** stores them in Windows Credential
+Manager. fman++ does not see or store the password. Cancel leaves the address
+in Visited Paths without navigating.
+
+The command palette also has **Connect to network share** and **Disconnect
+network share**. Connect can assign a drive letter such as `Z:`; Windows saves
+that mapping across restarts. Without a letter, the connection lasts until
+sign-out or restart. Disconnect refuses while files on the share are open and
+shows the Windows error so you can close them and retry.
+
+## Network suggestions in Go To
+
+Typing `\\` in Go To suggests computers from visited paths and Windows
+connections, then scans for more computers in the background. Typing
+`\\SERVER\` lists that server's visited, connected and discovered shares.
+While a lookup runs, **Searching network…** appears; unavailable servers show
+**Did not answer**, and servers with no shares show **No shared folders**.
+Results are shared between Go To dialogs and cached for five minutes; failed
+lookups can be retried after 30 seconds. These suggestions and share commands
+are Windows-only.
+
 ## The Network… entry in the drive list
 
 Everything above is about UNC paths. The *Network…* entry in the drive list is a

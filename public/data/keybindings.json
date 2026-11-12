@@ -159,6 +159,59 @@
         "args": null
     },
     {
+        "keys": "Num++",
+        "command": "select_group",
+        "name": "Select group",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Num+-",
+        "command": "deselect_group",
+        "name": "Deselect group",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Num+*",
+        "command": "invert_selection",
+        "name": "Invert selection",
+        "platform": "all",
+        "args": {
+            "files_only": true
+        }
+    },
+    {
+        "keys": "Ctrl+Num++",
+        "command": "select_group",
+        "name": "Select group",
+        "platform": "all",
+        "args": {
+            "mask": "*.*"
+        }
+    },
+    {
+        "keys": "Ctrl+Num+-",
+        "command": "deselect",
+        "name": "Deselect",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Alt+Num++",
+        "command": "select_same_extension",
+        "name": "Select same extension",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Alt+Num+-",
+        "command": "deselect_same_extension",
+        "name": "Deselect same extension",
+        "platform": "all",
+        "args": null
+    },
+    {
         "keys": "Tab",
         "command": "switch_panes",
         "name": "Switch panes",
@@ -204,6 +257,13 @@
         "keys": "Shift+F4",
         "command": "create_and_edit_file",
         "name": "New file",
+        "platform": "all",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+N",
+        "command": "new_empty_file",
+        "name": "New empty file",
         "platform": "all",
         "args": null
     },
@@ -340,6 +400,13 @@
         "args": null
     },
     {
+        "keys": "Alt+F10",
+        "command": "toggle_folder_tree",
+        "name": "Toggle folder tree",
+        "platform": "all",
+        "args": null
+    },
+    {
         "keys": "Ctrl+Right",
         "command": "open_in_right_pane",
         "name": "Open in right pane",
@@ -380,6 +447,20 @@
         "keys": "Ctrl+V",
         "command": "paste",
         "name": "Paste",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+Z",
+        "command": "undo",
+        "name": "Undo",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+Shift+Z",
+        "command": "edit_comment",
+        "name": "Edit comment",
         "platform": "windows",
         "args": null
     },
@@ -440,6 +521,20 @@
         "args": null
     },
     {
+        "keys": "Ctrl+F5",
+        "command": "force_copy",
+        "name": "Force copy",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+F6",
+        "command": "force_move",
+        "name": "Force move",
+        "platform": "windows",
+        "args": null
+    },
+    {
         "keys": "Ctrl+R",
         "command": "reload",
         "name": "Reload",
@@ -477,6 +572,34 @@
         "keys": "Ctrl+Up",
         "command": "go_up",
         "name": "Go up",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+=",
+        "command": "increase_pane_font_size",
+        "name": "Increase font size",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Ctrl++",
+        "command": "increase_pane_font_size",
+        "name": "Increase font size",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+-",
+        "command": "decrease_pane_font_size",
+        "name": "Decrease font size",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+U",
+        "command": "swap_panes",
+        "name": "Swap panes",
         "platform": "windows",
         "args": null
     },
@@ -526,6 +649,20 @@
         "keys": "Cmd+V",
         "command": "paste",
         "name": "Paste",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd+Z",
+        "command": "undo",
+        "name": "Undo",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd+Shift+Z",
+        "command": "edit_comment",
+        "name": "Edit comment",
         "platform": "mac",
         "args": null
     },
@@ -609,6 +746,13 @@
         "args": null
     },
     {
+        "keys": "Cmd+N",
+        "command": "new_empty_file",
+        "name": "New empty file",
+        "platform": "mac",
+        "args": null
+    },
+    {
         "keys": "Cmd+F5",
         "command": "pack",
         "name": "Pack",
@@ -652,7 +796,7 @@
     {
         "keys": "Cmd+M",
         "command": "minimize",
-        "name": "Minimize",
+        "name": "Minimize to taskbar",
         "platform": "mac",
         "args": null
     },
@@ -667,6 +811,34 @@
         "keys": "Cmd+Up",
         "command": "go_up",
         "name": "Go up",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd+=",
+        "command": "increase_pane_font_size",
+        "name": "Increase font size",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd++",
+        "command": "increase_pane_font_size",
+        "name": "Increase font size",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd+-",
+        "command": "decrease_pane_font_size",
+        "name": "Decrease font size",
+        "platform": "mac",
+        "args": null
+    },
+    {
+        "keys": "Cmd+U",
+        "command": "swap_panes",
+        "name": "Swap panes",
         "platform": "mac",
         "args": null
     },
@@ -736,6 +908,20 @@
         "args": null
     },
     {
+        "keys": "Ctrl+Z",
+        "command": "undo",
+        "name": "Undo",
+        "platform": "linux",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+Shift+Z",
+        "command": "edit_comment",
+        "name": "Edit comment",
+        "platform": "linux",
+        "args": null
+    },
+    {
         "keys": "Ctrl+A",
         "command": "select_all",
         "name": "Select all",
@@ -799,6 +985,20 @@
         "args": null
     },
     {
+        "keys": "Ctrl+F5",
+        "command": "force_copy",
+        "name": "Force copy",
+        "platform": "linux",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+F6",
+        "command": "force_move",
+        "name": "Force move",
+        "platform": "linux",
+        "args": null
+    },
+    {
         "keys": "Ctrl+R",
         "command": "reload",
         "name": "Reload",
@@ -836,6 +1036,34 @@
         "keys": "Ctrl+Up",
         "command": "go_up",
         "name": "Go up",
+        "platform": "linux",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+=",
+        "command": "increase_pane_font_size",
+        "name": "Increase font size",
+        "platform": "linux",
+        "args": null
+    },
+    {
+        "keys": "Ctrl++",
+        "command": "increase_pane_font_size",
+        "name": "Increase font size",
+        "platform": "linux",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+-",
+        "command": "decrease_pane_font_size",
+        "name": "Decrease font size",
+        "platform": "linux",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+U",
+        "command": "swap_panes",
+        "name": "Swap panes",
         "platform": "linux",
         "args": null
     },
@@ -962,6 +1190,20 @@
         "keys": "—",
         "command": "text_toggle_auto_reload / text_toggle_tail",
         "name": "Toggle auto-reload / tail mode (text)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
+        "keys": "—",
+        "command": "text_toggle_pretty",
+        "name": "Switch between pretty-printed and original JSON/XML text (text)",
+        "platform": "viewer",
+        "args": null
+    },
+    {
+        "keys": "—",
+        "command": "text_toggle_syntax_colors",
+        "name": "Toggle syntax colors for the current viewer session (text)",
         "platform": "viewer",
         "args": null
     },

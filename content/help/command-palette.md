@@ -23,10 +23,32 @@ Press `Ctrl+Shift+P` on Windows and Linux, or `Cmd+Shift+P` on macOS.
   list.
 - **Shortcut hints.** Each entry shows the key it is currently bound to, read
   live from your key bindings — rebind a command and the hint updates.
+- **Enter and Shift+Enter.** The footer names Enter (run) and Shift+Enter
+  (more actions); the selected or hovered row's **⋯** button opens that same
+  *More actions* menu.
 - **It remembers your last pick.** Reopening the palette pre-selects the command
   you ran last, so repeating an action is Open, then Enter.
 - **Scope.** The palette lists every command available for the active pane, plus
   the global application commands.
+- **The window dims behind it.** The palette sits inside the main window, which
+  stays movable and resizable. Click the dimmed area or press Esc to close it.
+
+## Switching to Go To
+
+While the Command Palette is open, press the Go To shortcut (`Ctrl+P` on
+Windows/Linux or `Cmd+P` on macOS) to switch to Go To with the same text
+already entered and without the `>` marker. The text is selected, so typing
+replaces it; press End or Right to continue it. Press the Command Palette's
+own shortcut to close it, just like Escape. Go To works the same way in reverse:
+its own shortcut switches back with `>` added, and the text is selected after
+the marker. Both shortcuts follow your current key bindings.
+
+## The `>` prefix
+
+The Command Palette input always starts with `>`. Delete it to switch to Go To
+with the remaining text, or type `>` at the start of Go To to switch to the
+palette. When switching by typing, the cursor stays at the end so you can keep
+typing. In the palette, `>` is a mode marker and is not part of command search.
 
 ## Commands you can only reach from the palette
 
@@ -44,6 +66,11 @@ These have no default key binding, so the palette is the way in:
   center* or *middle*. It centres within the available screen area, so the
   taskbar does not push it off-centre, and on two monitors it stays on the
   monitor it was already on.
+- **Toggle incognito mode** — stop counting folders opened for Go To, return to
+  the folders shown before the mode was enabled when turning it off, and keep
+  those folders when quitting. The status bar shows a permanent marker while
+  it is on; restarting turns it off. See
+  [Incognito mode](functions/go-to.md#incognito-mode).
 
 To give *Center window* a shortcut, add this to your key bindings:
 

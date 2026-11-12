@@ -11,9 +11,12 @@ two windows side by side. Windows only.
 
 ## How it works
 
-1. Run **Drag to last used app** from the command palette. fman++ picks the most
-   recently used app window and asks you to confirm.
-2. fman++ brings that window to the front and moves the mouse to its centre.
+1. Run **Drag to last used app** from the command palette. fman++ shows up to
+   five recently used app windows in a searchable list, with each executable
+   name beside it and the drag controls below. Press Enter to choose the
+   highlighted app and begin, or Esc to cancel.
+2. fman++ brings the chosen window to the front and moves the mouse to its
+   centre.
 3. The drag starts right away, at the window's centre:
    - `W` `A` `S` `D` or the arrow keys move the cursor — hold a key to keep
      moving.

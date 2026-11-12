@@ -69,6 +69,11 @@ You don't choose which viewer opens:
 - **One at a time per pane:** opening a viewer replaces whatever viewer is
   already open in that pane. The other pane is unaffected.
 - **Theme-aware:** background and letterbox colors follow the active theme.
+- **Status feedback:** palette actions such as Reload, Edit, Save, Zoom and
+  Next/Previous confirm what they did in the viewer's pane status line and, by
+  default, in the window-wide status bar. Messages clear after three seconds.
+  **Toggle pane status lines** and **Toggle pane messages in status bar**
+  control where pane messages appear.
 
 ## When a file cannot be viewed
 

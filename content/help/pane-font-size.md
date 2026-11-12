@@ -12,19 +12,25 @@ theme's original size.
 
 1. **Alt+Up** makes the text in both panes larger, **Alt+Down** makes it
    smaller. Both panes always change together.
-2. Search "font size" in the command palette for the same two actions, plus
+2. Hold **Ctrl** and turn the mouse wheel over a file list to zoom one step per
+   wheel notch; on Mac, hold **Cmd** instead. Partial touchpad deltas add up to
+   a whole step.
+3. **Ctrl+=** or **Ctrl++** zooms in and **Ctrl+-** zooms out on Windows and
+   Linux. Use the matching **Cmd** shortcuts on Mac.
+4. Search "font size" in the command palette for the same actions, plus
    **Reset font size**, which is palette-only.
-3. The chosen size is remembered and survives restarting fman++.
+5. The chosen size is remembered and survives restarting fman++.
 
-This zooms only the two file-list panes. The text viewer and image viewer have
-their own zoom, which reuses these same shortcuts while a viewer is open.
+This zooms the two file-list panes, the command palette and its title, the path
+bar, column headers and status bar. The text and image viewers have their own
+zoom, which reuses these shortcuts while a viewer is open.
 
 ## Commands
 
 | Command name | Palette label | Also found by | Default key |
 |---|---|---|---|
-| `increase_pane_font_size` | Increase font size | zoom in, larger pane font, bigger | `Alt+Up` |
-| `decrease_pane_font_size` | Decrease font size | zoom out, smaller pane font, smaller | `Alt+Down` |
+| `increase_pane_font_size` | Increase font size | zoom in, larger pane font, bigger | `Alt+Up`; `Ctrl+=` / `Ctrl++` (Windows/Linux), `Cmd+=` / `Cmd++` (Mac) |
+| `decrease_pane_font_size` | Decrease font size | zoom out, smaller pane font, smaller | `Alt+Down`; `Ctrl+-` (Windows/Linux), `Cmd+-` (Mac) |
 | `reset_pane_font_size` | Reset font size | default font size, reset zoom | none (palette only) |
 
 Rebind them like any other command:
@@ -35,8 +41,9 @@ Rebind them like any other command:
 
 ## Notes
 
-- Only the two file-list panes are affected. The status bar, location bar,
-  column headers and command palette keep their own font size.
+- The palette and its title grow by the same number of points as pane text;
+  other chrome text follows the pane zoom too. The result list keeps at least
+  one full row visible in a short window.
 - **It respects a custom theme.** If your own `Theme.css` sets a different base
   font size, the first zoom press steps from *that* size. Resetting removes the
   override completely, so the pane goes back to rendering your theme exactly as

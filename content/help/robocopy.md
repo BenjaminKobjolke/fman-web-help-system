@@ -16,14 +16,17 @@ context-menu entries.
 1. Select files or folders in the active pane. With nothing selected, the entry
    under the cursor is used.
 2. Run **Copy with robocopy** or **Move with robocopy**.
-3. Accept the opposite pane as the destination, or type an absolute drive or UNC
-   folder path.
+3. The destination prompt opens with the opposite pane's folder filled in and
+   selected, as it does for F5/F6. Press Enter to accept it, or type another
+   absolute drive or UNC folder path.
 
 The destination receives each selected item by name, including empty
 subfolders. Unselected siblings are left alone.
 
-Only one operation runs at a time, including destination selection and cleanup.
-Starting another reports **“A Robocopy operation is already active.”**
+With the transfer queue off, only one operation runs at a time, including
+destination selection and cleanup. Starting another reports **“A Robocopy
+operation is already active.”** With queueing on, another operation waits in
+the shared transfer queue and starts when it reaches the head.
 
 **Cancel** stops the running `robocopy.exe`; whatever was already copied or
 moved stays as it is. If fman++ itself crashes during a transfer, `robocopy.exe`
@@ -46,6 +49,9 @@ keeps running.
 - **Refused paths:** relative paths, wildcards, device paths, alternate data
   streams, copying an item onto itself, and copying a folder into itself. Use
   plain absolute local-drive or UNC paths.
+- Robocopy replaces read-only destination files without asking and applies the
+  source attributes. The `ask_before_replacing_read_only` setting does not
+  apply.
 - **The progress display is a busy indicator**, with elapsed time and the
   selected items or current job — not byte progress. Jobs run one after another;
   robocopy's own multithreading provides the parallelism.
