@@ -29,7 +29,9 @@ For example, a command request can contain `{"name":"open_directory","args":{"ur
 
 ## Optional desktop automation
 
-Automation routes are available only when `scripting_api.automation` is `true`; that setting defaults to `false`. The routes share the bearer token and network restrictions. They can post key and mouse events inside fman++ but cannot control native operating-system dialogs or global hotkeys. They can read a screenshot, the active dialog and files in a pane. Drags that start on a file-list viewport are rejected to prevent starting a file drag-and-drop operation. Automation routes return 403 while automation is disabled.
+Automation routes are available only when `scripting_api.automation` is `true`; that setting defaults to `false`. The routes share the bearer token and network restrictions. They can post key and mouse events inside fman++ but cannot control native operating-system dialogs or global hotkeys. They can read a screenshot, the active dialog and files in a pane. For a visible progress dialog, `GET /v1/dialog` reports its label and current and maximum progress. Drags that start on a file-list viewport are rejected to prevent starting a file drag-and-drop operation. Automation routes return 403 while automation is disabled.
+
+`GET /v1/viewer?pane=0` reports the viewer open in the active pane (pane indexes are active-first). For the video viewer, it also reports whether playback has loaded or is paused, plus the playback position and duration in seconds; position and duration are `null` until playback loads. When no viewer is open, `viewer` is `null`. This route is available only when desktop automation is enabled.
 
 ## Settings
 

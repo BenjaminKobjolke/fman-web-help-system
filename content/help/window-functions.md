@@ -19,6 +19,7 @@ remembered across restarts.
 | `toggle_menu_bar` | Hides fman++'s **Help** menu — **macOS only** |
 | `toggle_status_bar` | Hides the message strip along the bottom |
 | `toggle_pane_status_lines` | Shows or hides the message line under each pane |
+| `toggle_pane_location_bars` | Shows or hides the full folder path above each pane — [Toggle title bar and menu bar](toggle-title-and-menu-bars.md) |
 | `toggle_pane_messages_in_status_bar` | Copies pane messages to the window status bar |
 | `set_window_opacity` | Makes the whole window see-through |
 | `center_window` | Puts the window back in the middle of its screen |
@@ -36,7 +37,8 @@ something you switch on. It is a theme color.
 The title bar, the macOS menu bar and the status bar each toggle on their own,
 and each stays off across restarts. The pane status commands control the
 per-pane message lines and whether their messages are copied to the window bar;
-see [Pane status lines](status-bar.md#pane-status-lines).
+see [Pane status lines](status-bar.md#pane-status-lines). The path line above
+each pane has its own saved command, **Toggle pane location bars**.
 
 Two things worth knowing before hiding the title bar:
 

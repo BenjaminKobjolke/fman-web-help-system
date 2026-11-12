@@ -29,6 +29,7 @@ There is no on/off list to pick from: each command flips the bar it names.
 |---|---|---|---|
 | `toggle_title_bar` | Toggle title bar | all | none (palette only) |
 | `toggle_menu_bar` | Toggle menu bar | macOS only | none (palette only) |
+| `toggle_pane_location_bars` | Toggle pane location bars | all | none (palette only) |
 
 *Frameless*, *borderless*, *window frame* and *caption* find the first;
 *help menu*, *hide menu* and *chrome* find the second where it exists. They are
@@ -46,7 +47,10 @@ Below the panes, **Toggle status bar** controls the window-wide message strip.
 **Toggle pane status lines** shows or hides the short-lived message line under
 each pane, and **Toggle pane messages in status bar** controls whether those
 messages also appear in the window bar. These settings persist across restarts;
-see [Status bar](status-bar.md).
+see [Status bar](status-bar.md). **Toggle pane location bars** shows or hides
+the full folder path above each pane. The path lines are visible by default;
+`pane_location_bars_visible` in `%APPDATA%/fman/Local/Settings.json` is absent
+when they are visible and `false` when they are hidden.
 
 ## Before you turn the title bar off
 

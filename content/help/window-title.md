@@ -43,6 +43,11 @@ one at a time, and each stays off across restarts.
 |---|---|
 | **Toggle title bar** | The OS title bar — the title above, and the window frame with it. Every platform. |
 | **Toggle menu bar** | fman++'s **Help** menu. **macOS only** — there is no menu on Windows or Linux, so the command never appears in the palette there. |
+| **Toggle pane location bars** | The full folder path line above each pane. |
+
+**Toggle pane location bars** hides or restores the path line above both panes.
+It is visible by default, and your choice is remembered across restarts in
+`pane_location_bars_visible` in `%APPDATA%/fman/Local/Settings.json`.
 
 Hiding the title bar hides the window title with it. fman++ still sets the string;
 there is just nothing drawing it, and it comes back untouched when the bar does.

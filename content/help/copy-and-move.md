@@ -15,6 +15,10 @@ Transfers use one global queue by default, so each copy or move starts after the
 
 When transfers are waiting, select the status bar icon or run **Show transfer queue**. The running transfer appears first. You can reorder or remove waiting transfers, but cancel the running one from its progress dialog. A transfer that has to wait briefly shows **Transfer queued: …**. Delete, Pack, Rename, Symlink and Undo do not use this queue.
 
+## Transfer failures
+
+A file that fails during a transfer does not interrupt the operation with a dialog. The app collects the failed names and reasons while it continues with the other files. When everything finishes, one prompt lists the failures and offers to retry them. Files that fail again are offered in another prompt. Errors found while walking a folder tree still use the continue or abort prompt.
+
 ## Existing destination files
 
 When a destination file already exists, the prompt can show the incoming and existing file sizes and modified dates. On Windows, local `.exe` and `.dll` files can also show their program versions. **Overwrite** is the default. Choose **Rename** to keep both files and enter a new name, or **Rename all** to use available numbered names for later conflicts. Folder conflicts merge their contents without a prompt.
@@ -25,11 +29,11 @@ Overwrite details are shown by default. Run **Toggle overwrite details** or set 
 
 ## Canceling a move
 
-For local file-system moves, the app restores completed files to their original locations when you cancel, choose **Abort**, or an unexpected error stops the move. If the original location is no longer free, the file stays at the destination and the app reports the paths it could not restore. A destination file you approved replacing cannot be recovered by this rollback. Plugin file systems and moves run in an elevated process do not use this rollback.
+For local file-system moves, the app restores completed files to their original locations if you cancel, choose **Abort** on an overwrite prompt, the folder walk is aborted, or an unexpected error stops the move. A transfer failure does not roll back other files: the failed file stays at its source, and completed moves stay at their destinations. If an original location is no longer free during rollback, the moved file stays at the destination and the app reports the paths it could not restore. A destination file you approved replacing cannot be recovered by this rollback. Plugin file systems and moves run in an elevated process do not use this rollback.
 
 ## Other options
 
 - **Toggle locked file check** checks on Windows whether another program has a file open before a cross-drive move or an overwrite. It is on by default; its setting is `check_locked_files` in `Core Settings.json`. Other platforms skip the check.
 - **Toggle deselect after copy** is on by default. It deselects a copied item after all its transfer tasks succeed. Skipped, failed or unfinished items stay selected. Drag-and-drop, paste and elevated copies leave the selection alone. The setting is `deselect_after_transfer` in `Core Settings.json`.
-- **Toggle folder tree** (Alt+F10) shows a folder-only tree in one pane. Use Right and Left to expand or collapse, Enter to open a folder in the other pane, and Esc to return to the file list. **Toggle tree follows cursor** makes the other pane follow the selected folder after a short pause; it is off by default and uses `tree_follow_cursor` in `Core Settings.json`.
+- **Toggle folder tree** (Alt+F10) shows a folder-only tree in one pane, with the current folder expanded when it opens. Use Right and Left to expand or collapse, Tab and Shift+Tab to switch panes, Enter to open a folder in the other pane, and Esc to return to the file list. **Toggle tree follows cursor** makes the other pane follow the selected folder after a short pause; it is off by default and uses `tree_follow_cursor` in `Core Settings.json`.
 - For Windows moves across drives and other copy details, see [Robocopy](robocopy.md).
