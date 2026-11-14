@@ -63,6 +63,9 @@ this.
    the generator inputs match. The change set comes from commits. A plan written
    from this skill must state this narrow check, not "stop if dirty", and must
    not add a check over the change-set docs.
+   An approved plan written before this rule may still say "stop if dirty" or
+   check the change-set docs. Follow the narrow check above instead, and name
+   the difference under deviations in the report.
 2. **Read the baseline** from `tools\fman_docs_sync.txt`. If the file is missing or
    empty, or `git -C <fman> cat-file -e <sha>^{commit}` fails — history rewritten,
    repo re-cloned — you have no baseline: run **Full reconcile** below instead.
