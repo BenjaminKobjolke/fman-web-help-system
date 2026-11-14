@@ -161,6 +161,11 @@ The generator runs on **every** sync, even when no doc changed: key bindings are
 parsed out of the fman source, and two of their three inputs live outside `docs/`,
 so a changed shortcut produces an empty docs diff.
 
+The sync stops if the fman checkout is behind `origin`, because its change list
+would be incomplete. Uncommitted changes stop it only when they touch the key
+binding inputs or a doc in the current sync; other dirty files are listed in the
+report and the sync continues.
+
 The new SHA is written only after `tools\generate.bat` and `tools\run_tests.bat`
 both pass, so a failed run retries the same range next time.
 
