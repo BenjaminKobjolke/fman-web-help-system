@@ -96,6 +96,21 @@ looks wrong. The derived names are `base_bg`, `readonly_fg`, `input_border`,
 `main_window_bg`, `button_bg`, `alt_row_bg`, `button_fg`, `palette_mid`,
 `palette_dark` and `palette_shadow`.
 
+### File colors
+
+When [file coloring](file-coloring.md) is enabled, file names can use these
+optional theme colors. A theme that leaves them out keeps the Monokai colors:
+
+| Token | Default color |
+|---|---|
+| `file_image_fg` | `#e6db74` — images |
+| `file_archive_fg` | `#fd971f` — archives |
+| `file_media_fg` | `#ae81ff` — audio and video |
+| `file_program_fg` | `#a6e22e` — programs |
+
+Set any of these under `colors` in your theme file to customize the matching
+file names.
+
 Hidden files and folders use faded `pane_hidden_fg` and `pane_hidden_fg_dir`
 colors unless a theme sets them. They default to 60% of the regular text color.
 Set either token to the corresponding regular foreground color to keep its text
@@ -139,6 +154,10 @@ in it, write the color's name with a `$`:
 ```css
 .statusbar { color: $pane_fg; }
 ```
+
+The command palette's title and key-hint footer follow the query line's font
+size: the title is 2pt larger and the hints are 2pt smaller. They scale with the
+theme and zoom without needing their own rules.
 
 Put **only what you change** in that file. Copying fman++'s whole base stylesheet
 into it copies its color values too, and those then override every theme — the
