@@ -33,7 +33,8 @@ or usage-statistics choice has not been saved. Choose one of these options:
 - **Only usage statistics** to enable usage statistics and leave error reports off.
 - **No thanks** to turn both off.
 
-Closing the question also turns both off. You can change the error-reporting
+Closing the question also turns both off. fman++ confirms your saved choices
+in the status bar. You can change the error-reporting
 setting at any time by running **Toggle error reports** from the command
 palette. When automatic reporting is off, an error dialog offers **Send
 report** for that individual error. Sending one report does not turn on

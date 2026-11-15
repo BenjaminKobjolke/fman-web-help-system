@@ -61,7 +61,10 @@ You don't choose which viewer opens:
   win.
 - **Next / previous file:** **Next file** and **Previous file** in the viewer
   palette step to the neighbouring file in the folder, following the pane's sort
-  order, without closing the viewer. **Advance only for same type** (on by
+  order, without closing the viewer. Their default keys are **Ctrl+J** and
+  **Ctrl+K**; rebind them with **Shift+Enter** in the viewer palette. See
+  [changing key bindings from the palette](changing-key-bindings-from-the-palette.md).
+  **Advance only for same type** (on by
   default) keeps the image viewer from stepping into a video; turn it off to
   walk across every viewable file, switching viewer as needed.
 - **Bindable keys:** viewer actions are rebound in a **separate**

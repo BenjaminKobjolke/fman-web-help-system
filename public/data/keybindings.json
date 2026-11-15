@@ -1089,7 +1089,7 @@
         "args": null
     },
     {
-        "keys": "—",
+        "keys": "Ctrl+J / Ctrl+K",
         "command": "viewer_next_file / viewer_previous_file",
         "name": "View next / previous file in the directory (all)",
         "platform": "viewer",

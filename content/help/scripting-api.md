@@ -25,6 +25,10 @@ Requests use UTF-8 JSON. Browser requests that include an `Origin` header are re
 
 Panes are listed active-first, so the active pane has index `0`. Its path, cursor and selected items are application URLs; the cursor is `null` when no file is under it. A command defaults to the active pane and empty arguments. Application commands ignore the pane value. The response arrives when the command returns; a copy or move may continue in the background.
 
+`GET /v1/state` also includes a `startup` object with `window_shown`,
+`demo_mode` and `update_check_scheduled`. The `window_shown` value stays
+false until startup handling has run.
+
 For example, a command request can contain `{"name":"open_directory","args":{"url":"file://C:/Windows"}}`. Each request must include the bearer token in its `Authorization` header. Use the token from the file path shown in the status bar; do not share it.
 
 ## Optional desktop automation
@@ -32,6 +36,10 @@ For example, a command request can contain `{"name":"open_directory","args":{"ur
 Automation routes are available only when `scripting_api.automation` is `true`; that setting defaults to `false`. The routes share the bearer token and network restrictions. They can post key and mouse events inside fman++ but cannot control native operating-system dialogs or global hotkeys. They can read a screenshot, the active dialog and files in a pane. For a visible progress dialog, `GET /v1/dialog` reports its label and current and maximum progress. Drags that start on a file-list viewport are rejected to prevent starting a file drag-and-drop operation. Automation routes return 403 while automation is disabled.
 
 `GET /v1/viewer?pane=0` reports the viewer open in the active pane (pane indexes are active-first). For the video viewer, it also reports whether playback has loaded or is paused, plus the playback position and duration in seconds; position and duration are `null` until playback loads. When no viewer is open, `viewer` is `null`. This route is available only when desktop automation is enabled.
+
+With automation enabled, fman++ records `http` and `https` URLs instead of
+opening them in a browser. `GET /v1/links` returns the recent URLs and recent
+status messages, with each message's link addresses listed separately.
 
 ## Settings
 

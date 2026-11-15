@@ -67,7 +67,7 @@ action you would ever run.
 ## Viewer commands
 
 The viewer palettes have the same Shift+Enter, and this is where it earns its
-keep: most viewer commands (`video_mute`, `viewer_next_file`,
+keep: most viewer commands (`video_mute`, `viewer_delete_file`,
 `image_actual_size`, …) ship with **no default key at all**, so binding them
 used to mean creating a file by hand.
 

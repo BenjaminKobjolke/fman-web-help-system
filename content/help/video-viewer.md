@@ -74,8 +74,13 @@ bindings. A rebind always beats the default key.
 | `viewer_close` | Escape/Enter/Backspace | Close viewer |
 | `viewer_switch_panes` | Tab | Switch panes |
 | `viewer_open_palette` | Ctrl+Shift+P | Open viewer command palette |
-| `viewer_next_file` / `viewer_previous_file` | none | View next / previous file |
+| `viewer_next_file` / `viewer_previous_file` | Ctrl+J / Ctrl+K | View next / previous file |
 | `viewer_toggle_same_type_advance` | none | Toggle "advance only for same type" |
+
+Next/previous and the same-type toggle are shared across all three viewers —
+see [File viewers](file-viewers.md#shared-behaviour) for their defaults and
+[changing key bindings from the palette](changing-key-bindings-from-the-palette.md)
+for rebinding them with **Shift+Enter**.
 
 ## Playback
 

@@ -132,8 +132,17 @@ bindings. A rebind always beats the default key.
 | `viewer_close` | Escape/Enter/Backspace | both | Close viewer |
 | `viewer_switch_panes` | Tab | view only | Switch panes |
 | `viewer_open_palette` | Ctrl+Shift+P | both | Open viewer command palette |
-| `viewer_next_file` / `viewer_previous_file` | none (palette only) | view | View next / previous file |
+| `viewer_next_file` / `viewer_previous_file` | Ctrl+J / Ctrl+K | view | View next / previous file |
 | `viewer_toggle_same_type_advance` | none (palette only) | view | Toggle "advance only for same type" |
+
+The built-in keys `/`, `n`, `N`, `Home`, `End`, `PgUp` and `PgDown` appear
+as **default** rows in the shortcut list and can be removed there. `Esc` cannot
+be removed because it also closes the viewer.
+
+Next/previous and the same-type toggle are shared across all three viewers —
+see [File viewers](file-viewers.md#shared-behaviour) for their defaults and
+[changing key bindings from the palette](changing-key-bindings-from-the-palette.md)
+for rebinding them with **Shift+Enter**.
 
 ## Behaviour
 
