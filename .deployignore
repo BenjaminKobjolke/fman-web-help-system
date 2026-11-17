@@ -15,9 +15,14 @@
 /.claude/
 /claude-plans/
 /CLAUDE.md
-/CODING_RULES.md
+/CODING_RULES*.md
 /IMPLEMENTATION_FLOW.md
 /coding-rules.json
 /tools/coding_rules_delegate.sh
 /tools/coding_rules_delegate.ps1
 /tools/graphify_update.bat
+
+# Agent and analysis working files (tickets-watcher, graphify, code analyzer) — private.
+/tickets/
+/graphify-out/
+/code_analysis_results/
