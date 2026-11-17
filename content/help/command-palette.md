@@ -50,6 +50,12 @@ with the remaining text, or type `>` at the start of Go To to switch to the
 palette. When switching by typing, the cursor stays at the end so you can keep
 typing. In the palette, `>` is a mode marker and is not part of command search.
 
+## The @ prefix
+
+Type `@` at the start of Go To to switch to the [file mention popup](file-mention.md).
+Delete `@` there to switch back to Go To. From the Command Palette, delete `>`
+first, then type `@` in Go To to open file mention.
+
 ## Commands you can only reach from the palette
 
 These have no default key binding, so the palette is the way in:

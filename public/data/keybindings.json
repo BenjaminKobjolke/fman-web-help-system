@@ -407,6 +407,13 @@
         "args": null
     },
     {
+        "keys": "@",
+        "command": "file_mention",
+        "name": "File mention",
+        "platform": "all",
+        "args": null
+    },
+    {
         "keys": "Ctrl+Right",
         "command": "open_in_right_pane",
         "name": "Open in right pane",
@@ -496,6 +503,13 @@
         "keys": "Ctrl+Shift+P",
         "command": "command_palette",
         "name": "Command palette",
+        "platform": "windows",
+        "args": null
+    },
+    {
+        "keys": "Ctrl+Alt+@",
+        "command": "file_mention",
+        "name": "File mention",
         "platform": "windows",
         "args": null
     },
