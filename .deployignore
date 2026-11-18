@@ -14,7 +14,8 @@
 /docs/
 /.claude/
 /claude-plans/
-/CLAUDE.md
+# Agent instruction notes at any depth (root, tools/, vendor packages) — private.
+CLAUDE.md
 /CODING_RULES*.md
 /IMPLEMENTATION_FLOW.md
 /coding-rules.json

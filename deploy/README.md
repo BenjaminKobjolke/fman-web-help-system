@@ -58,7 +58,7 @@ does NOT read fman source at runtime.
 deploy\update_and_deploy.bat
 ```
 
-Regenerates the JSON, then mirrors the project to FTP. Excludes come from `.deployignore` in the project root (dev-only files: tests, phpstan, README, etc., plus the private agent working files under `tickets/`, `graphify-out/`, `code_analysis_results/` and `CODING_RULES*.md`).
+Regenerates the JSON, then mirrors the project to FTP. Excludes come from `.deployignore` in the project root (dev-only files: tests, phpstan, README, etc., plus private `CLAUDE.md` agent notes at any depth, agent working files under `tickets/`, `graphify-out/`, `code_analysis_results/` and `CODING_RULES*.md`).
 `config/app.php` IS uploaded (runtime needs it); `mirror.ini` and the cache are not.
 
 Upload-only (no regenerate): `deploy\sync_help.bat`.
