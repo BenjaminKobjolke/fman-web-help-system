@@ -33,6 +33,11 @@ automatic update closes fman++, installs without the setup wizard and restarts
 the app. An all-users installation in Program Files needs one UAC confirmation
 for each automatic update.
 
+If fman++ is still running a minute after the installer starts, for example in a second
+window, the installer shows a message. Close fman++ and click **Retry** to continue. Click
+**Cancel** to keep the current version; after an automatic update, Cancel also starts fman++
+again.
+
 These commands also appear in portable copies, but automatic updates only work
 in an installed Windows version. Manually checking from a portable copy
 downloads `fmanPortable.zip`; after confirmation, fman++ replaces its program

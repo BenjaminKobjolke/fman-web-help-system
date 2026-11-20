@@ -11,4 +11,6 @@ To switch the active pane, run **Toggle compact view** in the command palette. T
 
 Names fill each column from top to bottom, then continue in the next column. Columns use the width of the longest name, up to the pane width. Longer names end in an ellipsis; hover over one to see its full name. File icons remain visible.
 
+For a grid of image previews, see [Thumbnail view](THUMBNAIL_VIEW.md).
+
 Use the usual sort commands and key bindings. Compact view has no column header, so choose a sort in the command palette or use its key binding. Selection, rename, copy, move, open, drag-and-drop and context-menu commands remain available. Left and Right follow their configured key bindings; without a binding, the list moves to the previous or next column.
